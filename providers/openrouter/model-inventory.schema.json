@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenRouter Model Inventory Snapshot",
+  "type": "object",
+  "required": ["source", "retrieved_at", "models"],
+  "properties": {
+    "source": {"type": "string", "const": "https://openrouter.ai/api/v1/models"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "architecture", "pricing", "supported_parameters"],
+        "properties": {
+          "id": {"type": "string"},
+          "canonical_slug": {"type": ["string", "null"]},
+          "name": {"type": "string"},
+          "description": {"type": ["string", "null"]},
+          "context_length": {"type": ["integer", "null"]},
+          "architecture": {"type": "object"},
+          "pricing": {"type": "object"},
+          "top_provider": {"type": ["object", "null"]},
+          "per_request_limits": {"type": ["object", "null"]},
+          "supported_parameters": {"type": "array", "items": {"type": "string"}},
+          "reasoning": {"type": ["object", "null"]},
+          "benchmarks": {"type": ["object", "null"]},
+          "expiration_date": {"type": ["string", "null"]},
+          "links": {"type": ["object", "null"]}
+        }
+      }
+    }
+  }
+}
