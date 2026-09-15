@@ -26,6 +26,36 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 | beltonk/claude-code-agent-skills | Agent architecture | agent loop, prompt engineering, tools, memory, permissions, multi-agent coordination |
 | Adhamxon/claude-code-skills | Claude Code | large collection of coding, review, TDD, security, architecture, deployment and domain skills |
 
+## 2026-09 expansion scan — registries, routing, verification, and agent discovery
+
+| Source | Type | Why it matters | Adoption status |
+|---|---|---|---|
+| Ezeafk/awesome-agent-skills | curated registry | Reusable skills, workflows, MCP/tool-backed capabilities, platform/risk metadata, explicit selection criteria | Source only; review candidates individually |
+| tesserix/agentic-registry | self-hostable artifact registry | Unifies Skill, Tool, MCPServer, Prompt, Workflow, Blueprint and Agent under one versioned/content-addressed envelope | Architecture reference |
+| Friz-zy/ai-capability-registry | capability registry | Explicit trusted/reviewed/candidate states, task/role routing, 169 MCP entries, pinned upstreams, progressive loading | Architecture reference; do not bulk-import |
+| nikships/skills-registry | GitHub-backed skill registry | Local discovery, synchronization to an owned GitHub registry, search/get workflow | Tooling reference |
+| STELIORD/agentic-awesome-skills | local control plane | Catalog discovery, manifest validation, stack composition, schemas, local MCP, immutable planning | Architecture/evaluation reference |
+| sickn33/agentic-awesome-skills | AAS Core | Local catalog search, exact skill selection, stack validation, planning and diagnosis | Architecture/evaluation reference |
+| gaia-research/gaia-skill-tree | capability graph | Evidence-backed skill graph, levels, programmatic registry management, deduplication/merging concepts | Architecture reference |
+| SkillsMD | public registry/index | Large cross-agent skill index with install/usage signals | Discovery only; signals are not trust evidence |
+| AgentSpec | open agent registry | Configs, skills, rules and plugins across Codex/Claude/Cursor/OpenCode and others | Discovery only |
+| skillsregistry.net | trust/governance registry | Security scanning, trust tiers, receipts, multi-source indexing | External signal only; verify source artifacts ourselves |
+| prassanna-ravishankar/a2a-registry | A2A agent registry | Agent discovery, health/conformance checks and skill-tag search | Architecture reference for future agent discovery |
+
+## Security and evaluation research added to the scan
+
+| Source | Type | Useful capability |
+|---|---|---|
+| Cisco AI Defense skill-scanner | static security scanner | Multi-engine scanning for prompt injection, exfiltration and malicious code patterns; CI gating |
+| NVIDIA SkillEvaluator | evaluation framework | Validation, lint/security/PII checks, rubric evaluation, deduplication and live agent evaluation |
+| domehahn/skil | security/verification framework | lint -> validation -> scan -> verification -> evaluation -> attestation lifecycle |
+| kriskimmerle/skillsafe | static scanner | Offline detection of credentials, exfiltration, persistence, memory poisoning and social engineering |
+| Ag1rin/SkillGuard | static scanner | Prompt injection, credential leakage, unsafe code, encoded payload and network declaration checks |
+| Teycir/SkillsGuard | static scanner | Recursive decoding, risk scoring and SARIF/JSON/Markdown reporting |
+| charliechenye/SkillGate | trust gate | Pre-install/pre-merge structural and semantic trust checks for Skills and MCP configs |
+| Open Agent Security Benchmark (OASB) | security benchmark | Runtime/security tests for agent systems and attack-path evaluation |
+| SkillSec-Eval research | academic evaluation | Lifecycle-aware threat model covering admission, retrieval, selection, execution and evolution |
+
 ## Initial ingestion priority
 
 ### Tier 1 — directly useful to our operating core
@@ -34,6 +64,9 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 3. Independent review + evidence verification
 4. Security / permission / supply-chain checks
 5. State and memory continuity
+6. Capability registry and routing
+7. Skill admission/security gate
+8. Evaluation and attestation
 
 ### Tier 2 — reusable capability families
 1. TDD and test strategy
@@ -41,6 +74,8 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 3. Architecture and refactoring
 4. DevOps/CI/CD/deployment
 5. Frontend/mobile/ML engineering
+6. MCP/tool integration
+7. Agent-to-agent discovery
 
 ### Tier 3 — future expansion
 1. Research/scientific workflows
@@ -58,7 +93,13 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 - Every imported skill gets provenance, license, source URL, compatibility notes, and a review status.
 - Do not assume Claude Code, Codex, Cursor, Gemini, or other harnesses have identical permissions or tool semantics.
 - Treat third-party skill repositories as untrusted code until inspected.
+- Discovery/index counts, stars, install counts and trust scores are discovery signals only; they are not proof of safety or quality.
+- For registries that execute or install artifacts, prefer read-only/catalog extraction and independently scan the actual artifact before admission.
 
 ## Scan boundary
 
 The GitHub ecosystem is too large for a literal exhaustive enumeration in one scan. This catalog records the relevant high-signal repositories surfaced by the current search and is designed to grow through repeat scans.
+
+## Current collection state
+
+The source-discovery layer is now broad enough to cover the main categories required for the operating-memory design: skills, tools, MCP servers, workflows, blueprints, agent registries, routing, security scanning, evaluation, verification, attestation, and A2A discovery. Further work should focus on extracting concrete capabilities from the highest-value sources rather than endlessly increasing the number of catalogs.
