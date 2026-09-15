@@ -1,0 +1,13 @@
+{
+  "provider": "free.ai",
+  "policy_version": 1,
+  "default_route": "free-self-hosted",
+  "daily_free_tokens": 30000,
+  "modalities": ["chat", "image", "video", "music", "voice", "ocr", "translation", "search", "code"],
+  "premium_requires_explicit_budget": true,
+  "bypass_restrictions": false,
+  "secret_storage": "environment_only",
+  "fallback_required": true,
+  "runtime_discovery_required": true,
+  "notes": "Counts and model inventory are dynamic. Discover current models/tools at runtime instead of hard-coding marketplace counts."
+}
