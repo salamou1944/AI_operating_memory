@@ -1,0 +1,28 @@
+{
+  "provider": "openrouter",
+  "base_url": "https://openrouter.ai/api/v1",
+  "default_free_route": "openrouter/free",
+  "allow_paid_models": false,
+  "require_explicit_paid_opt_in": true,
+  "never_bypass_auth_or_subscription": true,
+  "never_store_secrets_in_repo": true,
+  "preferred_capabilities": [
+    "tool_calling",
+    "structured_outputs",
+    "reasoning",
+    "vision",
+    "long_context"
+  ],
+  "routing": {
+    "health_check": true,
+    "fallback": true,
+    "refresh_live_catalog": true,
+    "prefer_zero_cost": true,
+    "reject_expired_models": true,
+    "reject_missing_required_capabilities": true
+  },
+  "data_policy": {
+    "sensitive_data_requires_review": true,
+    "credentials_never_forwarded": true
+  }
+}
