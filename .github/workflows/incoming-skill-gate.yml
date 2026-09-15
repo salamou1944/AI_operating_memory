@@ -1,0 +1,17 @@
+name: Incoming skill gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan incoming capabilities before acceptance
+        run: python3 runtime/incoming-skill-gate.py . --json
