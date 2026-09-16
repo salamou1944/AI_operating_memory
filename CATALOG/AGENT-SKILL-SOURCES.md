@@ -25,6 +25,15 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 | golbin/agent-skills | Codex | PRD and implementation-review loops, simplification and UX/correctness checks |
 | beltonk/claude-code-agent-skills | Agent architecture | agent loop, prompt engineering, tools, memory, permissions, multi-agent coordination |
 | Adhamxon/claude-code-skills | Claude Code | large collection of coding, review, TDD, security, architecture, deployment and domain skills |
+| CODE-SAURABH/OpenSkills | Claude Code / Codex / Antigravity | 49 engineering skills, explicit triggers, numbered workflows, output templates, definition-of-done checks, edge cases/anti-patterns |
+| Victorcorcos/skills | Codex / Claude Code / OpenCode | cross-runtime skill templates and synchronization/installation patterns |
+| simota/agent-skills | Claude Code / Codex / Antigravity | large specialist-agent library, orchestration, recipes, skill packs, shared-worktree linking |
+| UnitOneAI/SecuritySkills | Claude / Gemini / Cursor / Codex / others | framework-grounded security skills mapped to OWASP, NIST, MITRE ATT&CK and CIS |
+| dceoy/ai-coding-agent-skills | Claude / Codex | canonical skills with runtime adapters, Git workflows and custom agent definitions |
+| chriscox/agent-skills | Claude / Codex / Gemini / OpenClaw | project planning, GitHub issue/proposal generation, documentation synchronization |
+| tebakkasus/skills | Multi-agent | large cross-agent skill/plugin library spanning engineering, DevOps, marketing, compliance and advisory workflows |
+| huggingface/skills | Claude / Codex / Gemini / Cursor | reusable ecosystem-specific skills plus multi-runtime manifests and adapters |
+| anthropics/skills | Claude / Agent Skills standard | official skill examples, specification and templates |
 
 ## 2026-09 expansion scan — registries, routing, verification, and agent discovery
 
@@ -32,7 +41,7 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 |---|---|---|---|
 | Ezeafk/awesome-agent-skills | curated registry | Reusable skills, workflows, MCP/tool-backed capabilities, platform/risk metadata, explicit selection criteria | Source only; review candidates individually |
 | tesserix/agentic-registry | self-hostable artifact registry | Unifies Skill, Tool, MCPServer, Prompt, Workflow, Blueprint and Agent under one versioned/content-addressed envelope | Architecture reference |
-| Friz-zy/ai-capability-registry | capability registry | Explicit trusted/reviewed/candidate states, task/role routing, 169 MCP entries, pinned upstreams, progressive loading | Architecture reference; do not bulk-import |
+| Friz-zy/ai-capability-registry | capability registry | Explicit trusted/reviewed/candidate states, task/role routing, pinned upstreams, progressive loading | Architecture reference; do not bulk-import |
 | nikships/skills-registry | GitHub-backed skill registry | Local discovery, synchronization to an owned GitHub registry, search/get workflow | Tooling reference |
 | STELIORD/agentic-awesome-skills | local control plane | Catalog discovery, manifest validation, stack composition, schemas, local MCP, immutable planning | Architecture/evaluation reference |
 | sickn33/agentic-awesome-skills | AAS Core | Local catalog search, exact skill selection, stack validation, planning and diagnosis | Architecture/evaluation reference |
@@ -55,6 +64,12 @@ This is a source catalog, not an automatic trust list. Each source must be revie
 | charliechenye/SkillGate | trust gate | Pre-install/pre-merge structural and semantic trust checks for Skills and MCP configs |
 | Open Agent Security Benchmark (OASB) | security benchmark | Runtime/security tests for agent systems and attack-path evaluation |
 | SkillSec-Eval research | academic evaluation | Lifecycle-aware threat model covering admission, retrieval, selection, execution and evolution |
+
+## License/provenance checks from the current collection pass
+
+- `CODE-SAURABH/OpenSkills`: repository exposes an MIT license. The license permits copying/modification/distribution subject to retaining the copyright and license notice; individual bundled files must still be checked for separate notices before redistribution. fileciteturn43file0
+- `JayRHa/AgentSkills`: repository exposes an MIT license. Retain the copyright and license notice when redistributing covered material; inspect bundled files for additional notices. fileciteturn44file0
+- Search results also confirmed current Agent Skills implementations are commonly distributed as self-contained `SKILL.md` packages with optional scripts/references/assets, so collection must inventory the complete skill directory rather than copying only the markdown instruction file. 
 
 ## Initial ingestion priority
 
@@ -102,4 +117,4 @@ The GitHub ecosystem is too large for a literal exhaustive enumeration in one sc
 
 ## Current collection state
 
-The source-discovery layer is now broad enough to cover the main categories required for the operating-memory design: skills, tools, MCP servers, workflows, blueprints, agent registries, routing, security scanning, evaluation, verification, attestation, and A2A discovery. Further work should focus on extracting concrete capabilities from the highest-value sources rather than endlessly increasing the number of catalogs.
+The current scan has expanded the source layer with additional cross-runtime skill libraries, security-focused skill collections, official ecosystem sources, and reusable engineering workflow libraries. Collection remains separate from execution: sources and artifacts must pass provenance/license/security review before integration.
