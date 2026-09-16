@@ -10,3 +10,4 @@
 8. Minimize user interruption: execute independent authorized work automatically; ask only when a real external dependency, ambiguity, or approval boundary blocks progress.
 9. Sensitive or irreversible actions require explicit approval unless the user has already explicitly authorized that exact action.
 10. A completion claim must identify observable evidence: commit, test result, deployment result, artifact, or equivalent.
+11. Review the applicable repository rules before responding, and ensure the response follows those verified rules.
