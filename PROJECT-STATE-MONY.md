@@ -9,7 +9,10 @@ Generate first paid revenue from AI/API automation delivery, targeting European,
 - EASY product work is paused; Revenue Engine/client acquisition is the active priority.
 - No credentials or secrets are stored here.
 - Do not spam or duplicate recently contacted prospects.
+- A direct reply to an existing inbound offer/thread is legitimate follow-up; it is not treated as new cold outreach.
 - Bounced addresses are not retried unless the user explicitly authorizes it.
+- Current connected email inboxes checked: `easy@agentmail.to` and `api-pilot@agentmail.to`.
+- As of 2026-09-16, no client/employer reply requiring a response was present; current messages were our sent outreach plus delivery failures.
 
 ## Verified outreach sent from `easy@agentmail.to`
 - 2026-09-16 — `virginaiagency@gmail.com` — paid delivery support for n8n, WhatsApp agents and CRM automation.
@@ -29,17 +32,23 @@ Generate first paid revenue from AI/API automation delivery, targeting European,
 - `hello@agencemerlin.com` — bounced.
 
 ## Fresh verified opportunities researched 2026-09-16
-- Upwork: AI Automation Developer for WhatsApp — $1,000 fixed; production WhatsApp agent, context, lead qualification, follow-up, booking, CRM/database, APIs and human handoff.
-- Upwork: AI Automation Developer — n8n/APIs/WhatsApp/CRM for a Spanish agency — $350 fixed, contract-to-hire, ongoing projects; proposal must start with `AUTOMATION`.
-- Upwork: n8n AI Automation Specialist — lead generation, qualification, email notifications and data management; $10 fixed, contract-to-hire.
-- Upwork: n8n Automation Developer — AI inquiry routing, OpenAI, CRM/Sheets, follow-ups, human handoff, retries/testing; $10 fixed.
-- n8n Community: Technical AI Automation Specialist — long-term team collaboration; AI voice agents, Retell/Vapi, n8n, APIs, CRM, calendar, telephony, OpenAI/LLM.
-- GitHub/n8n: #38512 — `execute_workflow` MCP schema incompatibility with ChatGPT custom apps.
-- GitHub/n8n: #38512/#38525 area — AI Agent V3 canonical tool-name / tool-call reliability issue.
-- GitHub/n8n: recent MCP/agent tooling issues remain relevant for debugging, schema normalization, performance and reliability services.
+- Upwork: **N8N Automation Expert Needed to Build AI-Powered Workflows** — $1,000 fixed, contract-to-hire/ongoing. Requires n8n, JS/Function nodes, REST APIs/webhooks, AI agent nodes, CRM integrations, Docker/VPS, monitoring, debugging and documentation. At verification: 10–15 proposals, 0 interviewing. cite source: Upwork turn0search0
+- Upwork: **AI Automation & Systems Specialist | n8n, GoHighLevel, APIs & AI Agents** — $3,000 fixed, long-term/contract-to-hire. At verification: 50+ proposals, 3 interviewing, 4 invites. Proposal must start `AUTOMATE`. cite source: Upwork turn0search4
+- Upwork: **n8n AI Agent Developer & Workflow Automation Specialist** — $557 fixed. Requires n8n, AI agents, APIs, webhooks, CRM/database integrations, OpenAI/Claude, reliability/error handling. At verification: 50+ proposals, 1 hire, 0 interviewing. cite source: Upwork turn0search3
+- Upwork: **n8n AI Automation Specialist** — $10 fixed, contract-to-hire. Lead generation/qualification, OpenAI, Google Sheets, Gmail. At verification: 50+ proposals, 0 interviewing. cite source: Upwork turn0search2
+- Upwork: **n8n Automation Expert With Real Work** — $350 fixed. Requires a real personally-built production workflow; lead capture → enrichment → AI scoring → HubSpot → Gmail → Sheets → Slack, dedupe, retries and logs. At verification: 20–50 proposals, 0 interviewing. cite source: Upwork turn0search1
+- Upwork n8n category currently shows additional recent roles including AI Integration Specialist, n8n + HubSpot + Lemlist setup, AI news automation, AI sales automation agent, WhatsApp automation at $1,000, and permanent AI automation engineer roles. cite source: Upwork turn0search8
+- n8n Community Jobs currently lists multiple active/recent opportunities: PostgreSQL + email automation, n8n/GHL insurance lead pipeline + AI agents, long-term technical AI automation, RFQ-to-quote prototype, UK remote integrations/prompt engineering, $30 Google Sheets fix, $179 contact-form→AI→Sheets→Slack, remote n8n/Make/API engineering, $249 lead-form→AI→Slack, manufacturing AI automation, £95 workflow diagnosis, WhatsApp/Airtable/OpenAI debugging, Saudi VAT accounting automation, and long-term AI-agent collaborators. cite source: n8n turn0search7
+
+## Execution status for these opportunities
+- Fresh opportunity research completed and deduplicated against the existing MONY state.
+- No Upwork application was submitted because the currently connected tools do not provide an authenticated Upwork proposal-submission action; no fake submission/completion claim is allowed.
+- No cold email was sent to job posters merely to simulate an application; this preserves the no-spam rule.
+- If an inbound reply arrives in AgentMail, respond in the same thread rather than starting a new message.
 
 ## Next actions
-1. Monitor replies from the new outreach before increasing volume.
-2. Apply to high-fit paid Upwork listings when a submission mechanism is available; prioritize the $1,000 WhatsApp build and the ongoing Spanish agency role.
-3. Keep GitHub/n8n issues as technical lead sources, not spam targets; engage only where an appropriate contribution/contact path exists.
-4. Preserve evidence for every outreach, reply, application, payment and delivery.
+1. Monitor replies from existing outreach and reply in-thread immediately when a real response arrives.
+2. Use an authenticated submission mechanism for high-fit Upwork jobs when available; prioritize the $1,000 n8n workflow role, then the $557 n8n AI-agent role, while tracking the $3,000 long-term role.
+3. Do not waste time on $5/$10 listings unless they are strategically useful as a paid trial/contract-to-hire entry point.
+4. Keep n8n Community/GitHub issues as technical lead sources, not spam targets; engage only through an appropriate contribution/contact path.
+5. Preserve evidence for every outreach, reply, application, payment and delivery.
