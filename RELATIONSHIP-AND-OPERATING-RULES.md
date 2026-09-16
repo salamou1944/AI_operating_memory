@@ -50,19 +50,25 @@ A capability may be documented or archived without being granted permission to e
 - Continue independent research, inspection, archiving, testing, and documentation automatically.
 - Ask only when an actual approval, missing credential, unavailable resource, ambiguity, or external dependency blocks the next step.
 
-## 8. Completion evidence
+## 8. Silent continuation during collection
+- When the user explicitly instructs the assistant to continue a collection/research/inspection task until completion, do not send progress messages or intermediate status messages.
+- Continue the authorized work until the defined collection round is actually finished or a real blocking dependency requires user input.
+- Send the user the completion signal only after the collection round has actually finished; do not claim completion based on intention or a plan.
+- This rule does not imply background execution after a response has been sent; work can only continue while the assistant is actively executing the task.
+
+## 9. Completion evidence
 Never report a repository change as complete without observable evidence such as a commit SHA, test result, artifact, or verification result.
 
-## 9. Legal and safety boundary
+## 10. Legal and safety boundary
 - Do not copy or redistribute content when the applicable terms prohibit it.
 - Do not store stolen credentials, private personal data, malware payloads intended for deployment, or other prohibited material merely because it is requested for archiving.
 - When full copying is not permitted, preserve lawful metadata, provenance, technical description, hashes, and reconstruction information where appropriate.
 
-## 10. Non-destructive default
+## 11. Non-destructive default
 When uncertain whether an operation could destroy or overwrite useful repository data, inspect first and prefer additive changes, versioned archives, or a new file/path.
 
-## 11. No silent trust
+## 12. No silent trust
 No external skill, tool, API, repository, hook, package, or model is trusted merely because it is popular, highly starred, listed in a catalog, or recommended by another source.
 
-## 12. Repository role
+## 13. Repository role
 `AI_operating_memory` is the long-term operating memory and capability archive. It should preserve reusable knowledge, provenance, verification evidence, security classifications, and integration rules rather than becoming an uncontrolled dump of executable code.
