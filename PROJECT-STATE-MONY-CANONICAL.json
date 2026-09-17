@@ -1,0 +1,20 @@
+{
+  "version":1,
+  "project":"MONY",
+  "state":"active",
+  "last_verified_at":"2026-09-17",
+  "commit_sha":null,
+  "active_goal":"harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
+  "completed_tasks":[],
+  "failed_tasks":[],
+  "known_risks":[
+    "affiliate URL/reachability is not conversion or revenue evidence",
+    "production API quota/rate limiting remains local-file/in-process unless a shared store is provisioned",
+    "live production E2E must not be used as an implicit billable test"
+  ],
+  "evidence":[
+    {"type":"repository","source":"salamou1944/agent-skills","status":"verified-by-GitHub-connector","observed_at":"2026-09-17"},
+    {"type":"repository","source":"salamou1944/Salamou-31","status":"verified-by-GitHub-connector","observed_at":"2026-09-17"}
+  ],
+  "next_action":"run repository-native CI and task-specific verification; promote only verified results into completion state"
+}
