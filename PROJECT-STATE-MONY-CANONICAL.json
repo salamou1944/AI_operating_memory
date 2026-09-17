@@ -1,20 +1,18 @@
 {
-  "version":1,
+  "version":2,
   "project":"MONY",
   "state":"active",
   "last_verified_at":"2026-09-17",
-  "commit_sha":null,
+  "commit_sha":"f0cf9be3d7a981eaf55e5ab97d89520385b42ff1",
   "active_goal":"harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
-  "completed_tasks":[],
+  "completed_tasks":["canonical machine-readable state policy and validator","project-boundary evidence policy","autonomous modification safety gate and closure CI in agent-skills","EASY fail-closed production pipeline contract and tests","affiliate tracking URL validation contract in MONY adapter"],
   "failed_tasks":[],
-  "known_risks":[
-    "affiliate URL/reachability is not conversion or revenue evidence",
-    "production API quota/rate limiting remains local-file/in-process unless a shared store is provisioned",
-    "live production E2E must not be used as an implicit billable test"
-  ],
+  "known_risks":["affiliate URL/reachability is not conversion or revenue evidence","production API quota/rate limiting remains local-file/in-process unless a shared store is provisioned","live production E2E must not be used as an implicit billable test","legacy binary artifacts require explicit deletion verification before being declared removed","external provider credentials and live provider execution still require runtime evidence"],
   "evidence":[
-    {"type":"repository","source":"salamou1944/agent-skills","status":"verified-by-GitHub-connector","observed_at":"2026-09-17"},
-    {"type":"repository","source":"salamou1944/Salamou-31","status":"verified-by-GitHub-connector","observed_at":"2026-09-17"}
+    {"type":"repository","source":"salamou1944/AI_operating_memory","commit":"f0cf9be3d7a981eaf55e5ab97d89520385b42ff1","status":"merged-hardening","observed_at":"2026-09-17"},
+    {"type":"repository","source":"salamou1944/agent-skills","commit":"2b808b07a5d76e329fa9ef7d6fe1e1e7cea2a7d4","status":"merged-hardening","observed_at":"2026-09-17"},
+    {"type":"repository","source":"salamou1944/Salamou-31","commit":"cd6f6b7443617d0cbd6f053c366d72e669ea2910","status":"merged-hygiene-hardening","observed_at":"2026-09-17"},
+    {"type":"repository","source":"salamou1944/Easy-","commit":"1c2e03809e2ce808de746033ab818671e383e1f9","status":"merged-production-boundary-hardening","observed_at":"2026-09-17"}
   ],
-  "next_action":"run repository-native CI and task-specific verification; promote only verified results into completion state"
+  "next_action":"run and record repository-native CI plus task-specific live/provider verification; promote only evidence-backed results into completion state"
 }
