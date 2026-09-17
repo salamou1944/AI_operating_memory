@@ -1,0 +1,12 @@
+{
+  "version":1,
+  "rules":[
+    {"id":"verify-before-judge","severity":"block","invariant":"claims require observable evidence"},
+    {"id":"task-vs-pipeline","severity":"block","invariant":"PIPELINE_VERIFIED cannot satisfy TASK_VERIFIED"},
+    {"id":"no-secrets","severity":"block","invariant":"credentials, tokens and private keys never enter repository state"},
+    {"id":"no-bypass","severity":"block","invariant":"authentication, quotas, rate limits and service protections are never bypassed"},
+    {"id":"repo-boundary","severity":"block","invariant":"changes remain inside the authorized repository boundary"},
+    {"id":"revenue-evidence","severity":"block","invariant":"revenue claims require provider-confirmed commission or payout evidence"},
+    {"id":"reversible-first","severity":"warn","invariant":"prefer minimal reversible changes and fail closed when verification is ambiguous"}
+  ]
+}
