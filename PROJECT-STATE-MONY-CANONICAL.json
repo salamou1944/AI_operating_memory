@@ -3,7 +3,7 @@
   "project": "MONY",
   "state": "active",
   "last_verified_at": "2026-09-19",
-  "commit_sha": "bb931b3287d7d5925cd5f39e4765fb25dc3b92da",
+  "commit_sha": "2cf77efb9912447f50dad71a45d6e260dbec4345",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "completed_tasks": [
     "canonical machine-readable state policy and validator",
@@ -69,11 +69,11 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "Resolve PR #67 explicit workflow-review gate, then re-run MONY Live E2E. Independently obtain a Railway source-branch control for easy-runtime-current; current connector exposes source repo but not source branch changes and Railway Agent is usage-limited. Continue ELITE/ARMY adversarial and recovery verification while blockers remain partitioned.",
+  "next_action": "Resolve PR #67 workflow-review gate, then re-run MONY Live E2E. Obtain a safe Railway source-alignment control for easy-runtime-current; once current main is actually deployed, verify RAILWAY_GIT_COMMIT_SHA against GitHub main and run ARMY-14 runtime/adversarial/recovery checks. Continue independent verifier/mutation/security work.",
   "current_execution_cycle": {
-    "at": "2026-09-19T16:38:30Z",
+    "at": "2026-09-19T16:50:00Z",
     "mode": "EVOLUTION-FRONTIER-Ω",
-    "agent_skills_head": "bb931b3287d7d5925cd5f39e4765fb25dc3b92da",
+    "agent_skills_head": "2cf77efb9912447f50dad71a45d6e260dbec4345",
     "changes": [
       "Added fail-closed HTTP 503 behavior for degraded ARMY-14 worker health in e12627db747d0238f0995bb6ccafef780146aa25.",
       "Detected and fixed MONY CI affiliate health assertion drift in a278a11d5f1c8f60af23e991bb9109d4f60f62fe.",
@@ -86,7 +86,9 @@
       "The current main commit is still undergoing/background workflows; do not treat in-progress workflows as final.",
       "Fixed the ELITE provider-ladder self-provision test harness after CI exposed a real network-dependence bug; restored the full test file and injected deterministic 429 provider behavior in bb931b3287d7d5925cd5f39e4765fb25dc3b92da.",
       "MONY canonical tracking semantics are now external affiliate URL in trackingUrl, with internal workbenchUrl kept separate; MONY Production Verification attempt 2 passed on deployed EASY v3.",
-      "MONY Live E2E still fails on main because its workflow contains the obsolete assertion that trackingUrl must contain the internal workbench path. A workflow-only correction was isolated in PR #67 rather than weakening the explicit-review security gate."
+      "MONY Live E2E still fails on main because its workflow contains the obsolete assertion that trackingUrl must contain the internal workbench path. A workflow-only correction was isolated in PR #67 rather than weakening the explicit-review security gate.",
+      "Added Railway-provided RAILWAY_GIT_COMMIT_SHA to ARMY-14 worker startup/health evidence and refactored health payload into a pure independently testable builder.",
+      "Added deterministic ARMY-14 worker health tests covering current deployment identity, source-verification drift, and provider quota classification."
     ],
     "evidence": [
       "GitHub commit e12627db747d0238f0995bb6ccafef780146aa25",
@@ -102,7 +104,11 @@
       "GitHub workflow run 35455442871 FAILURE shows obsolete MONY Live E2E assertion against the now-canonical external trackingUrl.",
       "GitHub PR #67 open, head 16995ecc6e74c33a4e6a2bfb769fe0ee09a1d23a, updating only .github/workflows/mony-live-e2e.yml.",
       "GitHub workflow run 35455502501 currently in progress for Closure integrity on bb931b3287d7d5925cd5f39e4765fb25dc3b92da.",
-      "GitHub workflow run 35455502567 SUCCESS for ARMY-14 Mission Routing on bb931b3287d7d5925cd5f39e4765fb25dc3b92da."
+      "GitHub workflow run 35455502567 SUCCESS for ARMY-14 Mission Routing on bb931b3287d7d5925cd5f39e4765fb25dc3b92da.",
+      "Railway documentation confirms RAILWAY_GIT_COMMIT_SHA is automatically injected on every deployment and can be exposed from an endpoint/log.",
+      "GitHub main now contains ARMY-14 worker identity commits 97c832e13110eb844f6d38ef31351d8e72f45276, 9c97f4fcf0d7948d1ae2681a869ba3612a4aa325, and 2cf77efb9912447f50dad71a45d6e260dbec4345.",
+      "CI on 2cf77efb9912447f50dad71a45d6e260dbec4345 has ARMY-14 Mission Routing SUCCESS, ARMY-14 soldier systems SUCCESS, ARMY-14 integrated field exercise SUCCESS, evolution-lab SUCCESS, Elite Unique Intelligence SUCCESS, Elite Harness v2 SUCCESS, creative-core SUCCESS; several workflows remain in progress.",
+      "MONY Live E2E remains FAILURE on 2cf77efb9912447f50dad71a45d6e260dbec4345 because the workflow still asserts obsolete internal trackingUrl semantics; PR #67 remains the isolated correction."
     ],
     "status": "PARTIALLY_VERIFIED",
     "blockers": [
@@ -110,6 +116,6 @@
       "MONY_LIVE_E2E_WORKFLOW_CONTRACT: main workflow still asserts obsolete internal trackingUrl semantics; correction isolated in PR #67 and subject to explicit workflow review.",
       "ELITE_PROVIDER_AVAILABILITY: live OpenAI provider returned HTTP 429/quota exhaustion and Copilot CLI reported monthly quota exhaustion in autonomous background runs; fail-closed behavior is preserved."
     ],
-    "next_action": "Resolve PR #67 explicit workflow-review gate, then re-run MONY Live E2E. Independently obtain a Railway source-branch control for easy-runtime-current; current connector exposes source repo but not source branch changes and Railway Agent is usage-limited. Continue ELITE/ARMY adversarial and recovery verification while blockers remain partitioned."
+    "next_action": "Resolve PR #67 workflow-review gate, then re-run MONY Live E2E. Obtain a safe Railway source-alignment control for easy-runtime-current; once current main is actually deployed, verify RAILWAY_GIT_COMMIT_SHA against GitHub main and run ARMY-14 runtime/adversarial/recovery checks. Continue independent verifier/mutation/security work."
   }
 }
