@@ -1,0 +1,21 @@
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const file = process.argv[2] ?? 'evolution/experiment.json';
+const raw = await readFile(file, 'utf8'); const e = JSON.parse(raw); const errors=[];
+const allowedProjects=new Set(['EASY','MONY','ELITE','ARMY-14','EVOLUTION-LAB','AGENT-SKILLS']);
+const required=['experiment_id','project_id','target_component','baseline_revision','hypothesis','candidate_mutations','sandbox_id','test_suite','adversarial_suite','metrics','regressions','verification_runs','decision','evidence_hash','timestamps'];
+for(const k of required) if(!(k in e)) errors.push('missing:'+k);
+if(!allowedProjects.has(e.project_id)) errors.push('project_id_not_allowlisted');
+if(!Array.isArray(e.candidate_mutations)||e.candidate_mutations.length<2) errors.push('requires_at_least_two_candidate_mutations');
+if(!Array.isArray(e.verification_runs)||e.verification_runs.length<1) errors.push('independent_verification_required');
+if(e.regressions&&e.regressions.length>0) errors.push('regressions_present');
+if(e.decision!=='PROMOTE') errors.push('decision_not_promote');
+if(!e.baseline_revision||!e.sandbox_id) errors.push('immutable_baseline_and_sandbox_required');
+const roles=new Set(); for(const run of e.verification_runs??[]){ if(!run.verifier||!run.status) errors.push('verification_run_incomplete'); if(run.verifier===e.mutation_author) errors.push('mutation_author_cannot_self_certify'); if(run.status!=='PASS') errors.push('verification_not_pass'); roles.add(run.verifier); }
+if(roles.size<1) errors.push('no_independent_verifier');
+for(const k of ['functionality','hidden_tests','security','reliability','latency','cost','maintainability','compatibility','project_boundary']) if(e.metrics?.[k]===undefined) errors.push('missing_metric:'+k);
+if(e.metrics?.project_boundary!=='PASS') errors.push('project_boundary_not_verified');
+const canonicalEvidence=JSON.stringify({experiment_id:e.experiment_id,project_id:e.project_id,baseline_revision:e.baseline_revision,candidate_mutations:e.candidate_mutations,verification_runs:e.verification_runs,metrics:e.metrics,regressions:e.regressions});
+const expected=createHash('sha256').update(canonicalEvidence).digest('hex'); if(e.evidence_hash!==expected) errors.push('evidence_hash_mismatch');
+console.log(JSON.stringify({status:errors.length?'REJECTED':'ELIGIBLE_FOR_PROMOTION',errors,evidence_sha256:expected,checked_at:new Date().toISOString()},null,2));
+if(errors.length) process.exit(1);
