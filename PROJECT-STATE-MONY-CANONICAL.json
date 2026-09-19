@@ -58,26 +58,40 @@
       "commit": "aa240abe3d32ef3bedc1915c239b9477b0f1a42a",
       "status": "internal-health-verified-external-image-provider-blocked",
       "observed_at": "2026-09-19"
+    },
+    {
+      "type": "repository",
+      "source": "salamou1944/agent-skills",
+      "commit": "63496ed1cf9f456d1b73a95190d7340c6323eb25",
+      "status": "PR-66-merged-after-CI-success",
+      "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "continue repository-native verification, close remaining contract/security/reliability gaps, and promote only evidence-backed live/provider/business results",
+  "next_action": "observe fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b to terminal status; inspect logs; verify runtime source alignment; continue adversarial, verifier, drift and recovery testing.",
   "current_execution_cycle": {
-    "at": "2026-09-19",
-    "mode": "EVOLUTION-FRONTIER",
+    "at": "2026-09-19T16:08:00Z",
+    "mode": "EVOLUTION-FRONTIER-X",
     "agent_skills_head": "c67e60c76672fe1695a01d581ac835968024d8eb",
     "changes": [
-      "Opened PR #66 to harden ARMY-14 Railway worker failure-state observability and classify source-verification failures.",
-      "CI exposed and fixes were applied for missing test imports (join, tmpdir) and a Guardian test literal-secret false positive; these fixes remain on PR #66 pending final CI.",
-      "EASY Developer Platform v3 remains deployed from de75967c06ad166bca3b83f87d321941c7286a83; later main docs commits were SKIPPED by Railway watch patterns.",
-      "Legacy ARMY-14 worker deployment 82a410c4-8a2b-47b1-bbf4-97a032a8d856 is still pinned to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and its runtime cycles fail repository syntax verification."
+      "Merged PR #66 after five GitHub Actions workflow runs on the PR head completed successfully.",
+      "PR #66 hardened ARMY-14 Railway worker failure-state observability and truthful failure classification.",
+      "CI-revealed missing imports and Guardian test literal-secret false positive were corrected before merge.",
+      "EASY Developer Platform v3 deployment b36bf611-1cb9-4159-82e9-e97cf19e592b remains SUCCESS from de75967c06ad166bca3b83f87d321941c7286a83.",
+      "Legacy ARMY-14 worker easy-runtime-current redeploy fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b was initiated after merge and remains BUILDING at checkpoint time."
     ],
     "evidence": [
-      "Railway deployment metadata",
-      "Railway runtime logs",
-      "GitHub CI job logs",
-      "GitHub PR #66"
+      "GitHub PR #66 merge response",
+      "GitHub workflow-run results for PR #66 head",
+      "Railway EASY Developer Platform status",
+      "Railway ARMY-14 deployment status"
     ],
     "status": "PARTIALLY_VERIFIED",
-    "next_action": "finish PR #66 CI, merge only after required checks pass, then observe Railway deployments and re-verify ARMY-14 runtime source alignment."
+    "next_action": "observe fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b to terminal status; inspect logs; verify runtime source alignment; continue adversarial, verifier, drift and recovery testing.",
+    "merged_pr": {
+      "number": 66,
+      "merge_commit": "63496ed1cf9f456d1b73a95190d7340c6323eb25",
+      "head": "616295566208d927757d0e2b74564473efb7c4cf",
+      "status": "MERGED"
+    }
   }
 }
