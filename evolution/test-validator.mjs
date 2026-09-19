@@ -1,0 +1,11 @@
+import { mkdtemp, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os'; import { join } from 'node:path'; import { createHash } from 'node:crypto'; import { spawn } from 'node:child_process';
+const dir=await mkdtemp(join(tmpdir(),'evolution-'));
+const c={experiment_id:'EXP-0001',project_id:'EVOLUTION-LAB',target_component:'frontier-gate',baseline_revision:'immutable:abc123',hypothesis:'two candidates survive independent attack',candidate_mutations:[{id:'A',revision:'sha-a'},{id:'B',revision:'sha-b'}],sandbox_id:'sandbox-0001',test_suite:['deterministic','regression'],adversarial_suite:['tamper','boundary','identity'],metrics:{functionality:'PASS',hidden_tests:'PASS',security:'PASS',reliability:'PASS',latency:'PASS',cost:'PASS',maintainability:'PASS',compatibility:'PASS',project_boundary:'PASS'},regressions:[],verification_runs:[{verifier:'independent-verifier',status:'PASS'}],mutation_author:'mutation-agent',decision:'PROMOTE',timestamps:{created_at:'2026-09-19T00:00:00Z'}};
+const ev=JSON.stringify({experiment_id:c.experiment_id,project_id:c.project_id,baseline_revision:c.baseline_revision,candidate_mutations:c.candidate_mutations,verification_runs:c.verification_runs,metrics:c.metrics,regressions:c.regressions}); c.evidence_hash=createHash('sha256').update(ev).digest('hex');
+const file=join(dir,'case.json'); await writeFile(file,JSON.stringify(c));
+function run(p){return new Promise(resolve=>{const x=spawn(process.execPath,['evolution/validate-experiment.mjs',p],{stdio:['ignore','pipe','pipe']});let o='';x.stdout.on('data',d=>o+=d);x.on('close',code=>resolve({code,o}));});}
+let r=await run(file); if(r.code!==0) throw new Error('valid case rejected: '+r.o);
+c.metrics.project_boundary='FAIL'; await writeFile(file,JSON.stringify(c)); r=await run(file); if(r.code===0) throw new Error('boundary failure accepted');
+c.metrics.project_boundary='PASS'; c.evidence_hash='00'.repeat(32); await writeFile(file,JSON.stringify(c)); r=await run(file); if(r.code===0) throw new Error('tampered evidence accepted');
+console.log(JSON.stringify({status:'PASSED',cases:3},null,2));
