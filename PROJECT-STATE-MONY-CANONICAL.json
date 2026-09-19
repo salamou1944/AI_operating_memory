@@ -3,7 +3,7 @@
   "project": "MONY",
   "state": "active",
   "last_verified_at": "2026-09-19",
-  "commit_sha": "908d2f25c667ae837d94dae4eca67c8b0fec423b",
+  "commit_sha": "bb931b3287d7d5925cd5f39e4765fb25dc3b92da",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "completed_tasks": [
     "canonical machine-readable state policy and validator",
@@ -69,11 +69,11 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "obtain a safe source-alignment mechanism for easy-runtime-current (Railway service source branch control is not exposed by the connected Railway update_service tool); then deploy current main and verify runtime source identity, worker cycle, adversarial/recovery behavior. Continue independent CI/EASY/MONY hardening.",
+  "next_action": "Resolve PR #67 explicit workflow-review gate, then re-run MONY Live E2E. Independently obtain a Railway source-branch control for easy-runtime-current; current connector exposes source repo but not source branch changes and Railway Agent is usage-limited. Continue ELITE/ARMY adversarial and recovery verification while blockers remain partitioned.",
   "current_execution_cycle": {
-    "at": "2026-09-19T16:35:00Z",
+    "at": "2026-09-19T16:38:30Z",
     "mode": "EVOLUTION-FRONTIER-Ω",
-    "agent_skills_head": "0dffd40d051db6fb2ebd37b68119fdc551194637",
+    "agent_skills_head": "bb931b3287d7d5925cd5f39e4765fb25dc3b92da",
     "changes": [
       "Added fail-closed HTTP 503 behavior for degraded ARMY-14 worker health in e12627db747d0238f0995bb6ccafef780146aa25.",
       "Detected and fixed MONY CI affiliate health assertion drift in a278a11d5f1c8f60af23e991bb9109d4f60f62fe.",
@@ -83,7 +83,10 @@
       "Confirmed ARMY-14 Railway service easy-runtime-current still resolves redeploy 48eae0f3-23ab-487f-908b-bb94d7b11d9f to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
       "Railway Agent source-alignment attempt returned a usage-limit blocker; connected Railway update_service explicitly does not support source changes.",
       "CI on current main has passed MONY Live E2E, MONY Production Verification, agent-operator-self-test, ARMY-14 Mission Routing, ARMY-14 Director Gate, elite-dna-verification, evolution-lab; Closure integrity passed after the transient security-gate failure on the earlier workflow-change commit.",
-      "The current main commit is still undergoing/background workflows; do not treat in-progress workflows as final."
+      "The current main commit is still undergoing/background workflows; do not treat in-progress workflows as final.",
+      "Fixed the ELITE provider-ladder self-provision test harness after CI exposed a real network-dependence bug; restored the full test file and injected deterministic 429 provider behavior in bb931b3287d7d5925cd5f39e4765fb25dc3b92da.",
+      "MONY canonical tracking semantics are now external affiliate URL in trackingUrl, with internal workbenchUrl kept separate; MONY Production Verification attempt 2 passed on deployed EASY v3.",
+      "MONY Live E2E still fails on main because its workflow contains the obsolete assertion that trackingUrl must contain the internal workbench path. A workflow-only correction was isolated in PR #67 rather than weakening the explicit-review security gate."
     ],
     "evidence": [
       "GitHub commit e12627db747d0238f0995bb6ccafef780146aa25",
@@ -94,12 +97,19 @@
       "Railway ARMY deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f SUCCESS metadata with stale commit 648e7a809c5a3cae2da34519b39a32909aef0902",
       "Railway ARMY runtime logs showing repository_verification_failed:syntax_failed on stale source",
       "Railway service config showing repo salamou1944/agent-skills but no branch field in the exposed source config",
-      "Railway documentation search result confirming GitHub source branch can be set, while the connected update_service control does not expose source changes"
+      "Railway documentation search result confirming GitHub source branch can be set, while the connected update_service control does not expose source changes",
+      "GitHub workflow run 35455346332 attempt 2 SUCCESS for MONY Production Verification.",
+      "GitHub workflow run 35455442871 FAILURE shows obsolete MONY Live E2E assertion against the now-canonical external trackingUrl.",
+      "GitHub PR #67 open, head 16995ecc6e74c33a4e6a2bfb769fe0ee09a1d23a, updating only .github/workflows/mony-live-e2e.yml.",
+      "GitHub workflow run 35455502501 currently in progress for Closure integrity on bb931b3287d7d5925cd5f39e4765fb25dc3b92da.",
+      "GitHub workflow run 35455502567 SUCCESS for ARMY-14 Mission Routing on bb931b3287d7d5925cd5f39e4765fb25dc3b92da."
     ],
     "status": "PARTIALLY_VERIFIED",
     "blockers": [
-      "RAILWAY_SOURCE_COMMIT_DRIFT: existing easy-runtime-current cannot currently be repointed to current main with available connected Railway controls; Railway Agent is usage-limited."
+      "RAILWAY_SOURCE_COMMIT_DRIFT: easy-runtime-current still deploys stale 648e7a809...; source branch control is not exposed by connected Railway update_service and Railway Agent is usage-limited.",
+      "MONY_LIVE_E2E_WORKFLOW_CONTRACT: main workflow still asserts obsolete internal trackingUrl semantics; correction isolated in PR #67 and subject to explicit workflow review.",
+      "ELITE_PROVIDER_AVAILABILITY: live OpenAI provider returned HTTP 429/quota exhaustion and Copilot CLI reported monthly quota exhaustion in autonomous background runs; fail-closed behavior is preserved."
     ],
-    "next_action": "use a safe source-alignment mechanism that can set the existing Railway service GitHub source branch/commit to current main; then verify runtime source identity and ARMY-14 cycle before adversarial/recovery/performance verification."
+    "next_action": "Resolve PR #67 explicit workflow-review gate, then re-run MONY Live E2E. Independently obtain a Railway source-branch control for easy-runtime-current; current connector exposes source repo but not source branch changes and Railway Agent is usage-limited. Continue ELITE/ARMY adversarial and recovery verification while blockers remain partitioned."
   }
 }
