@@ -3,7 +3,7 @@
   "project": "MONY",
   "state": "active",
   "last_verified_at": "2026-09-19",
-  "commit_sha": "740261f3c18bda5664851d9219575ecaeec40e01",
+  "commit_sha": "cd18be36dc2def2a1c97c69615cac70fabb5591a",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "completed_tasks": [
     "canonical machine-readable state policy and validator",
@@ -69,11 +69,11 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "Continue independent repository verification and adversarial/security work; do not repeat stale Railway redeploys. Re-check PR #67 review gate and CI, and only attempt Railway alignment if a new non-destructive source control becomes available.",
+  "next_action": "Continue independent verifier/adversarial/security work in agent-skills; do not repeat stale Railway redeploys. Revisit Railway only when a non-destructive source-alignment control or new evidence appears.",
   "current_execution_cycle": {
-    "at": "2026-09-19T18:30:00+01:00",
+    "at": "2026-09-19T18:50:00+01:00",
     "mode": "EVOLUTION-FRONTIER-Ω",
-    "agent_skills_head": "740261f3c18bda5664851d9219575ecaeec40e01",
+    "agent_skills_head": "cd18be36dc2def2a1c97c69615cac70fabb5591a",
     "changes": [
       "Added fail-closed HTTP 503 behavior for degraded ARMY-14 worker health in e12627db747d0238f0995bb6ccafef780146aa25.",
       "Detected and fixed MONY CI affiliate health assertion drift in a278a11d5f1c8f60af23e991bb9109d4f60f62fe.",
@@ -89,7 +89,8 @@
       "MONY Live E2E still fails on main because its workflow contains the obsolete assertion that trackingUrl must contain the internal workbench path. A workflow-only correction was isolated in PR #67 rather than weakening the explicit-review security gate.",
       "Added Railway-provided RAILWAY_GIT_COMMIT_SHA to ARMY-14 worker startup/health evidence and refactored health payload into a pure independently testable builder.",
       "Added deterministic ARMY-14 worker health tests covering current deployment identity, source-verification drift, and provider quota classification.",
-      "Added runtime sourceIdentity metadata to ARMY-14 health so deployed provider/repository/branch/commit identity is explicit."
+      "Added runtime sourceIdentity metadata to ARMY-14 health so deployed provider/repository/branch/commit identity is explicit.",
+      "Revalidated current agent-skills main after autonomous queue commits; current head advanced to cd18be36dc2def2a1c97c69615cac70fabb5591a."
     ],
     "evidence": [
       "GitHub commit e12627db747d0238f0995bb6ccafef780146aa25",
@@ -111,14 +112,17 @@
       "CI on 2cf77efb9912447f50dad71a45d6e260dbec4345 has ARMY-14 Mission Routing SUCCESS, ARMY-14 soldier systems SUCCESS, ARMY-14 integrated field exercise SUCCESS, evolution-lab SUCCESS, Elite Unique Intelligence SUCCESS, Elite Harness v2 SUCCESS, creative-core SUCCESS; several workflows remain in progress.",
       "MONY Live E2E remains FAILURE on 2cf77efb9912447f50dad71a45d6e260dbec4345 because the workflow still asserts obsolete internal trackingUrl semantics; PR #67 remains the isolated correction.",
       "GitHub main commit 740261f3c18bda5664851d9219575ecaeec40e01.",
-      "Railway service config confirms source repo salamou1944/agent-skills; latest easy-runtime-current deployment remains stale commit 648e7a809c5a3cae2da34519b39a32909aef0902."
+      "Railway service config confirms source repo salamou1944/agent-skills; latest easy-runtime-current deployment remains stale commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+      "Current main elite-deployment-recovery.mjs is syntactically valid source and its dedicated test file is present; Railway runtime failure is therefore confirmed as stale-source execution rather than current-source syntax proof.",
+      "Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f produced repeated repository_verification_failed:syntax_failed failures, reaching failure count 17 by 17:43Z, while deployment metadata remains pinned to commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+      "PR #67 remains open with zero reviews and mergeable=false; its diff changes only the obsolete MONY Live E2E assertion."
     ],
     "status": "PARTIALLY_VERIFIED",
     "blockers": [
-      "RAILWAY_SOURCE_COMMIT_DRIFT: easy-runtime-current remains deployed from stale commit 648e7a809...; Railway Agent is usage-limited and update_service has no source controls.",
-      "MONY_LIVE_E2E_WORKFLOW_REVIEW: PR #67 is open, mergeable=false, with no reviews; correction is isolated and awaits explicit review gate.",
+      "RAILWAY_SOURCE_COMMIT_DRIFT: easy-runtime-current remains deployed from stale commit 648e7a809...; repeated redeploys have reproduced the same stale snapshot and are intentionally not being repeated.",
+      "MONY_LIVE_E2E_WORKFLOW_REVIEW: PR #67 is open, zero reviews, mergeable=false; isolated correction cannot be treated as merged.",
       "ELITE_PROVIDER_AVAILABILITY: live provider quota exhaustion remains external; fail-closed behavior is preserved."
     ],
-    "next_action": "Continue independent repository verification and adversarial/security work; do not repeat stale Railway redeploys. Re-check PR #67 review gate and CI, and only attempt Railway alignment if a new non-destructive source control becomes available."
+    "next_action": "Continue independent verifier/adversarial/security work in agent-skills; do not repeat stale Railway redeploys. Revisit Railway only when a non-destructive source-alignment control or new evidence appears."
   }
 }
