@@ -24,7 +24,8 @@
     "Operator security/workspace gates are fail-closed and classify detected secrets/dirty workspaces as BLOCKED",
     "ARMY-14 worker source is now fail-closed on degraded health in current main commit e12627db747d0238f0995bb6ccafef780146aa25, but the existing Railway service still runs stale commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
     "ELITE independent verifier command-boundary gap was found and patched on PR #68; until review/merge, main remains unchanged by that patch.",
-    "ARMY-14 Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f is still stale at commit 648e7a809c5a3cae2da34519b39a32909aef0902 and runtime logs now show 19 repeated syntax-verification failures; current main source is syntactically valid."
+    "ARMY-14 Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f is still stale at commit 648e7a809c5a3cae2da34519b39a32909aef0902 and runtime logs now show 19 repeated syntax-verification failures; current main source is syntactically valid.",
+    "Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f runs commit 648e7a809c5a3cae2da34519b39a32909aef0902 whose elite-deployment-recovery.mjs contains a confirmed syntax error; current main file is syntactically corrected. This is source drift, not an internal current-main syntax failure."
   ],
   "evidence": [
     {
@@ -70,9 +71,9 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "Continue independent verifier/adversarial/security work in agent-skills; do not repeat stale Railway redeploys. Revisit Railway only when a non-destructive source-alignment control or new evidence appears.",
+  "next_action": "Continue ARMY-14 lifecycle/concurrency adversarial analysis and Salamou-31 idempotency/concurrency analysis; do not redeploy stale Railway source without a new alignment control.",
   "current_execution_cycle": {
-    "at": "2026-09-19T18:10:00+01:00",
+    "at": "2026-09-19T18:03:00+01:00",
     "mode": "VERIFICATION-HARDENING-Ω∞",
     "agent_skills_head": "cd18be36dc2def2a1c97c69615cac70fabb5591a",
     "changes": [
@@ -80,14 +81,17 @@
       "Salamou-31 request-ledger adversarial coverage added on PR #5 for corrupt and missing persistent ledger state.",
       "MONY PR #67 rechecked: still open with explicit review gate.",
       "ELITE PR #68 rechecked: still open; Codex review quota exhaustion prevents relying on that review path.",
-      "Railway stale deployment was not redeployed because source snapshot remains unchanged."
+      "Railway stale deployment was not redeployed because source snapshot remains unchanged.",
+      "Confirmed the exact Railway stale-source syntax defect by comparing deployed commit 648e7a809c5a3cae2da34519b39a32909aef0902 with current main: the stale file has an extra closing parenthesis in the configuration regex; current main has the corrected form.",
+      "Added ELITE syntax regression coverage on PR #70 (head 418ed3c8d16ed69d75ff290565df9fdc6117938) to run node --check against elite-deployment-recovery.mjs."
     ],
     "evidence": [
       "agent-skills PR #69 head fef775b991a689533bd0281a98c4e7734ce37bb7",
       "Salamou-31 PR #5 head b9e151a6c5a83bb4f4ff45f59931575468ad0cd5",
       "MONY PR #67 remains open.",
       "ELITE PR #68 remains open.",
-      "Railway deployment remains stale and was not repeated."
+      "Railway deployment remains stale and was not repeated.",
+      "PR #70 open; syntax regression guard added, not yet CI-verified."
     ],
     "status": "PARTIALLY VERIFIED",
     "blockers": [
@@ -96,8 +100,9 @@
       "ARMY14_PR_69_REVIEW_GATE",
       "SALAMOU31_PR_5_REVIEW_GATE",
       "MONY_PR_67_REVIEW_GATE",
-      "ELITE_PROVIDER_AVAILABILITY"
+      "ELITE_PROVIDER_AVAILABILITY",
+      "ELITE_PR_70_REVIEW_CI_GATE"
     ],
-    "next_action": "Continue targeted adversarial verification and recovery analysis without merging review-gated PRs or repeating stale Railway redeploys."
+    "next_action": "Continue ARMY-14 lifecycle/concurrency adversarial analysis and Salamou-31 idempotency/concurrency analysis; do not redeploy stale Railway source without a new alignment control."
   }
 }
