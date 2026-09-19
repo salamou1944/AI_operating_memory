@@ -60,5 +60,24 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "continue repository-native verification, close remaining contract/security/reliability gaps, and promote only evidence-backed live/provider/business results"
+  "next_action": "continue repository-native verification, close remaining contract/security/reliability gaps, and promote only evidence-backed live/provider/business results",
+  "current_execution_cycle": {
+    "at": "2026-09-19",
+    "mode": "EVOLUTION-FRONTIER",
+    "agent_skills_head": "c67e60c76672fe1695a01d581ac835968024d8eb",
+    "changes": [
+      "Opened PR #66 to harden ARMY-14 Railway worker failure-state observability and classify source-verification failures.",
+      "CI exposed and fixes were applied for missing test imports (join, tmpdir) and a Guardian test literal-secret false positive; these fixes remain on PR #66 pending final CI.",
+      "EASY Developer Platform v3 remains deployed from de75967c06ad166bca3b83f87d321941c7286a83; later main docs commits were SKIPPED by Railway watch patterns.",
+      "Legacy ARMY-14 worker deployment 82a410c4-8a2b-47b1-bbf4-97a032a8d856 is still pinned to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and its runtime cycles fail repository syntax verification."
+    ],
+    "evidence": [
+      "Railway deployment metadata",
+      "Railway runtime logs",
+      "GitHub CI job logs",
+      "GitHub PR #66"
+    ],
+    "status": "PARTIALLY_VERIFIED",
+    "next_action": "finish PR #66 CI, merge only after required checks pass, then observe Railway deployments and re-verify ARMY-14 runtime source alignment."
+  }
 }
