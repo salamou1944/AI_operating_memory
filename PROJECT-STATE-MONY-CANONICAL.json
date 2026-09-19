@@ -22,7 +22,8 @@
     "Current EASY Railway runtime internal smoke is healthy but real image generation is externally blocked by OpenAI HTTP 429 credit_balance_exhausted",
     "Legacy ARMY-14 Railway worker is pinned to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902; current main contains the corrected syntax, but the existing service cannot currently be repointed with available Railway controls and replacement provisioning is Free-plan blocked",
     "Operator security/workspace gates are fail-closed and classify detected secrets/dirty workspaces as BLOCKED",
-    "ARMY-14 Railway service easy-runtime-current still deploys commit 648e7a809c5a3cae2da34519b39a32909aef0902 despite GitHub main at 46dc3f15ed6c50af82384688a6ab8942a0540c17; redeploy and watch-pattern update did not repoint the service, and Railway Agent is unavailable due to usage limit."
+    "ARMY-14 Railway service easy-runtime-current still deploys commit 648e7a809c5a3cae2da34519b39a32909aef0902 despite GitHub main at 46dc3f15ed6c50af82384688a6ab8942a0540c17; redeploy and watch-pattern update did not repoint the service, and Railway Agent is unavailable due to usage limit.",
+    "ARMY-14 worker source is now fail-closed on degraded health in current main commit e12627db747d0238f0995bb6ccafef780146aa25, but the existing Railway service still runs stale commit 648e7a809c5a3cae2da34519b39a32909aef0902."
   ],
   "evidence": [
     {
@@ -68,31 +69,37 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "use a safe source-alignment mechanism that actually creates a deployment from current main for easy-runtime-current; do not use redeploy of the stale snapshot as proof. Then verify health sourceDriftDetected=false and complete ARMY-14 runtime/adversarial/recovery checks.",
+  "next_action": "obtain a safe source-alignment mechanism for easy-runtime-current (Railway service source branch control is not exposed by the connected Railway update_service tool); then deploy current main and verify runtime source identity, worker cycle, adversarial/recovery behavior. Continue independent CI/EASY/MONY hardening.",
   "current_execution_cycle": {
-    "at": "2026-09-19T16:24:00Z",
-    "mode": "EVOLUTION-FRONTIER-X",
-    "agent_skills_head": "46dc3f15ed6c50af82384688a6ab8942a0540c17",
+    "at": "2026-09-19T16:35:00Z",
+    "mode": "EVOLUTION-FRONTIER-Ω",
+    "agent_skills_head": "0dffd40d051db6fb2ebd37b68119fdc551194637",
     "changes": [
-      "Merged PR #66 at 63496ed1cf9f456d1b73a95190d7340c6323eb25 after five CI workflows passed.",
-      "Added explicit sourceDriftDetected health evidence to the ARMY-14 Railway worker and committed it to main as 46dc3f15ed6c50af82384688a6ab8942a0540c17.",
-      "Confirmed EASY Developer Platform v3 automatically deployed that new code as deployment 72db1430-e01f-4b65-9d86-a34944b4650d with commit 46dc3f15ed6c50af82384688a6ab8942a0540c17.",
-      "Updated ARMY-14 service watchPatterns to include apps/easy-developer-platform/** and package manifests, then redeployed.",
-      "Confirmed ARMY-14 redeploy 48eae0f3-23ab-487f-908b-bb94d7b11d9f still resolves commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
-      "Observed repeated runtime repository syntax failures on the stale deployment; no false success was promoted."
+      "Added fail-closed HTTP 503 behavior for degraded ARMY-14 worker health in e12627db747d0238f0995bb6ccafef780146aa25.",
+      "Detected and fixed MONY CI affiliate health assertion drift in a278a11d5f1c8f60af23e991bb9109d4f60f62fe.",
+      "Detected and fixed MONY production tracking contract drift by making the external affiliate URL the canonical trackingUrl and retaining the internal workbench URL as workbenchUrl; commits 54bddc957ad44ca8ec2f8cc434834b364b88f1ec and 0dffd40d051db6fb2ebd37b68119fdc551194637.",
+      "Confirmed MONY Production Verification run 35455346332 succeeds on retry attempt 2 against the deployed EASY v3 runtime.",
+      "Confirmed EASY v3 deployment b8e98c19-af9a-4c2c-9d60-087cead05209 is SUCCESS on commit 0dffd40d051db6fb2ebd37b68119fdc551194637.",
+      "Confirmed ARMY-14 Railway service easy-runtime-current still resolves redeploy 48eae0f3-23ab-487f-908b-bb94d7b11d9f to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+      "Railway Agent source-alignment attempt returned a usage-limit blocker; connected Railway update_service explicitly does not support source changes.",
+      "CI on current main has passed MONY Live E2E, MONY Production Verification, agent-operator-self-test, ARMY-14 Mission Routing, ARMY-14 Director Gate, elite-dna-verification, evolution-lab; Closure integrity passed after the transient security-gate failure on the earlier workflow-change commit.",
+      "The current main commit is still undergoing/background workflows; do not treat in-progress workflows as final."
     ],
     "evidence": [
-      "GitHub commit 63496ed1cf9f456d1b73a95190d7340c6323eb25",
-      "GitHub commit 46dc3f15ed6c50af82384688a6ab8942a0540c17",
-      "Railway deployment 72db1430-e01f-4b65-9d86-a34944b4650d",
-      "Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f",
-      "Railway runtime logs showing repository_verification_failed:syntax_failed",
-      "Railway service configuration showing GitHub repo source and worker watch patterns"
+      "GitHub commit e12627db747d0238f0995bb6ccafef780146aa25",
+      "GitHub commit a278a11d5f1c8f60af23e991bb9109d4f60f62fe",
+      "GitHub commits 54bddc957ad44ca8ec2f8cc434834b364b88f1ec and 0dffd40d051db6fb2ebd37b68119fdc551194637",
+      "GitHub workflow run 35455346332 attempt 2 SUCCESS",
+      "Railway EASY deployment b8e98c19-af9a-4c2c-9d60-087cead05209 SUCCESS",
+      "Railway ARMY deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f SUCCESS metadata with stale commit 648e7a809c5a3cae2da34519b39a32909aef0902",
+      "Railway ARMY runtime logs showing repository_verification_failed:syntax_failed on stale source",
+      "Railway service config showing repo salamou1944/agent-skills but no branch field in the exposed source config",
+      "Railway documentation search result confirming GitHub source branch can be set, while the connected update_service control does not expose source changes"
     ],
     "status": "PARTIALLY_VERIFIED",
     "blockers": [
-      "RAILWAY_SOURCE_COMMIT_DRIFT: existing easy-runtime-current cannot currently be repointed to current main using available Railway connector controls; Railway Agent also returned usage-limit blocker."
+      "RAILWAY_SOURCE_COMMIT_DRIFT: existing easy-runtime-current cannot currently be repointed to current main with available connected Railway controls; Railway Agent is usage-limited."
     ],
-    "next_action": "use a safe source-alignment mechanism that actually creates a deployment from current main for easy-runtime-current; do not use redeploy of the stale snapshot as proof. Then verify health sourceDriftDetected=false and complete ARMY-14 runtime/adversarial/recovery checks."
+    "next_action": "use a safe source-alignment mechanism that can set the existing Railway service GitHub source branch/commit to current main; then verify runtime source identity and ARMY-14 cycle before adversarial/recovery/performance verification."
   }
 }
