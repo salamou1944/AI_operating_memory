@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence-Gated Evolution Experiment",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "project_id",
+    "target_component",
+    "baseline_revision",
+    "hypothesis",
+    "candidate_mutations",
+    "sandbox_id",
+    "test_suite",
+    "adversarial_suite",
+    "metrics",
+    "regressions",
+    "verification_runs",
+    "decision",
+    "evidence_hash",
+    "timestamps"
+  ],
+  "properties": {
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "enum": [
+        "EASY",
+        "MONY",
+        "ELITE",
+        "ARMY-14",
+        "EVOLUTION-LAB",
+        "AGENT-SKILLS"
+      ]
+    },
+    "target_component": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseline_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_mutations": {
+      "type": "array",
+      "minItems": 2
+    },
+    "sandbox_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "test_suite": {
+      "type": "array"
+    },
+    "adversarial_suite": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "regressions": {
+      "type": "array"
+    },
+    "verification_runs": {
+      "type": "array",
+      "minItems": 1
+    },
+    "decision": {
+      "const": "PROMOTE"
+    },
+    "evidence_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "timestamps": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
