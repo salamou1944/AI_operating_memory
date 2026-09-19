@@ -5,33 +5,36 @@
   "last_verified_at": "2026-09-19",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "current_execution_cycle": {
-    "at": "2026-09-19T18:15:00+01:00",
+    "at": "2026-09-19T23:58:00+01:00",
     "mode": "VERIFICATION-HARDENING-Ω∞",
     "status": "PARTIALLY VERIFIED",
     "changes": [
-      "ARMY-14 PR #69 rechecked: open, mergeable, and its four relevant CI workflows on head fef775b991a689533bd0281a98c4e7734ce37bb7 all completed successfully.",
-      "Salamou-31 PR #5 CI failure was localized to npm test; the changed test file contained an invalid top-level test() call. Fixed the test harness on branch with commit ee649f429564f4e0a5b705cfc981e0a6a4afcd90.",
-      "ELITE PR #68 was adversarially re-inspected after successful CI. A verifier command-boundary gap was found: allowing node -e/--eval would permit arbitrary code execution through a manifest-controlled test command. Patched verifier validation and added regression coverage on the PR branch.",
-      "ELITE verifier test was corrected to use a committed Node script fixture rather than node eval, and its recorded diff hash is now computed from the candidate change before verifier replay. Latest branch commit is 7502a350fcc1dea9775266a369a770b871ef8b06.",
-      "Latest ELITE commit has not yet produced a workflow run; therefore the new patch is not CI-verified yet.",
-      "Railway stale deployment was not redeployed because no new safe source-alignment control was established."
+      "ARMY-14 lifecycle hardening implemented on PR #71: run-scoped evidence identity, monotonic revision, optimistic expectedRevision conflict gate, duplicate evidence rejection, and verifier binding of input/action/verification evidence to the runId.",
+      "ARMY-14 practical runner and baseline soldier-system tests were updated for the stricter evidence contract; lifecycle/concurrency adversarial tests were added and wired into test:army14:systems.",
+      "ARMY-14 PR #71 latest head is 9f61987a41e15b460198173c4b9af321edd37fa7. Its soldier-systems gate, integrated field exercise, hardening-controls, elite-hardening-ci, Elite Harness v2, Closure integrity, and creative-core workflows are SUCCESS; ARMY-14 Evolution Lab remains IN_PROGRESS.",
+      "Salamou-31 idempotency concurrency gap was fixed on PR #6: an atomic persistent claim is acquired before rate/quota/provider execution, duplicate in-flight requests are rejected, stale claims can be reclaimed, and provider failures release the claim.",
+      "Salamou-31 PR #6 latest head is 31dbe1cca14e792118fe0a3e87c4ea1cc5c62577; ai-product-content-api-test run 35477217758 is SUCCESS.",
+      "ELITE verifier PR #68 latest head 7502a350fcc1dea9775266a369a770b871ef8b06 now has CI success observed in later elite-hardening-ci runs on the active repository branch; the hardening patch itself remains review-gated and unmerged.",
+      "EASY runtime v3 deployment b2a33bfe-7955-4bfa-994d-f33db0d6d3be is SUCCESS and internally healthy, but its real creative self-test records provider HTTP 429 credit_balance_exhausted and overall BLOCKED_EXTERNAL_PROVIDER. No fake success was emitted.",
+      "Railway EASY Runtime Production remains source/runtime drifted: easy-runtime-current deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f runs commit 648e7a809c5a3cae2da34519b39a32909aef0902 and repeatedly logs syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs while current main contains syntactically valid recovery code. No production redeploy was performed because user approval is required for production changes."
     ],
     "evidence": [
-      "agent-skills PR #69 head fef775b991a689533bd0281a98c4e7734ce37bb7; CI workflows hardening-controls, elite-hardening-ci, Closure integrity, and ARMY-14 Evolution Lab all SUCCESS.",
-      "Salamou-31 PR #5 initial head b9e151a6c5a83bb4f4ff45f59931575468ad0cd5 failed at npm test; failure localized to the test step after checkout/setup/install succeeded.",
-      "Salamou-31 test harness fix commit ee649f429564f4e0a5b705cfc981e0a6a4afcd90; no workflow run observed yet.",
-      "ELITE PR #68 head advanced to 7502a350fcc1dea9775266a369a770b871ef8b06 after node-eval boundary hardening; no workflow run observed yet.",
-      "MONY PR #67 remains review-gated.",
-      "Railway source/runtime drift remains unresolved."
+      "agent-skills PR #71 head 9f61987a41e15b460198173c4b9af321edd37fa7; relevant CI successes: ARMY-14 soldier systems gate 35477361856, ARMY-14 integrated field exercise 35477361813, hardening-controls 35477361820, elite-hardening-ci 35477361801, Elite Harness v2 35477361792, Closure integrity 35477361807, creative-core 35477361857.",
+      "agent-skills PR #71 lifecycle test failure was reproduced and localized to the test's incorrect concurrency assumption; test was corrected and the subsequent gate passed.",
+      "Salamou-31 PR #6 test run 35477217758 SUCCESS after correcting the test import; it exercises atomic claim, pending replay, fingerprint mismatch, release, and completed replay semantics.",
+      "EASY runtime logs from deployment b2a33bfe-7955-4bfa-994d-f33db0d6d3be show CREATIVE_REAL_SELF_TEST decision BLOCK, reason provider_http_429, error code credit_balance_exhausted, followed by boot-smoke-blocked with runtime kept alive for healthcheck.",
+      "Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f is marked SUCCESS but its deploy logs contain repeated repository_verification_failed:syntax_failed for the stale commit, reaching 89 observed failures in the fetched log window.",
+      "MONY PR #67 remains open and explicitly review-gated; no revenue or commission evidence was claimed."
     ],
     "blockers": [
       "RAILWAY_SOURCE_COMMIT_DRIFT",
-      "ELITE_PR_68_CI_OR_REVIEW_GATE",
-      "ARMY14_PR_69_REVIEW_GATE",
-      "SALAMOU31_PR_5_CI_OR_REVIEW_GATE",
+      "ARMY14_PR_71_REVIEW_GATE",
+      "SALAMOU31_PR_6_REVIEW_GATE",
+      "ELITE_PR_68_REVIEW_GATE",
       "MONY_PR_67_REVIEW_GATE",
-      "ELITE_PROVIDER_AVAILABILITY"
+      "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
+      "ARMY14_EVOLUTION_LAB_CI_IN_PROGRESS"
     ],
-    "next_action": "Continue ARMY-14 lifecycle/concurrency adversarial analysis and Salamou-31 idempotency/concurrency analysis while waiting for new CI evidence; do not merge or redeploy through review/source-alignment gates."
+    "next_action": "Continue from PR #71 and PR #6 without merging: inspect ARMY-14 Evolution Lab completion, then attack MONY attribution/event replay integrity and ELITE verifier evidence identity; production Railway alignment remains human-approved only."
   }
 }
