@@ -1,0 +1,22 @@
+name: evolution-frontier-gate
+on:
+  pull_request:
+    paths:
+      - 'evolution/**'
+  push:
+    branches: [main]
+    paths:
+      - 'evolution/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run adversarial promotion-gate tests
+        run: node evolution/test-validator.mjs
