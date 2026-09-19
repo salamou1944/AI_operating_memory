@@ -3,7 +3,7 @@
   "project": "MONY",
   "state": "active",
   "last_verified_at": "2026-09-19",
-  "commit_sha": "7cfe0c9258cd897c105150c187b2853345b5f71e",
+  "commit_sha": "908d2f25c667ae837d94dae4eca67c8b0fec423b",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "completed_tasks": [
     "canonical machine-readable state policy and validator",
@@ -21,7 +21,8 @@
     "external provider credentials and live provider execution still require runtime evidence",
     "Current EASY Railway runtime internal smoke is healthy but real image generation is externally blocked by OpenAI HTTP 429 credit_balance_exhausted",
     "Legacy ARMY-14 Railway worker is pinned to stale commit 648e7a809c5a3cae2da34519b39a32909aef0902; current main contains the corrected syntax, but the existing service cannot currently be repointed with available Railway controls and replacement provisioning is Free-plan blocked",
-    "Operator security/workspace gates are fail-closed and classify detected secrets/dirty workspaces as BLOCKED"
+    "Operator security/workspace gates are fail-closed and classify detected secrets/dirty workspaces as BLOCKED",
+    "ARMY-14 Railway service easy-runtime-current still deploys commit 648e7a809c5a3cae2da34519b39a32909aef0902 despite GitHub main at 46dc3f15ed6c50af82384688a6ab8942a0540c17; redeploy and watch-pattern update did not repoint the service, and Railway Agent is unavailable due to usage limit."
   ],
   "evidence": [
     {
@@ -67,31 +68,31 @@
       "observed_at": "2026-09-19"
     }
   ],
-  "next_action": "observe fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b to terminal status; inspect logs; verify runtime source alignment; continue adversarial, verifier, drift and recovery testing.",
+  "next_action": "use a safe source-alignment mechanism that actually creates a deployment from current main for easy-runtime-current; do not use redeploy of the stale snapshot as proof. Then verify health sourceDriftDetected=false and complete ARMY-14 runtime/adversarial/recovery checks.",
   "current_execution_cycle": {
-    "at": "2026-09-19T16:08:00Z",
+    "at": "2026-09-19T16:24:00Z",
     "mode": "EVOLUTION-FRONTIER-X",
-    "agent_skills_head": "c67e60c76672fe1695a01d581ac835968024d8eb",
+    "agent_skills_head": "46dc3f15ed6c50af82384688a6ab8942a0540c17",
     "changes": [
-      "Merged PR #66 after five GitHub Actions workflow runs on the PR head completed successfully.",
-      "PR #66 hardened ARMY-14 Railway worker failure-state observability and truthful failure classification.",
-      "CI-revealed missing imports and Guardian test literal-secret false positive were corrected before merge.",
-      "EASY Developer Platform v3 deployment b36bf611-1cb9-4159-82e9-e97cf19e592b remains SUCCESS from de75967c06ad166bca3b83f87d321941c7286a83.",
-      "Legacy ARMY-14 worker easy-runtime-current redeploy fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b was initiated after merge and remains BUILDING at checkpoint time."
+      "Merged PR #66 at 63496ed1cf9f456d1b73a95190d7340c6323eb25 after five CI workflows passed.",
+      "Added explicit sourceDriftDetected health evidence to the ARMY-14 Railway worker and committed it to main as 46dc3f15ed6c50af82384688a6ab8942a0540c17.",
+      "Confirmed EASY Developer Platform v3 automatically deployed that new code as deployment 72db1430-e01f-4b65-9d86-a34944b4650d with commit 46dc3f15ed6c50af82384688a6ab8942a0540c17.",
+      "Updated ARMY-14 service watchPatterns to include apps/easy-developer-platform/** and package manifests, then redeployed.",
+      "Confirmed ARMY-14 redeploy 48eae0f3-23ab-487f-908b-bb94d7b11d9f still resolves commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+      "Observed repeated runtime repository syntax failures on the stale deployment; no false success was promoted."
     ],
     "evidence": [
-      "GitHub PR #66 merge response",
-      "GitHub workflow-run results for PR #66 head",
-      "Railway EASY Developer Platform status",
-      "Railway ARMY-14 deployment status"
+      "GitHub commit 63496ed1cf9f456d1b73a95190d7340c6323eb25",
+      "GitHub commit 46dc3f15ed6c50af82384688a6ab8942a0540c17",
+      "Railway deployment 72db1430-e01f-4b65-9d86-a34944b4650d",
+      "Railway deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f",
+      "Railway runtime logs showing repository_verification_failed:syntax_failed",
+      "Railway service configuration showing GitHub repo source and worker watch patterns"
     ],
     "status": "PARTIALLY_VERIFIED",
-    "next_action": "observe fc45da4e-4cde-4abc-a7a5-ab7261d4bb9b to terminal status; inspect logs; verify runtime source alignment; continue adversarial, verifier, drift and recovery testing.",
-    "merged_pr": {
-      "number": 66,
-      "merge_commit": "63496ed1cf9f456d1b73a95190d7340c6323eb25",
-      "head": "616295566208d927757d0e2b74564473efb7c4cf",
-      "status": "MERGED"
-    }
+    "blockers": [
+      "RAILWAY_SOURCE_COMMIT_DRIFT: existing easy-runtime-current cannot currently be repointed to current main using available Railway connector controls; Railway Agent also returned usage-limit blocker."
+    ],
+    "next_action": "use a safe source-alignment mechanism that actually creates a deployment from current main for easy-runtime-current; do not use redeploy of the stale snapshot as proof. Then verify health sourceDriftDetected=false and complete ARMY-14 runtime/adversarial/recovery checks."
   }
 }
