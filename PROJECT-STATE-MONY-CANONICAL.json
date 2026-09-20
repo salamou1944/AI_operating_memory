@@ -1,21 +1,121 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-01",
+  "state_revision": "mony-2026-09-20-repository-audit-02",
   "project": "MONY",
-  "updated_at": "2026-09-20T04:00:00Z",
+  "updated_at": "2026-09-20T13:50:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
-  "blocked_by": ["ARMY14_PR_71_REVIEW_GATE","SALAMOU31_PR_7_REVIEW_GATE","ELITE_PR_72_REVIEW_GATE","MONY_PR_73_REVIEW_GATE","EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED","RAILWAY_SOURCE_COMMIT_DRIFT","MONY_NO_REVENUE_PAYOUT_EVIDENCE"],
-  "next_actions": ["Verify the canonical-state validator against the documented MONY contract.","Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.","Verify remaining hardening PRs after their latest CI revisions settle."],
-  "completed_tasks": ["Canonical machine-readable MONY state repository established.","Evolution Frontier executable promotion boundary established."],
-  "failed_tasks": [],
-  "known_risks": ["External EASY creative provider remains blocked by real credit/quota exhaustion.","Railway EASY runtime has source/runtime drift and stale verification failures.","MONY revenue is not business-verified without real PartnerStack reward evidence.","Open hardening PRs remain review-gated."],
-  "evidence": [
-    {"source_name":"salamou1944/agent-skills PR #73","source_url":"https://github.com/salamou1944/agent-skills/pull/73","observed_at":"2026-09-20T03:09:43Z","retrieved_at":"2026-09-20T04:00:00Z","claim":"MONY revenue-ledger concurrency hardening PR #73 is open and its latest observed CI runs reported SUCCESS for the listed hardening workflows.","evidence_hash":"sha256:5067eac65e398e1764530e571f2cef871cb2862741c025b662abd6fd44c3b2da","status":"verified","provider_event_id":null},
-    {"source_name":"salamou1944/agent-skills PR #72","source_url":"https://github.com/salamou1944/agent-skills/pull/72","observed_at":"2026-09-20T03:08:35Z","retrieved_at":"2026-09-20T04:00:00Z","claim":"Elite independent-verifier evidence-boundary PR #72 is open and its latest observed hardening CI runs reported SUCCESS.","evidence_hash":"sha256:7d12de75c4052f34e89ddc8e76c54bf512b4cc48ebd6ef10e09096c032075bd8","status":"verified","provider_event_id":null},
-    {"source_name":"salamou1944/Salamou-31 PR #7","source_url":"https://github.com/salamou1944/Salamou-31/pull/7","observed_at":"2026-09-20T03:12:12Z","retrieved_at":"2026-09-20T04:00:00Z","claim":"Salamou-31 PR #7 remains open; the latest observed test run succeeded after correcting the fresh-ownerless-lock regression expectation.","evidence_hash":"sha256:38e697ef9ad7b82fa1b8db9deaa483add339e76d3ecca6e46768a3ce6e64a24b","status":"verified","provider_event_id":null},
-    {"source_name":"salamou1944/AI_operating_memory PR #2","source_url":"https://github.com/salamou1944/AI_operating_memory/pull/2","observed_at":"2026-09-19T04:13:45Z","retrieved_at":"2026-09-20T04:00:00Z","claim":"The Evolution Frontier executable promotion boundary was merged with evidence binding, candidate multiplicity, independent verification, adversarial metrics, project firewall, and regression rejection.","evidence_hash":"sha256:bb12669fd89b0d3efc097e08a79297bd0a85e0ae9aa52a22a8a3c7bda7bacba4","status":"verified","provider_event_id":null}
+  "blocked_by": [
+    "ELITE_PR_72_REVIEW_GATE",
+    "MONY_PR_67_REVIEW_GATE",
+    "LEVERAGE_LAB_PR_74_REVIEW_GATE",
+    "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
+    "RAILWAY_SOURCE_COMMIT_DRIFT",
+    "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
   ],
-  "commit_sha": "e37f22cee3c37ed8ba0419e4f52aad93270ac0c6"
+  "next_actions": [
+    "Complete explicit human review for workflow-changing hardening PRs before merge.",
+    "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
+    "Verify EASY runtime against current source after Railway source/runtime drift is resolved.",
+    "Verify MONY business revenue only from real PartnerStack reward and payout evidence."
+  ],
+  "completed_tasks": [
+    "Canonical machine-readable MONY state repository established.",
+    "Evolution Frontier executable promotion boundary established.",
+    "Elite deployment-recovery syntax regression merged after required CI success.",
+    "ARMY-14 lifecycle concurrency and evidence integrity hardening merged.",
+    "MONY revenue-ledger concurrency and conflicting replay hardening merged.",
+    "Salamou-31 owner-aware stale idempotency recovery merged."
+  ],
+  "failed_tasks": [],
+  "known_risks": [
+    "External EASY creative provider remains blocked by real credit/quota exhaustion.",
+    "Railway EASY runtime has source/runtime drift and stale verification failures.",
+    "MONY revenue is not business-verified without real PartnerStack reward evidence.",
+    "Open agent-skills hardening PRs remain review-gated."
+  ],
+  "evidence": [
+    {
+      "source_name": "salamou1944/agent-skills PR #72",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/72",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "Elite independent-verifier evidence-boundary PR #72 is open; its latest observed hardening workflows reported SUCCESS.",
+      "evidence_hash": "sha256:cecdba3ad331efda35015a5e9fcb43b2f9662c45da9d0e6abb9ea6f5861dcbf6",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #74",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/74",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "Leverage Lab PR #74 is open and intentionally review-gated; its Leverage Lab workflow succeeded, while the repository security gate correctly rejected the workflow change pending explicit review.",
+      "evidence_hash": "sha256:5055bfb464afd1f3a7fdf16e87316a17bf45a6b8d820b581ce5fcddff902b6a2",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #67",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/67",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "MONY live E2E tracking-contract PR #67 is open and subject to the repository explicit-review security gate.",
+      "evidence_hash": "sha256:ac187b26814d1d03d03c04b0c9bfaebe6afa5a052847bdd7d33f4e2cc514c587",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #75",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/75",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "Elite deployment-recovery syntax regression PR #75 merged after all five observed required workflows succeeded.",
+      "evidence_hash": "sha256:e4e994a809141b08eaa9629268581b6c1b32c42995615717a45d1ceada06efe2",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #71",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/71",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "ARMY-14 lifecycle concurrency and evidence integrity PR #71 merged.",
+      "evidence_hash": "sha256:cfb11b222cf74da3c68ee9603c5389da9e7fd8b1f93b0c31e8a169119dd5c48e",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #73",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/73",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "MONY revenue-ledger concurrency and conflicting replay hardening PR #73 merged.",
+      "evidence_hash": "sha256:f1b61be6a9131ce6c859db19a5943949f61e211e11bbf5ef028394e92d4b5652",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/Salamou-31 PR #7",
+      "source_url": "https://github.com/salamou1944/Salamou-31/pull/7",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "Salamou-31 owner-aware stale idempotency recovery PR #7 merged.",
+      "evidence_hash": "sha256:0e834aa1658e79a2124c97616ce9595a13fce87b8f41a0ac8c4e8b172858e428",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/AI_operating_memory PR #3",
+      "source_url": "https://github.com/salamou1944/AI_operating_memory/pull/3",
+      "observed_at": "2026-09-20T13:50:00Z",
+      "retrieved_at": "2026-09-20T13:50:00Z",
+      "claim": "AI_operating_memory PR #3 was closed as superseded after main already contained the canonical validator and retired template workflow changes.",
+      "evidence_hash": "sha256:b587a6b83c21defa7ced7ac0049b396fe5cfdc711fd89ede743ef2469f7666fe",
+      "status": "verified",
+      "provider_event_id": null
+    }
+  ],
+  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
 }
