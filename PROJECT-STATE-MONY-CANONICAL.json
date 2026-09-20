@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-02",
+  "state_revision": "mony-2026-09-20-runtime-evidence-03",
   "project": "MONY",
-  "updated_at": "2026-09-20T13:50:00Z",
+  "updated_at": "2026-09-20T19:20:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -11,13 +11,12 @@
     "MONY_PR_67_REVIEW_GATE",
     "LEVERAGE_LAB_PR_74_REVIEW_GATE",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
-    "RAILWAY_SOURCE_COMMIT_DRIFT",
     "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
   ],
   "next_actions": [
     "Complete explicit human review for workflow-changing hardening PRs before merge.",
     "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
-    "Verify EASY runtime against current source after Railway source/runtime drift is resolved.",
+    "Verify EASY provider capability only after the external provider credit/quota blocker is cleared.",
     "Verify MONY business revenue only from real PartnerStack reward and payout evidence."
   ],
   "completed_tasks": [
@@ -31,9 +30,9 @@
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime has source/runtime drift and stale verification failures.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
-    "Open agent-skills hardening PRs remain review-gated."
+    "Open agent-skills hardening PRs remain review-gated.",
+    "Gateway service health must not be treated as provider or business readiness."
   ],
   "evidence": [
     {
@@ -115,7 +114,17 @@
       "evidence_hash": "sha256:b587a6b83c21defa7ced7ac0049b396fe5cfdc711fd89ede743ef2469f7666fe",
       "status": "verified",
       "provider_event_id": null
+    },
+    {
+      "source_name": "Railway EASY Developer Platform / easy-platform-runtime-v3",
+      "source_url": "https://railway.com/project/778678c6-dd6e-40fe-a33e-63d0953ab7d4",
+      "observed_at": "2026-09-20T19:20:00Z",
+      "retrieved_at": "2026-09-20T19:20:00Z",
+      "claim": "Railway EASY runtime service easy-platform-runtime-v3 is currently deployed from agent-skills main SHA 6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f; live background checks show all core service endpoints online, while creative provider self-test fails with provider_http_429 / credit_balance_exhausted.",
+      "evidence_hash": "sha256:3d10a0ee1d80e9d5bb9c282790b1e100966557301151e0b0c871f4ec01fc821d",
+      "status": "verified",
+      "provider_event_id": null
     }
   ],
-  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
+  "commit_sha": "6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f"
 }
