@@ -5,36 +5,38 @@
   "last_verified_at": "2026-09-20",
   "active_goal": "harden Revenue Engine, Elite, ARMY-14 and the sellable AI/API delivery path without false completion claims",
   "current_execution_cycle": {
-    "at": "2026-09-20T01:46:00+01:00",
+    "at": "2026-09-20T02:00:00+01:00",
     "mode": "VERIFICATION-HARDENING-Ω∞",
     "status": "PARTIALLY VERIFIED",
     "changes": [
-      "ARMY-14 PR #71 advanced to head 1b9c408a3ebb8aaa23e5e49a0da1d5481bded3ce: lifecycle evidence is run-bound, revisions use expectedRevision conflict checks, duplicate evidence is rejected, and the practical runner now rejects traversal-style run IDs before creating evidence paths.",
-      "ARMY-14 CI on the latest branch commit has soldier-systems gate, integrated field exercise, hardening-controls, elite-hardening-ci, Elite Harness v2, Closure integrity, and creative-core SUCCESS; ARMY-14 Evolution Lab remains IN_PROGRESS in the latest observed run.",
-      "Salamou-31 PR #7 advanced to head aa412becc159db3e1b802c64d4f7a220aba44c6e after fixing an ESM-incompatible require in the regression test; ai-product-content-api-test run 35479738783 is SUCCESS. The owner-aware stale-claim protection remains in place, distinguishing live process identity from stale pending claims.",
-      "MONY hardening branch fix/mony-revenue-ledger-concurrency-2026-09-20 now contains a filesystem-serialized reward ledger append path with owner-aware stale lock handling and rejects conflicting replays for an already-recorded external event. Added concurrent duplicate and conflicting reward E2E coverage; branch has not yet produced a CI run.",
-      "ELITE verifier PR #72 advanced to head f206dbf1ef2f7b49c2ed167c6bd5503ca161391d and includes a symlink-write escape defense in the independent verifier plus regression coverage. Its hardening-control, closure-integrity and elite-hardening workflows are SUCCESS on the latest observed commit; ARMY-14 Evolution Lab is still IN_PROGRESS.",
-      "EASY runtime v3 deployment b2a33bfe-7955-4bfa-994d-f33db0d6d3be remains SUCCESS. Current background health cycles report gateway/customer/revenue health true and the creative-job service READY, while the separate real creative provider self-test remains externally blocked by provider HTTP 429 credit_balance_exhausted; no fake success is emitted.",
-      "Railway EASY Runtime Production easy-runtime-current remains runtime-drifted: deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f is SUCCESS for commit 648e7a809c5a3cae2da34519b39a32909aef0902, while its runtime continues to emit repository_verification_failed:syntax_failed for elite-deployment-recovery.mjs. The observed failure count reached at least 102 in the latest fetched log window. No production redeploy was performed."
+      "ARMY-14 PR #71 advanced to head 50ee158a9960a078710bebeb8aa95c451d67baea2; completion verification is now bound to a durable in-memory transition history, rejecting forged completed state even with valid-looking run-bound evidence. Dirty-workspace and lifecycle/recovery hardening remain present.",
+      "ARMY-14 commit e24dd376460a4aaf9b75ca02786dc5da6397deb2 triggered fresh CI; Elite Harness v2, elite-hardening-ci and other gates were observed in progress, so final completion status is not yet verified.",
+      "Salamou-31 PR #7 advanced through d777953fd84b1319a8e80454cb26c1feb7e8da3b and a3dd2cd0bd58406484ca127e1145a3f7baf9cf47. A fresh-ownerless-lock recovery race was fixed using lock-directory mtime as a stale-age boundary. The first regression expectation was corrected after CI proved fail-closed timeout is the intended behavior.",
+      "Salamou-31 CI run 35481284544 exposed the regression expectation mismatch; after correction, no workflow run is yet observed for a3dd2cd0bd58406484ca127e1145a3f7baf9cf47.",
+      "MONY PR #73 head 4fd1a8212edab44b320c25dfffb385bdd17c7b6d now has revenue-engine, Closure integrity, elite-hardening-ci, hardening-controls and ARMY-14 Evolution Lab workflow runs observed SUCCESS on that head. Owner-aware lock recovery and conflicting-event replay rejection remain in place.",
+      "ELITE PR #72 remains at f206dbf1ef2f7b49c2ed167c6bd5503ca161391d with symlink escape hardening and its latest observed hardening/closure/elite CI SUCCESS.",
+      "EASY runtime v3 remains provider-blocked at the real creative provider boundary; fail-closed behavior is the correct state while external credit/quota is exhausted.",
+      "Railway EASY Runtime Production remains source/runtime drifted at stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 with repeated repository syntax-failure logs; no production redeploy performed."
     ],
     "evidence": [
-      "agent-skills main is cc83fb01ec7fef933bdbe33632979419f47f1e27; PR #71 head 1b9c408a3ebb8aaa23e5e49a0da1d5481bded3ce; latest observed relevant CI includes ARMY-14 soldier systems gate 35479752771, integrated field exercise 35479752797, hardening-controls 35479752784, elite-hardening-ci 35479752773, Elite Harness v2 35479752770, Closure integrity 35479752772 and creative-core 35479752769 SUCCESS.",
-      "agent-skills PR #72 head f206dbf1ef2f7b49c2ed167c6bd5503ca161391d; latest observed hardening-controls 35479797364, elite-hardening-ci 35479797363 and Closure integrity 35479797361 SUCCESS; ARMY-14 Evolution Lab 35479797375 is IN_PROGRESS.",
-      "Salamou-31 PR #7 head aa412becc159db3e1b802c64d4f7a220aba44c6e; ai-product-content-api-test run 35479738783 SUCCESS after the test-only ESM fix.",
-      "Railway EASY Developer Platform v3 status reports deployment b2a33bfe-7955-4bfa-994d-f33db0d6d3be SUCCESS; current logs show repeated successful background health cycles and a provider-blocked creative self-test.",
-      "Railway EASY Runtime Production deployment 48eae0f3-23ab-487f-908b-bb94d7b11d9f remains SUCCESS at stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while deploy/runtime logs continue the syntax failure loop.",
-      "MONY PR #67 remains open and review-gated; no revenue, commission, conversion, or payout evidence is claimed."
+      "agent-skills PR #71 latest head 50ee158a9960a078710bebeb8aa95c451d67baea2; CI for parent hardening commit e24dd376460a4aaf9b75ca02786dc5da6397deb2 has fresh runs, with several still IN_PROGRESS at observation time.",
+      "Salamou-31 PR #7 latest head a3dd2cd0bd58406484ca127e1145a3f7baf9cf47; prior run 35481284544 failed specifically because the fresh ownerless lock regression expected pending instead of the implemented fail-closed timeout.",
+      "MONY PR #73 head 4fd1a8212edab44b320c25dfffb385bdd17c7b6d: revenue-engine 35480728761, Closure integrity 35480728723, elite-hardening-ci 35480728731, hardening-controls 35480728730 and ARMY-14 Evolution Lab 35480728721 SUCCESS.",
+      "ELITE PR #72 head f206dbf1ef2f7b49c2ed167c6bd5503ca161391d: hardening-controls 35479797364, elite-hardening-ci 35479797363, Closure integrity 35479797361 and ARMY-14 Evolution Lab 35479797375 SUCCESS.",
+      "EASY Developer Platform v3 remains runtime healthy at gateway/customer/revenue layers while real creative provider self-test is externally blocked by HTTP 429 credit exhaustion.",
+      "EASY Runtime Production continues emitting repository_verification_failed:syntax_failed for elite-deployment-recovery.mjs at stale runtime commit 648e7a809c5a3cae2da34519b39a32909aef0902."
     ],
     "blockers": [
       "ARMY14_PR_71_REVIEW_GATE",
       "SALAMOU31_PR_7_REVIEW_GATE",
       "ELITE_PR_72_REVIEW_GATE",
-      "MONY_PR_67_REVIEW_GATE",
+      "MONY_PR_73_REVIEW_GATE",
       "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
-      "ARMY14_EVOLUTION_LAB_CI_IN_PROGRESS",
+      "ARMY14_CI_NOT_YET_SETTLED",
+      "SALAMOU31_CI_NOT_YET_OBSERVED_AFTER_FINAL_TEST_FIX",
       "RAILWAY_SOURCE_COMMIT_DRIFT",
-      "MONY_HARDENING_BRANCH_CI_NOT_YET_OBSERVED"
+      "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
     ],
-    "next_action": "After current CI settles, continue adversarial recovery/persistence work on ARMY-14, verify MONY hardening branch with CI, continue ELITE evidence/repository identity attacks, then inspect EASY provider fail-closed edge cases and Railway drift controls; do not merge review-gated PRs or redeploy production without the required human boundary."
+    "next_action": "Continue after fresh CI settles: harden ARMY-14 crash/restart/persistence/cross-process recovery; verify Salamou-31 corrected regression in CI; deepen ELITE evidence replay/repository identity and rollback-failure attacks; inspect MONY durable attribution/business identity boundaries; audit EASY fail-closed/provider edge cases; then address Railway drift controls without production redeploy or review-gate bypass."
   }
 }
