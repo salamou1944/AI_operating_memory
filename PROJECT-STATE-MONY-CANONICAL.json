@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-02",
+  "state_revision": "mony-2026-09-20-live-audit-03",
   "project": "MONY",
-  "updated_at": "2026-09-20T13:50:00Z",
+  "updated_at": "2026-09-20T22:45:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -12,13 +12,16 @@
     "LEVERAGE_LAB_PR_74_REVIEW_GATE",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_SOURCE_COMMIT_DRIFT",
-    "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
+    "MONY_NO_REVENUE_PAYOUT_EVIDENCE",
+    "SALAMOU31_PR_10_REVIEW_GATE"
   ],
   "next_actions": [
     "Complete explicit human review for workflow-changing hardening PRs before merge.",
     "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
-    "Verify EASY runtime against current source after Railway source/runtime drift is resolved.",
-    "Verify MONY business revenue only from real PartnerStack reward and payout evidence."
+    "Deploy and verify agent-skills current main to easy-runtime-current after Railway source/runtime drift is resolved; do not treat the stale runtime as current source.",
+    "Re-verify the EASY customer creative path only after the real external provider credit blocker is removed.",
+    "Verify MONY business revenue only from real PartnerStack reward and payout evidence.",
+    "Review and verify Salamou-31 PR #10 quota-refund hardening before merge."
   ],
   "completed_tasks": [
     "Canonical machine-readable MONY state repository established.",
@@ -31,9 +34,10 @@
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime has source/runtime drift and stale verification failures.",
+    "Railway EASY runtime is running stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while agent-skills main is 42627a0d1923b5f479931d5c0db8283100916235; stale runtime logs repeatedly report syntax_failed on elite-deployment-recovery.mjs.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
-    "Open agent-skills hardening PRs remain review-gated."
+    "Open agent-skills hardening PRs remain review-gated.",
+    "Salamou-31 PR #10 is review-gated and has not yet produced CI status through the connected status surface."
   ],
   "evidence": [
     {
@@ -115,7 +119,37 @@
       "evidence_hash": "sha256:b587a6b83c21defa7ced7ac0049b396fe5cfdc711fd89ede743ef2469f7666fe",
       "status": "verified",
       "provider_event_id": null
+    },
+    {
+      "source_name": "Railway EASY Runtime Production deployment cf37d203-a5c7-4995-979e-cc9dcac88cf4",
+      "source_url": "https://railway.com/project/4c4c8630-b755-401b-a3e0-42fdd70b7bb2",
+      "observed_at": "2026-09-20T22:42:35Z",
+      "retrieved_at": "2026-09-20T22:45:00Z",
+      "claim": "The running easy-runtime-current deployment is commit 648e7a809c5a3cae2da34519b39a32909aef0902; repeated runtime cycles report repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs, and /creative returned 404. This is stale-runtime evidence, not current-main proof.",
+      "evidence_hash": "sha256:railway-cf37d203-stale-runtime-20260920",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills main",
+      "source_url": "https://github.com/salamou1944/agent-skills/commit/42627a0d1923b5f479931d5c0db8283100916235",
+      "observed_at": "2026-09-20T20:36:52Z",
+      "retrieved_at": "2026-09-20T22:45:00Z",
+      "claim": "Current agent-skills main is 42627a0d1923b5f479931d5c0db8283100916235 and contains the current EASY gateway closure marker; it is 360 commits ahead of the stale Railway deployment commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+      "evidence_hash": "sha256:agent-skills-main-42627-live-audit",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/Salamou-31 PR #10",
+      "source_url": "https://github.com/salamou1944/Salamou-31/pull/10",
+      "observed_at": "2026-09-20T22:44:32Z",
+      "retrieved_at": "2026-09-20T22:45:00Z",
+      "claim": "PR #10 adds quota refund on real provider generation failure and a regression contract; it is open and not merged, so the fix is not production state yet.",
+      "evidence_hash": "sha256:salamou31-pr10-open-20260920",
+      "status": "verified",
+      "provider_event_id": null
     }
   ],
-  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
+  "commit_sha": "2dc066aa537e3aa11df5a0a56a47cc073195e431"
 }
