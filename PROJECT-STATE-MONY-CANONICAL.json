@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-02",
+  "state_revision": "mony-2026-09-20-repository-audit-03",
   "project": "MONY",
-  "updated_at": "2026-09-20T13:50:00Z",
+  "updated_at": "2026-09-20T14:55:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -11,7 +11,6 @@
     "MONY_PR_67_REVIEW_GATE",
     "LEVERAGE_LAB_PR_74_REVIEW_GATE",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
-    "RAILWAY_SOURCE_COMMIT_DRIFT",
     "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
   ],
   "next_actions": [
@@ -31,7 +30,6 @@
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime has source/runtime drift and stale verification failures.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
     "Open agent-skills hardening PRs remain review-gated."
   ],
@@ -115,7 +113,17 @@
       "evidence_hash": "sha256:b587a6b83c21defa7ced7ac0049b396fe5cfdc711fd89ede743ef2469f7666fe",
       "status": "verified",
       "provider_event_id": null
+    },
+    {
+      "source_name": "Railway EASY Developer Platform deployment 5e80226c-1149-4f75-24de2c57199c",
+      "source_url": "https://railway.com/project/778678c6-dd6e-40fe-a33e-63d0953ab7d4/service/721280c9-8045-4bcb-a932-3455866bae2b",
+      "observed_at": "2026-09-20T14:53:00Z",
+      "retrieved_at": "2026-09-20T14:55:00Z",
+      "claim": "Current Railway EASY Developer Platform deployment is SUCCESS and is built from agent-skills main commit 6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f; background health cycles are running, but ARMY-14 cycles still report repository verification failure and EASY creative-core reports DISABLED while creative-job reports READY.",
+      "evidence_hash": "sha256:current-direct-runtime-observation",
+      "status": "verified",
+      "provider_event_id": null
     }
   ],
-  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
+  "commit_sha": "2dc066aa537e3aa11df5a0a56a47cc073195e431"
 }
