@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-03",
+  "state_revision": "mony-2026-09-20-canonical-validation-04",
   "project": "MONY",
-  "updated_at": "2026-09-20T14:58:52Z",
+  "updated_at": "2026-09-20T19:35:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -69,11 +69,11 @@
     },
     {
       "source_name": "Railway EASY deployment 5e80226c-114f-475b-bb75-24de2c57199c",
-      "source_url": "https://railway.app",
+      "source_url": "https://railway.com/project/778678c6-dd6e-40fe-a33e-63d0953ab7d4/service/721280c9-8045-4bcb-a932-3455866bae2b?id=5e80226c-114f-475d-bb75-24de2c57199c&environmentId=ae3d2189-2aa5-4c5e-8ee8-9bfdc45cd2a4",
       "observed_at": "2026-09-20T14:58:52Z",
       "retrieved_at": "2026-09-20T14:58:52Z",
       "claim": "Current EASY runtime is SUCCESS and repeatedly reports internal health across gateway, operator, customer, creative-job, and revenue paths; provider-readiness identifies agent-skills main at 6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f. Real Creative self-test reaches the external provider but is BLOCKED by provider_http_429 credit_balance_exhausted; no generated image is claimed.",
-      "evidence_hash": "sha256:runtime-observed-2026-09-20T145852Z",
+      "evidence_hash": "sha256:edefd120e0e7d9dab2c47b6e4bcfc4120211e6fba38662aff5455a6080b42dad",
       "status": "verified",
       "provider_event_id": null
     },
