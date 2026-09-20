@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-live-audit-03",
+  "state_revision": "mony-2026-09-21-live-audit-04",
   "project": "MONY",
-  "updated_at": "2026-09-20T22:45:00Z",
+  "updated_at": "2026-09-20T23:55:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -21,7 +21,7 @@
     "Deploy and verify agent-skills current main to easy-runtime-current after Railway source/runtime drift is resolved; do not treat the stale runtime as current source.",
     "Re-verify the EASY customer creative path only after the real external provider credit blocker is removed.",
     "Verify MONY business revenue only from real PartnerStack reward and payout evidence.",
-    "Review and verify Salamou-31 PR #10 quota-refund hardening before merge."
+    "Review and verify Salamou-31 PR #10 quota-refund hardening after its latest CI run; merge remains human-gated."
   ],
   "completed_tasks": [
     "Canonical machine-readable MONY state repository established.",
@@ -37,7 +37,7 @@
     "Railway EASY runtime is running stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while agent-skills main is 42627a0d1923b5f479931d5c0db8283100916235; stale runtime logs repeatedly report syntax_failed on elite-deployment-recovery.mjs.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
     "Open agent-skills hardening PRs remain review-gated.",
-    "Salamou-31 PR #10 is review-gated and has not yet produced CI status through the connected status surface."
+    "Salamou-31 PR #10 is review-gated; its latest head is 8d635d69e053bdadf2b97d7a877b3c071766bbbf and CI is being re-run after a contract-test correction."
   ],
   "evidence": [
     {
@@ -132,24 +132,27 @@
     },
     {
       "source_name": "salamou1944/agent-skills main",
-      "source_url": "https://github.com/salamou1944/agent-skills/commit/42627a0d1923b5f479931d5c0db8283100916235",
-      "observed_at": "2026-09-20T20:36:52Z",
-      "retrieved_at": "2026-09-20T22:45:00Z",
-      "claim": "Current agent-skills main is 42627a0d1923b5f479931d5c0db8283100916235 and contains the current EASY gateway closure marker; it is 360 commits ahead of the stale Railway deployment commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
-      "evidence_hash": "sha256:agent-skills-main-42627-live-audit",
+      "source_url": "https://github.com/salamou1944/agent-skills/commit/47658e770ab31e4569bcd7c51266b737e8b4bb52",
+      "observed_at": "2026-09-20T22:47:57Z",
+      "retrieved_at": "2026-09-20T23:55:00Z",
+      "claim": "Current agent-skills main is 47658e770ab31e4569bcd7c51266b737e8b4bb52 (Fix gateway syntax error blocking Railway healthcheck). Railway deployment cf37d203-a5c7-4995-979e-cc9dcac88cf4 still runs stale commit 648e7a809c5a3cae2da34519b39a32909aef0902; stale runtime is not current-main proof.",
+      "evidence_hash": "sha256:agent-skills-main-47658-live-audit",
       "status": "verified",
       "provider_event_id": null
     },
     {
       "source_name": "salamou1944/Salamou-31 PR #10",
       "source_url": "https://github.com/salamou1944/Salamou-31/pull/10",
-      "observed_at": "2026-09-20T22:44:32Z",
-      "retrieved_at": "2026-09-20T22:45:00Z",
-      "claim": "PR #10 adds quota refund on real provider generation failure and a regression contract; it is open and not merged, so the fix is not production state yet.",
-      "evidence_hash": "sha256:salamou31-pr10-open-20260920",
+      "observed_at": "2026-09-20T23:55:00Z",
+      "retrieved_at": "2026-09-20T23:55:00Z",
+      "claim": "PR #10 remains open and unmerged. Latest head 8d635d69e053bdadf2b97d7a877b3c071766bbbf adds single-shot quota refund protection and corrected contract assertions; latest CI run is still in progress at observation time, so this is not production state.",
+      "evidence_hash": "sha256:salamou31-pr10-head-8d635d69-20260920",
       "status": "verified",
       "provider_event_id": null
     }
   ],
-  "commit_sha": "2dc066aa537e3aa11df5a0a56a47cc073195e431"
+  "commit_sha": "8879ec552ef7938f1064afefea50a3be962fac49",
+  "blockers": [
+    "SALAMOU31_PR_10_REVIEW_GATE"
+  ]
 }
