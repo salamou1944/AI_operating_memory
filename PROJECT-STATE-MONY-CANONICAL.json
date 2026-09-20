@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-02",
+  "state_revision": "mony-2026-09-20-repository-audit-03",
   "project": "MONY",
-  "updated_at": "2026-09-20T13:50:00Z",
+  "updated_at": "2026-09-20T14:58:52Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -11,13 +11,13 @@
     "MONY_PR_67_REVIEW_GATE",
     "LEVERAGE_LAB_PR_74_REVIEW_GATE",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
-    "RAILWAY_SOURCE_COMMIT_DRIFT",
     "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
   ],
   "next_actions": [
     "Complete explicit human review for workflow-changing hardening PRs before merge.",
     "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
-    "Verify EASY runtime against current source after Railway source/runtime drift is resolved.",
+    "Re-verify EASY creative execution after external provider credit is restored; current runtime is internally healthy but real generation is blocked fail-closed.",
+    "Continue ARMY-14 runtime repository-verification investigation; absence of a current failure log is not treated as proof of resolution.",
     "Verify MONY business revenue only from real PartnerStack reward and payout evidence."
   ],
   "completed_tasks": [
@@ -26,14 +26,15 @@
     "Elite deployment-recovery syntax regression merged after required CI success.",
     "ARMY-14 lifecycle concurrency and evidence integrity hardening merged.",
     "MONY revenue-ledger concurrency and conflicting replay hardening merged.",
-    "Salamou-31 owner-aware stale idempotency recovery merged."
+    "Salamou-31 owner-aware stale idempotency recovery merged.",
+    "Current Railway deployment verified against agent-skills main commit 6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f; prior source/runtime drift blocker is no longer supported by current evidence."
   ],
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime has source/runtime drift and stale verification failures.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
-    "Open agent-skills hardening PRs remain review-gated."
+    "Open agent-skills hardening PRs remain review-gated.",
+    "ARMY-14 runtime repository verification requires fresh task-specific evidence before resolution."
   ],
   "evidence": [
     {
@@ -51,7 +52,7 @@
       "source_url": "https://github.com/salamou1944/agent-skills/pull/74",
       "observed_at": "2026-09-20T13:50:00Z",
       "retrieved_at": "2026-09-20T13:50:00Z",
-      "claim": "Leverage Lab PR #74 is open and intentionally review-gated; its Leverage Lab workflow succeeded, while the repository security gate correctly rejected the workflow change pending explicit review.",
+      "claim": "Leverage Lab PR #74 is open and intentionally review-gated; its Leverage Lab workflow succeeded, while the repository security gate rejected the workflow change pending explicit review.",
       "evidence_hash": "sha256:5055bfb464afd1f3a7fdf16e87316a17bf45a6b8d820b581ce5fcddff902b6a2",
       "status": "verified",
       "provider_event_id": null
@@ -63,6 +64,16 @@
       "retrieved_at": "2026-09-20T13:50:00Z",
       "claim": "MONY live E2E tracking-contract PR #67 is open and subject to the repository explicit-review security gate.",
       "evidence_hash": "sha256:ac187b26814d1d03d03c04b0c9bfaebe6afa5a052847bdd7d33f4e2cc514c587",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "Railway EASY deployment 5e80226c-114f-475b-bb75-24de2c57199c",
+      "source_url": "https://railway.app",
+      "observed_at": "2026-09-20T14:58:52Z",
+      "retrieved_at": "2026-09-20T14:58:52Z",
+      "claim": "Current EASY runtime is SUCCESS and repeatedly reports internal health across gateway, operator, customer, creative-job, and revenue paths; provider-readiness identifies agent-skills main at 6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f. Real Creative self-test reaches the external provider but is BLOCKED by provider_http_429 credit_balance_exhausted; no generated image is claimed.",
+      "evidence_hash": "sha256:runtime-observed-2026-09-20T145852Z",
       "status": "verified",
       "provider_event_id": null
     },
@@ -117,5 +128,5 @@
       "provider_event_id": null
     }
   ],
-  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
+  "commit_sha": "6ac9f80fdbfa8c0b85f7c61d9583f1f123077b5f"
 }
