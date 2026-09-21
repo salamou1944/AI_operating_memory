@@ -1,8 +1,8 @@
 {
   "version": 4,
-  "state_revision": "mony-2026-09-21-operating-rescan-v10",
+  "state_revision": "mony-2026-09-21-operating-rescan-v11",
   "project": "MONY",
-  "updated_at": "2026-09-21T19:01:14.816Z",
+  "updated_at": "2026-09-21T21:04:25.446Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -51,11 +51,11 @@
   "current_source": {
     "repository": "salamou1944/agent-skills",
     "branch": "main",
-    "intended_commit": "df80ba2902a63f203175531c222edfd2be0e795e"
+    "intended_commit": "b6e47cd5da124eeb996ef3c4889114734e9b1152"
   },
   "blockers": [
     "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current SUCCESS deployment b77b7b45-bcea-41e5-acad-56787592f538 still reports stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is df80ba2902a63f203175531c222edfd2be0e795e",
-    "EASY_RUNTIME_EXECUTION_FAILURE: Railway easy-platform-runtime-v3 health is green, but background Army-14 cycles repeatedly report repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs; autonomous execution is therefore not fully verified",
+    "EASY_RUNTIME_EXECUTION_FAILURE: Railway easy-runtime-current remains on stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and its Army-14 worker repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs; the current v3 gateway deployment b6e47cd5da124eeb996ef3c4889114734e9b1152 is independently healthy but is a different runtime surface",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_AGENT_USAGE_LIMIT",
     "MONY_NO_REAL_PARTNERSTACK_REWARD_OR_PAYOUT_EVIDENCE",
@@ -64,8 +64,8 @@
   "evidence": [
     {
       "source": "GitHub main",
-      "observed_at": "2026-09-21T15:00:00Z",
-      "claim": "agent-skills main is df80ba2902a63f203175531c222edfd2be0e795e.",
+      "observed_at": "2026-09-21T21:03:38Z",
+      "claim": "agent-skills main is b6e47cd5da124eeb996ef3c4889114734e9b1152.",
       "status": "OBSERVED"
     },
     {
@@ -182,10 +182,10 @@
   "next_frontier": [
     "Resolve Railway source/provenance drift on easy-runtime-current through an authorized exact-commit deployment path.",
     "Independently reproduce the runtime syntax-verification failure for elite-deployment-recovery.mjs before changing code.",
-    "Keep EASY external image generation blocked until provider credits are available; do not convert local-safe-presenter into proof of external-provider completion.",
+    "Keep EASY external image generation blocked until provider credits are available; do not convert local-safe-presenter into proof of external-provider completion. Current v3 smoke test explicitly records provider_http_429 / credit_balance_exhausted and overall BLOCKED_EXTERNAL_PROVIDER.",
     "Prove a human-accessible paid entry point for AI Product Content API or the narrow done-for-you product-listing offer.",
     "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
     "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
   ],
-  "commit_sha": "aed004a035b673a933094bd9a7a9a1ec1e750a08"
+  "commit_sha": "b6e47cd5da124eeb996ef3c4889114734e9b1152"
 }
