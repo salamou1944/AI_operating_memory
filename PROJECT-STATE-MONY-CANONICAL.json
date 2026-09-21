@@ -187,5 +187,19 @@
     "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
     "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
   ],
-  "commit_sha": "7f96af433f62a395a48760ef57a7ce40b804a2ea"
+  "commit_sha": "d066c9cebee2d346dd2edd88189d34c771865e97",
+  "latest_execution_round": {
+    "status": "IN_PROGRESS",
+    "observed_at": "2026-09-21T21:14:30Z",
+    "source_repo": "salamou1944/agent-skills",
+    "current_main_commit": "d066c9cebee2d346dd2edd88189d34c771865e97",
+    "railway_service": "easy-runtime-current",
+    "latest_deployment": "8a77d0ac-1ecd-4ac8-8fcd-5106dd9ba969",
+    "deployed_commit": "648e7a809c5a3cae2da34519b39a32909aef0902",
+    "provenance": "MISMATCH",
+    "runtime_result": "healthcheck_success_but_army14_repository_verification_failed",
+    "railway_agent": "BLOCKED_EXTERNALLY_USAGE_LIMIT",
+    "deployment_workflow_commit": "d066c9cebee2d346dd2edd88189d34c771865e97",
+    "army14_task_completion": "UNPROVEN_TASK_VERIFIED_FALSE"
+  }
 }
