@@ -1,23 +1,27 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-20-repository-audit-02",
+  "state_revision": "mony-2026-09-21-leverage-audit-01",
   "project": "MONY",
-  "updated_at": "2026-09-20T13:50:00Z",
+  "updated_at": "2026-09-21T01:00:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
-  "active_workstream": "repository-wide verification hardening",
+  "active_workstream": "repository-wide evidence and leverage hardening",
   "blocked_by": [
     "ELITE_PR_72_REVIEW_GATE",
     "MONY_PR_67_REVIEW_GATE",
     "LEVERAGE_LAB_PR_74_REVIEW_GATE",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_SOURCE_COMMIT_DRIFT",
-    "MONY_NO_REVENUE_PAYOUT_EVIDENCE"
+    "MONY_NO_REVENUE_PAYOUT_EVIDENCE",
+    "SALAMOU31_PR_10_REVIEW_GATE",
+    "EASY_DEPLOY_PREFLIGHT_PR_79_REVIEW_GATE",
+    "EASY_HUMAN_TRIAL_EVIDENCE_PR_80_REVIEW_GATE"
   ],
   "next_actions": [
-    "Complete explicit human review for workflow-changing hardening PRs before merge.",
-    "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
-    "Verify EASY runtime against current source after Railway source/runtime drift is resolved.",
+    "Complete explicit human review for workflow-changing and evidence-boundary hardening PRs before merge.",
+    "Continue independent repository audit and adversarial testing on frontiers not blocked by gates.",
+    "Resolve Railway source/runtime drift using an exact-commit deployment path; redeploy alone is insufficient because it reuses the associated stale commit.",
+    "After current-source runtime identity is proven, rerun EASY provider/E2E/business evidence; current real OpenAI credit exhaustion remains an external blocker.",
     "Verify MONY business revenue only from real PartnerStack reward and payout evidence."
   ],
   "completed_tasks": [
@@ -31,8 +35,9 @@
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime has source/runtime drift and stale verification failures.",
-    "MONY revenue is not business-verified without real PartnerStack reward evidence.",
+    "Railway easy-runtime-current is running commit 648e7a809c5a3cae2da34519b39a32909aef0902 while agent-skills/main is 47658e770ab31e4569bcd7c51266b737e8b4bb52.",
+    "Human-trial readiness previously treated service health as sufficient; PR #80 hardens this boundary but is not merged.",
+    "MONY revenue is not business-verified without real PartnerStack reward/payout evidence.",
     "Open agent-skills hardening PRs remain review-gated."
   ],
   "evidence": [
@@ -115,7 +120,43 @@
       "evidence_hash": "sha256:b587a6b83c21defa7ced7ac0049b396fe5cfdc711fd89ede743ef2469f7666fe",
       "status": "verified",
       "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills main",
+      "source_url": "https://github.com/salamou1944/agent-skills/commit/47658e770ab31e4569bcd7c51266b737e8b4bb52",
+      "observed_at": "2026-09-21T00:59:00Z",
+      "retrieved_at": "2026-09-21T00:59:00Z",
+      "claim": "Current main commit observed as 47658e770ab31e4569bcd7c51266b737e8b4bb52.",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "Railway easy-runtime-current deployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9",
+      "source_url": "https://railway.com",
+      "observed_at": "2026-09-21T00:59:30Z",
+      "retrieved_at": "2026-09-21T00:59:30Z",
+      "claim": "Latest SUCCESS deployment still reports commit 648e7a809c5a3cae2da34519b39a32909aef0902 on main, proving source/runtime drift against current GitHub main.",
+      "status": "verified",
+      "provider_event_id": "b8eb92ea-a581-4a9e-81fa-496b118ca1e9"
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #79",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/79",
+      "observed_at": "2026-09-21T00:59:45Z",
+      "retrieved_at": "2026-09-21T00:59:45Z",
+      "claim": "Deployment preflight hardening PR #79 is open; its workflow-change closure remains human-review gated.",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #80",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/80",
+      "observed_at": "2026-09-21T01:00:00Z",
+      "retrieved_at": "2026-09-21T01:00:00Z",
+      "claim": "Human-trial evidence hardening PR #80 is open; it requires provider self-test, runtime identity, and explicit human-trial authorization and classifies real provider credit exhaustion as BLOCKED_EXTERNAL_DEPENDENCY. No merge or production proof claimed.",
+      "status": "verified",
+      "provider_event_id": null
     }
   ],
-  "commit_sha": "e09a70f7301bcfe7171438cf291f5e5b9b842fae"
+  "commit_sha": "9baca484dcaefa2c151b8c19435a14794f710a7a"
 }
