@@ -1,8 +1,8 @@
 {
   "version": 4,
-  "state_revision": "mony-2026-09-21-human-ready-closure-v9-runtime-rescan",
+  "state_revision": "mony-2026-09-21-operating-rescan-v10",
   "project": "MONY",
-  "updated_at": "2026-09-21T15:35:00Z",
+  "updated_at": "2026-09-21T19:01:14.816Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -54,8 +54,8 @@
     "intended_commit": "df80ba2902a63f203175531c222edfd2be0e795e"
   },
   "blockers": [
-    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current SUCCESS deployment b77b7b45-bcea-41e5-acad-56787592f538 reports commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is df80ba2902a63f203175531c222edfd2be0e795e",
-    "EASY_RUNTIME_EXECUTION_FAILURE: stale Railway runtime repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs",
+    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current SUCCESS deployment b77b7b45-bcea-41e5-acad-56787592f538 still reports stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is df80ba2902a63f203175531c222edfd2be0e795e",
+    "EASY_RUNTIME_EXECUTION_FAILURE: Railway easy-platform-runtime-v3 health is green, but background Army-14 cycles repeatedly report repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs; autonomous execution is therefore not fully verified",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_AGENT_USAGE_LIMIT",
     "MONY_NO_REAL_PARTNERSTACK_REWARD_OR_PAYOUT_EVIDENCE",
@@ -115,6 +115,41 @@
       "observed_at": "2026-09-21T15:00:00Z",
       "claim": "API has persistent quota locking/refund and idempotency logic, but no human-accessible deployed entry point is currently proven.",
       "status": "IMPLEMENTED"
+    },
+    {
+      "source": "Railway easy-platform-runtime-v3 deployment b283098b-c308-4679-b8ff-7225a0177e27",
+      "observed_at": "2026-09-21T18:38:12Z",
+      "claim": "Deployment is SUCCESS from GitHub commit df80ba2902a63f203175531c222edfd2be0e795e; /api/gateway/status returned 200 and background health checks report gateway, operator, creative-job, customer and revenue online.",
+      "status": "OBSERVED",
+      "qualifier": [
+        "TRACEABLE",
+        "REPRODUCIBLE"
+      ]
+    },
+    {
+      "source": "Railway easy-platform-runtime-v3 background logs",
+      "observed_at": "2026-09-21T18:38:12Z",
+      "claim": "Background health cycle is green for gateway/customer/creative-job/revenue, but the creative-core route reports generationEnabled=false because no external generation provider is selected; creative-job reports READY with local-safe-presenter and external OpenAI configuration available.",
+      "status": "OBSERVED",
+      "qualifier": [
+        "TRACEABLE"
+      ]
+    },
+    {
+      "source": "Railway easy-platform-runtime-v3 background logs",
+      "observed_at": "2026-09-21T18:56:46Z",
+      "claim": "Army-14 background cycle continues to fail repository verification on elite-deployment-recovery.mjs despite the current GitHub main file being syntactically structured; this needs independent runtime reproduction before any repair claim.",
+      "status": "OBSERVED",
+      "qualifier": [
+        "TRACEABLE",
+        "REPRODUCIBLE"
+      ]
+    },
+    {
+      "source": "Public prospect research",
+      "observed_at": "2026-09-21T19:00:00+01:00",
+      "claim": "Real ecommerce/catalog agencies with publicly documented product-data/content needs were identified for potential outreach; no customer, reply, or revenue is recorded from this research.",
+      "status": "DISCOVERED"
     }
   ],
   "MONY": {
@@ -139,14 +174,18 @@
     "Source/runtime provenance mismatch independently re-confirmed from current source and deployment metadata.",
     "Runtime autonomous-cycle failure independently re-observed from deployment logs.",
     "Salamou-31 current-head CI success re-confirmed.",
-    "Canonical control-plane state prepared for current observed evidence and blocker classification."
+    "Canonical control-plane state prepared for current observed evidence and blocker classification.",
+    "Current Railway v3 deployment and live background health logs re-scanned.",
+    "Current GitHub main revision df80ba2902a63f203175531c222edfd2be0e795e verified.",
+    "Commercial prospect research completed without sending outreach or claiming customer status."
   ],
   "next_frontier": [
-    "Use an authorized exact-commit Railway deployment path when available; do not bypass plan/security gates.",
-    "After provenance closure, re-run runtime, provider, E2E and business-flow verification.",
-    "Continue repository-level independent/adversarial hardening that does not require gated merges or external provider credits.",
-    "Keep MONY revenue and payout unverified until real PartnerStack evidence exists.",
-    "Establish and prove human entry points for in-scope services before HUMAN_READY."
+    "Resolve Railway source/provenance drift on easy-runtime-current through an authorized exact-commit deployment path.",
+    "Independently reproduce the runtime syntax-verification failure for elite-deployment-recovery.mjs before changing code.",
+    "Keep EASY external image generation blocked until provider credits are available; do not convert local-safe-presenter into proof of external-provider completion.",
+    "Prove a human-accessible paid entry point for AI Product Content API or the narrow done-for-you product-listing offer.",
+    "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
+    "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
   ],
   "commit_sha": "aed004a035b673a933094bd9a7a9a1ec1e750a08"
 }
