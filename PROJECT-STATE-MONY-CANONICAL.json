@@ -1,8 +1,8 @@
 {
   "version": 4,
-  "state_revision": "mony-2026-09-21-operating-rescan-v11",
+  "state_revision": "mony-2026-09-21-operating-rescan-v12",
   "project": "MONY",
-  "updated_at": "2026-09-21T21:04:25.446Z",
+  "updated_at": "2026-09-21T21:09:30.000Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -187,5 +187,5 @@
     "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
     "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
   ],
-  "commit_sha": "b6e47cd5da124eeb996ef3c4889114734e9b1152"
+  "commit_sha": "7f96af433f62a395a48760ef57a7ce40b804a2ea"
 }
