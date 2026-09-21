@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-21-closure-v6-evidence-compounding-05",
+  "state_revision": "mony-2026-09-21-closure-v6-evidence-compounding-06",
   "project": "MONY",
-  "updated_at": "2026-09-21T02:24:00Z",
+  "updated_at": "2026-09-21T02:26:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "autonomous closure: evidence invalidation/state machine, source-runtime provenance, adversarial hardening and independent frontiers",
@@ -39,7 +39,7 @@
     "Verified PR #80 remains open with fail-closed human-trial evidence logic and regression coverage; no production deployment claimed.",
     "Verified Railway deployment history continues to report the stale main commit, confirming drift rather than merely assuming it.",
     "Created PR #81 with reusable exact source/runtime provenance detector, fail-closed attribution states, recovery classification, and regression tests.",
-    "Implemented PR #82 fail-closed evidence state/invalidation contract on agent-skills; CI execution is in progress and no merge/deploy is claimed."
+    "Implemented and CI-verified PR #82 fail-closed evidence state/invalidation contract on agent-skills; 18 control-plane tests passed inside Closure integrity."
   ],
   "failed_tasks": [],
   "known_risks": [
@@ -50,7 +50,7 @@
     "Salamou-31 PR #10 remains human-gated; latest combined status query returned no status records, so CI success is not claimed from that query.",
     "MONY revenue is not business-verified without real PartnerStack reward/payout evidence.",
     "PR #81 is open and review-gated; provenance capability is implemented/test-triggered in CI but not yet merged or deployed, so live runtime provenance remains unverified.",
-    "PR #82 is open and review-gated; its latest CI runs are currently in progress, so its contract is not yet CI-verified."
+    "PR #82 remains open and review-gated; CI is green but merge/runtime deployment are not claimed."
   ],
   "evidence": [
     {
@@ -121,9 +121,9 @@
     {
       "source_name": "salamou1944/agent-skills PR #82 CI",
       "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
-      "observed_at": "2026-09-21T02:24:00Z",
-      "claim": "Closure integrity, ARMY-14, creative-core, Elite Harness, and elite-hardening workflows are running for the latest PR #82 head; no final CI conclusion yet.",
-      "status": "in_progress",
+      "observed_at": "2026-09-21T02:26:00Z",
+      "claim": "PR #82 latest head passed Closure integrity and related repository gates; Closure integrity executed test:control-plane including the new evidence-state suite with 18/18 passing.",
+      "status": "ci_verified",
       "provider_event_id": "555857d4ade092d06dba3d59264100eb0166f911"
     }
   ],
