@@ -2,7 +2,7 @@
   "version": 4,
   "state_revision": "mony-2026-09-21-human-ready-closure-v9-runtime-rescan",
   "project": "MONY",
-  "updated_at": "2026-09-21T15:30:00Z",
+  "updated_at": "2026-09-21T15:35:00Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -148,5 +148,5 @@
     "Keep MONY revenue and payout unverified until real PartnerStack evidence exists.",
     "Establish and prove human entry points for in-scope services before HUMAN_READY."
   ],
-  "commit_sha": "pending"
+  "commit_sha": "aed004a035b673a933094bd9a7a9a1ec1e750a08"
 }
