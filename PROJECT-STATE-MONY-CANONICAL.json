@@ -1,11 +1,11 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-21-closure-v7-evidence-contract-correction-07",
+  "state_revision": "mony-2026-09-21-closure-v8-pr82-ci-failure-repair-08",
   "project": "MONY",
-  "updated_at": "2026-09-21T04:18:29Z",
+  "updated_at": "2026-09-21T13:20:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
-  "active_workstream": "autonomous closure: evidence invalidation/state machine, source-runtime provenance, adversarial hardening and independent frontiers",
+  "active_workstream": "autonomous closure: fresh PR #82 verification, source-runtime provenance, adversarial hardening and independent human-ready frontiers",
   "blocked_by": [
     "ELITE_PR_72_REVIEW_GATE",
     "MONY_PR_67_REVIEW_GATE",
@@ -21,13 +21,13 @@
     "EVIDENCE_STATE_PR_82_REVIEW_GATE"
   ],
   "next_actions": [
-    "Continue independent repository and adversarial work that does not require human/security/provider gates.",
+    "Run fresh PR #82 CI after repairing the maturity-comparison regression revealed by Closure integrity.",
     "Resolve Railway source/runtime drift only through an authorized exact-commit deployment path; current easy-runtime-current SUCCESS deployment remains on stale 648e7a809c5a3cae2da34519b39a32909aef0902 while main is 47658e770ab31e4569bcd7c51266b737e8b4bb52.",
     "Use the provenance detector/verifier contract in PR #81 after review; do not treat detector implementation as runtime verification until deployed and exercised against the live endpoint.",
     "After source/runtime identity is proven, rerun EASY runtime/provider/E2E/business evidence; OpenAI credit exhaustion remains external.",
+    "Continue adversarial hardening on independent frontiers, especially Salamou-31 quota/refund/idempotency and Elite verifier boundaries.",
     "Keep MONY business revenue unverified until real PartnerStack reward/payout evidence exists.",
-    "Human-review workflow/evidence-boundary/provenance PRs before merge; no gate bypass.",
-    "Re-run PR #82 verification after the evidence-state correction; prior CI evidence is stale for the corrected head."
+    "Human-review workflow/evidence-boundary/provenance PRs before merge; no gate bypass."
   ],
   "completed_tasks": [
     "Canonical machine-readable MONY state repository established.",
@@ -40,57 +40,60 @@
     "Verified PR #80 remains open with fail-closed human-trial evidence logic and regression coverage; no production deployment claimed.",
     "Verified Railway deployment history continues to report the stale main commit, confirming drift rather than merely assuming it.",
     "Created PR #81 with reusable exact source/runtime provenance detector, fail-closed attribution states, recovery classification, and regression tests.",
-    "Corrected PR #82 so Evidence Maturity is limited to the canonical 8-level ladder and Evidence Qualifiers remain independent; the corrected head is review-gated pending fresh CI verification."
+    "Corrected PR #82 so Evidence Maturity is limited to the canonical 8-level ladder and Evidence Qualifiers remain independent.",
+    "Fresh PR #82 Closure integrity run executed against merge commit dc962f7b1528289bb6742f0223062a6727997729 and exposed one real regression: the test incorrectly supplied OBSERVED to isAtLeast as a maturity input.",
+    "Repaired PR #82 test contract on head f4ab182111523bf85c58d9ae903c17eeae14ed2f so qualifiers are explicitly rejected as maturity comparison inputs and valid maturity comparisons are tested."
   ],
-  "failed_tasks": [],
+  "failed_tasks": [
+    "PR #82 Closure integrity run 406 failed 1 of 23 control-plane tests; 22 passed. Root cause was a test expecting isAtLeast to return false for the qualifier OBSERVED instead of expecting fail-closed unknown maturity."
+  ],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway easy-runtime-current latest SUCCESS deployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9 reports stale commit 648e7a809c5a3cae2da34519b39a32909aef0902.",
+    "Railway easy-runtime-current latest SUCCESS deployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9 reports stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and repeated repository_verification_failed syntax failures.",
     "Railway agent diagnosis cannot currently run because its usage limit is exhausted.",
     "PR #79, #80, #67, #72 and #74 remain human/security gated.",
-    "Salamou-31 PR #10 remains human-gated; latest combined status query returned no status records, so CI success is not claimed from that query.",
+    "Salamou-31 PR #10 has fresh successful ai-product-content-api-test run 25 on head 591c71309eadbb01e85548f5f6197156b9a6ca2c, but human merge review remains required.",
     "MONY revenue is not business-verified without real PartnerStack reward/payout evidence.",
-    "PR #81 is open and review-gated; provenance capability is implemented/test-triggered in CI but not yet merged or deployed, so live runtime provenance remains unverified.",
-    "PR #82 corrected head c019bb7ced8892b292a4db59bb381d1372574e7a is open and review-gated; fresh CI verification is not yet available after the correction.",
-    "The earlier PR #82 CI evidence referenced in v6 cannot be inherited by the corrected head because the evidence-generation input changed."
+    "PR #81 is open and review-gated; provenance capability is implemented but not merged or deployed, so live runtime provenance remains unverified.",
+    "PR #82 repaired head f4ab182111523bf85c58d9ae903c17eeae14ed2f has not yet produced fresh CI after the repair; prior CI evidence remains stale."
   ],
   "evidence": [
     {
       "source_name": "salamou1944/agent-skills main",
       "source_url": "https://github.com/salamou1944/agent-skills/commit/47658e770ab31e4569bcd7c51266b737e8b4bb52",
-      "observed_at": "2026-09-21T01:10:00Z",
+      "observed_at": "2026-09-21T13:10:00Z",
       "claim": "Current GitHub main is 47658e770ab31e4569bcd7c51266b737e8b4bb52.",
       "status": "verified"
     },
     {
       "source_name": "Railway easy-runtime-current deployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9",
       "source_url": "https://railway.com",
-      "observed_at": "2026-09-21T04:15:14Z",
-      "claim": "Latest SUCCESS deployment remains on stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs.",
+      "observed_at": "2026-09-21T13:15:11Z",
+      "claim": "Latest SUCCESS deployment remains on stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs; failure counter reached 159 in the retrieved logs.",
       "status": "verified",
       "provider_event_id": "b8eb92ea-a581-4a9e-81fa-496b118ca1e9"
     },
     {
-      "source_name": "salamou1944/agent-skills PR #81",
-      "source_url": "https://github.com/salamou1944/agent-skills/pull/81",
-      "observed_at": "2026-09-21T02:14:45Z",
-      "claim": "Open PR adds exact source/branch/commit/environment provenance verification, explicit SOURCE_RUNTIME_DRIFT and UNATTRIBUTED_RUNTIME classifications, deployment/snapshot checks, recovery requirement classification, and regression coverage.",
+      "source_name": "salamou1944/agent-skills PR #82 fresh Closure integrity run 406",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
+      "observed_at": "2026-09-21T04:18:39Z",
+      "claim": "Fresh run executed against PR #82 merge commit dc962f7b1528289bb6742f0223062a6727997729; control-plane suite produced 23 tests with 22 passing and 1 failing in the maturity-comparison test.",
+      "status": "verification_failed",
+      "provider_event_id": "35560477185"
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #82 repaired head",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
+      "observed_at": "2026-09-21T13:18:49Z",
+      "claim": "PR #82 head advanced to f4ab182111523bf85c58d9ae903c17eeae14ed2f with corrected regression expectations.",
+      "status": "repaired_pending_fresh_ci"
+    },
+    {
+      "source_name": "salamou1944/Salamou-31 PR #10 CI",
+      "source_url": "https://github.com/salamou1944/Salamou-31/pull/10",
+      "observed_at": "2026-09-21T13:10:00Z",
+      "claim": "ai-product-content-api-test run 25 completed successfully on head 591c71309eadbb01e85548f5f6197156b9a6ca2c.",
       "status": "verified"
-    },
-    {
-      "source_name": "salamou1944/agent-skills PR #82 corrected head",
-      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
-      "observed_at": "2026-09-21T04:18:29Z",
-      "claim": "PR #82 corrected head c019bb7ced8892b292a4db59bb381d1372574e7a separates the 8-level Evidence Maturity ladder from the independent OBSERVED/PERSISTED/TRACEABLE/REPRODUCIBLE/HARDENED qualifiers and keeps HUMAN_READY outside Evidence Maturity.",
-      "status": "implemented_review_gated"
-    },
-    {
-      "source_name": "salamou1944/agent-skills PR #82 prior CI evidence",
-      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
-      "observed_at": "2026-09-21T02:26:00Z",
-      "claim": "Prior head passed Closure integrity with 18/18 control-plane tests, but that evidence predates the corrected head and is therefore not reused as current CI proof.",
-      "status": "stale_after_source_change",
-      "provider_event_id": "555857d4ade092d06dba3d59264100eb0166f911"
     }
   ],
   "commit_sha": "pending"
