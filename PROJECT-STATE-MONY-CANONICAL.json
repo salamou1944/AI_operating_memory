@@ -1,11 +1,11 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-21-closure-v5-provenance-03",
+  "state_revision": "mony-2026-09-21-closure-v6-evidence-compounding-05",
   "project": "MONY",
-  "updated_at": "2026-09-21T02:15:00Z",
+  "updated_at": "2026-09-21T02:24:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
-  "active_workstream": "autonomous closure: source-runtime provenance detector/verifier, adversarial hardening and independent frontiers",
+  "active_workstream": "autonomous closure: evidence invalidation/state machine, source-runtime provenance, adversarial hardening and independent frontiers",
   "blocked_by": [
     "ELITE_PR_72_REVIEW_GATE",
     "MONY_PR_67_REVIEW_GATE",
@@ -17,7 +17,8 @@
     "EASY_DEPLOY_PREFLIGHT_PR_79_REVIEW_GATE",
     "EASY_HUMAN_TRIAL_EVIDENCE_PR_80_REVIEW_GATE",
     "RAILWAY_AGENT_USAGE_LIMIT",
-    "SOURCE_RUNTIME_PROVENANCE_PR_81_REVIEW_GATE"
+    "SOURCE_RUNTIME_PROVENANCE_PR_81_REVIEW_GATE",
+    "EVIDENCE_STATE_PR_82_REVIEW_GATE"
   ],
   "next_actions": [
     "Continue independent repository and adversarial work that does not require human/security/provider gates.",
@@ -37,7 +38,8 @@
     "Verified PR #79 remains open with successful syntax/repository checks and expected explicit-review security gate.",
     "Verified PR #80 remains open with fail-closed human-trial evidence logic and regression coverage; no production deployment claimed.",
     "Verified Railway deployment history continues to report the stale main commit, confirming drift rather than merely assuming it.",
-    "Created PR #81 with reusable exact source/runtime provenance detector, fail-closed attribution states, recovery classification, and regression tests."
+    "Created PR #81 with reusable exact source/runtime provenance detector, fail-closed attribution states, recovery classification, and regression tests.",
+    "Implemented PR #82 fail-closed evidence state/invalidation contract on agent-skills; CI execution is in progress and no merge/deploy is claimed."
   ],
   "failed_tasks": [],
   "known_risks": [
@@ -47,7 +49,8 @@
     "PR #79, #80, #67, #72 and #74 remain human/security gated.",
     "Salamou-31 PR #10 remains human-gated; latest combined status query returned no status records, so CI success is not claimed from that query.",
     "MONY revenue is not business-verified without real PartnerStack reward/payout evidence.",
-    "PR #81 is open and review-gated; provenance capability is implemented/test-triggered in CI but not yet merged or deployed, so live runtime provenance remains unverified."
+    "PR #81 is open and review-gated; provenance capability is implemented/test-triggered in CI but not yet merged or deployed, so live runtime provenance remains unverified.",
+    "PR #82 is open and review-gated; its latest CI runs are currently in progress, so its contract is not yet CI-verified."
   ],
   "evidence": [
     {
@@ -106,6 +109,22 @@
       "observed_at": "2026-09-21T02:10:00Z",
       "claim": "Latest SUCCESS deployment still reports commit 648e7a809c5a3cae2da34519b39a32909aef0902 on main; service config points to salamou1944/agent-skills.",
       "status": "verified"
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #82",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
+      "observed_at": "2026-09-21T02:24:00Z",
+      "claim": "Open PR adds strict adjacent evidence transitions, provenance requirements, and fail-closed invalidation on source/commit/environment/deployment/runtime identity drift.",
+      "status": "implemented_review_gated",
+      "provider_event_id": "36b1d1201ed95b680624dfd4eab729ae66ea3ea5"
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #82 CI",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/82",
+      "observed_at": "2026-09-21T02:24:00Z",
+      "claim": "Closure integrity, ARMY-14, creative-core, Elite Harness, and elite-hardening workflows are running for the latest PR #82 head; no final CI conclusion yet.",
+      "status": "in_progress",
+      "provider_event_id": "555857d4ade092d06dba3d59264100eb0166f911"
     }
   ],
   "commit_sha": "pending"
