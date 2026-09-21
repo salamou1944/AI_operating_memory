@@ -1,8 +1,8 @@
 {
   "version": 4,
-  "state_revision": "mony-2026-09-21-operating-rescan-v13",
+  "state_revision": "mony-2026-09-21-operating-rescan-v14",
   "project": "MONY",
-  "updated_at": "2026-09-21T21:14:30Z",
+  "updated_at": "2026-09-21T21:36:30Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -51,11 +51,11 @@
   "current_source": {
     "repository": "salamou1944/agent-skills",
     "branch": "main",
-    "intended_commit": "b6e47cd5da124eeb996ef3c4889114734e9b1152"
+    "intended_commit": "437d7805ee5223f8a162d98eacde7ef81a92ed7c"
   },
   "blockers": [
-    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current SUCCESS deployment b77b7b45-bcea-41e5-acad-56787592f538 still reports stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is df80ba2902a63f203175531c222edfd2be0e795e",
-    "EASY_RUNTIME_EXECUTION_FAILURE: Railway easy-runtime-current remains on stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 and its Army-14 worker repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs; the current v3 gateway deployment b6e47cd5da124eeb996ef3c4889114734e9b1152 is independently healthy but is a different runtime surface",
+    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current remains deployed from stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is 437d7805ee5223f8a162d98eacde7ef81a92ed7c",
+    "EASY_RUNTIME_EXECUTION_FAILURE: stale easy-runtime-current deployment repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs",
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_AGENT_USAGE_LIMIT",
     "MONY_NO_REAL_PARTNERSTACK_REWARD_OR_PAYOUT_EVIDENCE",
@@ -176,8 +176,9 @@
     "Salamou-31 current-head CI success re-confirmed.",
     "Canonical control-plane state prepared for current observed evidence and blocker classification.",
     "Current Railway v3 deployment and live background health logs re-scanned.",
-    "Current GitHub main revision df80ba2902a63f203175531c222edfd2be0e795e verified.",
-    "Commercial prospect research completed without sending outreach or claiming customer status."
+    "Commercial prospect research completed without sending outreach or claiming customer status.",
+    "Current GitHub main revision 437d7805ee5223f8a162d98eacde7ef81a92ed7c verified.",
+    "ARMY-14 practical runner upgraded to invoke the real Elite task engine and independently verify its task result; no taskVerified flag was forged."
   ],
   "next_frontier": [
     "Resolve Railway source/provenance drift on easy-runtime-current through an authorized exact-commit deployment path.",
@@ -190,9 +191,9 @@
   "commit_sha": "d066c9cebee2d346dd2edd88189d34c771865e97",
   "latest_execution_round": {
     "status": "IN_PROGRESS",
-    "observed_at": "2026-09-21T21:14:30Z",
+    "observed_at": "2026-09-21T21:36:30Z",
     "source_repo": "salamou1944/agent-skills",
-    "current_main_commit": "d066c9cebee2d346dd2edd88189d34c771865e97",
+    "current_main_commit": "437d7805ee5223f8a162d98eacde7ef81a92ed7c",
     "railway_service": "easy-runtime-current",
     "latest_deployment": "8a77d0ac-1ecd-4ac8-8fcd-5106dd9ba969",
     "deployed_commit": "648e7a809c5a3cae2da34519b39a32909aef0902",
@@ -200,6 +201,6 @@
     "runtime_result": "healthcheck_success_but_army14_repository_verification_failed",
     "railway_agent": "BLOCKED_EXTERNALLY_USAGE_LIMIT",
     "deployment_workflow_commit": "d066c9cebee2d346dd2edd88189d34c771865e97",
-    "army14_task_completion": "UNPROVEN_TASK_VERIFIED_FALSE"
+    "army14_task_completion": "REAL_TASK_EXECUTION_PATH_IMPLEMENTED_BUT_RUNTIME_PROOF_UNAVAILABLE_UNTIL_EXACT_SOURCE_DEPLOYMENT"
   }
 }
