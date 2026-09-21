@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "state_revision": "mony-2026-09-21-live-audit-04",
+  "state_revision": "mony-2026-09-21-live-audit-05",
   "project": "MONY",
-  "updated_at": "2026-09-20T23:55:00Z",
+  "updated_at": "2026-09-21T00:07:00Z",
   "objective": "Harden the repository ecosystem and MONY state without false completion claims.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "repository-wide verification hardening",
@@ -13,15 +13,17 @@
     "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
     "RAILWAY_SOURCE_COMMIT_DRIFT",
     "MONY_NO_REVENUE_PAYOUT_EVIDENCE",
-    "SALAMOU31_PR_10_REVIEW_GATE"
+    "SALAMOU31_PR_10_REVIEW_GATE",
+    "EASY_DEPLOY_PREFLIGHT_PR_79_REVIEW_GATE"
   ],
   "next_actions": [
     "Complete explicit human review for workflow-changing hardening PRs before merge.",
     "Continue repository-wide audit for untested, stale, unsafe, or contradictory artifacts.",
-    "Deploy and verify agent-skills current main to easy-runtime-current after Railway source/runtime drift is resolved; do not treat the stale runtime as current source.",
-    "Re-verify the EASY customer creative path only after the real external provider credit blocker is removed.",
+    "Deploy agent-skills current main 47658e770ab31e4569bcd7c51266b737e8b4bb52 to easy-runtime-current; Railway redeploy b8eb92ea-a581-4a9e-81fa-496b118ca1e9 only redeployed stale commit 648e7a809c5a3cae2da34519b39a32909aef0902, so source/runtime drift remains.",
+    "Use PR #79 preflight guard to prevent runtime-critical syntax regressions from reaching Railway once the review gate is satisfied.",
+    "Re-verify the EASY customer creative path only after the real external provider credit blocker is removed and current-main runtime is deployed.",
     "Verify MONY business revenue only from real PartnerStack reward and payout evidence.",
-    "Review and verify Salamou-31 PR #10 quota-refund hardening after its latest CI run; merge remains human-gated."
+    "Review and verify Salamou-31 PR #10 latest head 591c71309eadbb01e85548f5f6197156b9a6ca2c; CI run #25 succeeded, but merge remains human-gated."
   ],
   "completed_tasks": [
     "Canonical machine-readable MONY state repository established.",
@@ -34,10 +36,12 @@
   "failed_tasks": [],
   "known_risks": [
     "External EASY creative provider remains blocked by real credit/quota exhaustion.",
-    "Railway EASY runtime is running stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while agent-skills main is 42627a0d1923b5f479931d5c0db8283100916235; stale runtime logs repeatedly report syntax_failed on elite-deployment-recovery.mjs.",
+    "Railway EASY runtime easy-runtime-current redeployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9 succeeded but still runs stale commit 648e7a809c5a3cae2da34519b39a32909aef0902; agent-skills main is 47658e770ab31e4569bcd7c51266b737e8b4bb52.",
+    "Stale runtime logs repeatedly reported repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs and HTTP 404s for /creative and /api/gateway/status; these observations are stale-runtime evidence.",
     "MONY revenue is not business-verified without real PartnerStack reward evidence.",
     "Open agent-skills hardening PRs remain review-gated.",
-    "Salamou-31 PR #10 is review-gated; its latest head is 8d635d69e053bdadf2b97d7a877b3c071766bbbf and CI is being re-run after a contract-test correction."
+    "Salamou-31 PR #10 is review-gated; latest head is 591c71309eadbb01e85548f5f6197156b9a6ca2c and CI run #25 succeeded.",
+    "Agent-skills PR #79 adds runtime-critical syntax preflight before Railway deployment and remains review-gated."
   ],
   "evidence": [
     {
@@ -149,9 +153,39 @@
       "evidence_hash": "sha256:salamou31-pr10-head-8d635d69-20260920",
       "status": "verified",
       "provider_event_id": null
+    },
+    {
+      "source_name": "Railway EASY Runtime Production deployment b8eb92ea-a581-4a9e-81fa-496b118ca1e9",
+      "source_url": "https://railway.com/project/4c4c8630-b755-401b-a3e0-42fdd70b7bb2",
+      "observed_at": "2026-09-21T00:05:00Z",
+      "retrieved_at": "2026-09-21T00:06:00Z",
+      "claim": "Redeployment succeeded, but Railway metadata proves it redeployed commit 648e7a809c5a3cae2da34519b39a32909aef0902 rather than current agent-skills main 47658e770ab31e4569bcd7c51266b737e8b4bb52. Therefore runtime remains source-drifted and is not current-main verified.",
+      "evidence_hash": "sha256:railway-b8eb92e-stale-commit-20260921",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/agent-skills PR #79",
+      "source_url": "https://github.com/salamou1944/agent-skills/pull/79",
+      "observed_at": "2026-09-21T00:06:00Z",
+      "retrieved_at": "2026-09-21T00:06:00Z",
+      "claim": "PR #79 adds syntax preflight checks for runtime-critical EASY/ARMY/control-plane/revenue modules before Railway deployment; it is open and review-gated.",
+      "evidence_hash": "sha256:agent-skills-pr79-20260921",
+      "status": "verified",
+      "provider_event_id": null
+    },
+    {
+      "source_name": "salamou1944/Salamou-31 PR #10 CI run #25",
+      "source_url": "https://github.com/salamou1944/Salamou-31/pull/10",
+      "observed_at": "2026-09-21T00:00:00Z",
+      "retrieved_at": "2026-09-21T00:06:00Z",
+      "claim": "Latest observed head 591c71309eadbb01e85548f5f6197156b9a6ca2c has ai-product-content-api-test run #25 completed successfully; PR remains open and human review/merge is still required.",
+      "evidence_hash": "sha256:salamou31-pr10-ci25-20260921",
+      "status": "verified",
+      "provider_event_id": null
     }
   ],
-  "commit_sha": "8879ec552ef7938f1064afefea50a3be962fac49",
+  "commit_sha": "pending-branch-update",
   "blockers": [
     "SALAMOU31_PR_10_REVIEW_GATE"
   ]
