@@ -2,7 +2,7 @@
   "version": 4,
   "state_revision": "mony-2026-09-21-operating-rescan-v14",
   "project": "MONY",
-  "updated_at": "2026-09-21T21:36:30Z",
+  "updated_at": "2026-09-25T19:50:00Z",
   "objective": "Track only observed, reproducible closure evidence across isolated projects; never claim human readiness without the required boundary.",
   "status": "PARTIALLY_VERIFIED",
   "active_workstream": "continuous rescan: Railway provenance drift, runtime failure reproduction, independent verification, human entry-point closure",
@@ -53,20 +53,16 @@
     "branch": "main",
     "intended_commit": "437d7805ee5223f8a162d98eacde7ef81a92ed7c"
   },
-  "blockers": [
-    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current remains deployed from stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is 437d7805ee5223f8a162d98eacde7ef81a92ed7c",
-    "EASY_RUNTIME_EXECUTION_FAILURE: stale easy-runtime-current deployment repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs",
-    "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
-    "RAILWAY_AGENT_USAGE_LIMIT",
-    "MONY_NO_REAL_PARTNERSTACK_REWARD_OR_PAYOUT_EVIDENCE",
-    "HUMAN_REVIEW_GATES_REMAIN_ON_RELEVANT_AGENT-SKILLS_PRs"
-  ],
   "evidence": [
     {
       "source": "GitHub main",
       "observed_at": "2026-09-21T21:03:38Z",
       "claim": "agent-skills main is b6e47cd5da124eeb996ef3c4889114734e9b1152.",
-      "status": "OBSERVED"
+      "status": "OBSERVED",
+      "source_name": "GitHub main",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T21:03:38Z",
+      "evidence_hash": "sha256:c776e55ab4c0fd3882be2a510a254fb99cf3899cf8f8e56f4891dc8afc270bbe"
     },
     {
       "source": "Railway deployment b77b7b45-bcea-41e5-acad-56787592f538",
@@ -76,7 +72,11 @@
       "qualifier": [
         "TRACEABLE",
         "REPRODUCIBLE"
-      ]
+      ],
+      "source_name": "Railway deployment b77b7b45-bcea-41e5-acad-56787592f538",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T15:00:00Z",
+      "evidence_hash": "sha256:b9dc09e506f4d7627d07a83ba19f215104d1811b324f07a0263ba9531f253f61"
     },
     {
       "source": "Railway runtime logs for b77b7b45-bcea-41e5-acad-56787592f538",
@@ -86,19 +86,31 @@
       "qualifier": [
         "TRACEABLE",
         "REPRODUCIBLE"
-      ]
+      ],
+      "source_name": "Railway runtime logs for b77b7b45-bcea-41e5-acad-56787592f538",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T15:00:00Z",
+      "evidence_hash": "sha256:12738cf876971b01cf321dc6a0bf0d101365e34c42c959681deca198eda6371f"
     },
     {
       "source": "Railway service configuration",
       "observed_at": "2026-09-21T15:00:00Z",
       "claim": "Service source is salamou1944/agent-skills and public domain is easy-runtime-current-production.up.railway.app; service configuration uses start:army14:railway and /health.",
-      "status": "OBSERVED"
+      "status": "OBSERVED",
+      "source_name": "Railway service configuration",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T15:00:00Z",
+      "evidence_hash": "sha256:6f86699a39286ddfb835d477b23f701ceb27804904d1413b60fe5a0f6c62efdc"
     },
     {
       "source": "Railway HTTP logs",
       "observed_at": "2026-09-21T14:12:37Z",
       "claim": "GET /api/gateway/status returned 404 on the stale runtime; therefore that route is not runtime-proven on the observed deployment.",
-      "status": "OBSERVED"
+      "status": "OBSERVED",
+      "source_name": "Railway HTTP logs",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T14:12:37Z",
+      "evidence_hash": "sha256:3236d6c652781eecc56f3b0606a79fe5254bf326a53946643c82abbfb1fe237d"
     },
     {
       "source": "GitHub salamou1944/Salamou-31 commit bc8570891932da1fac10fe01e188816f12821e09",
@@ -108,13 +120,21 @@
       "qualifier": [
         "PERSISTED",
         "TRACEABLE"
-      ]
+      ],
+      "source_name": "GitHub salamou1944/Salamou-31 commit bc8570891932da1fac10fe01e188816f12821e09",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T15:00:00Z",
+      "evidence_hash": "sha256:52460e36a52d98d3c7152f3583f95bffa5d43c46b1ca01cb62000e2fd1af6451"
     },
     {
       "source": "Salamou-31 source",
       "observed_at": "2026-09-21T15:00:00Z",
       "claim": "API has persistent quota locking/refund and idempotency logic, but no human-accessible deployed entry point is currently proven.",
-      "status": "IMPLEMENTED"
+      "status": "IMPLEMENTED",
+      "source_name": "Salamou-31 source",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T15:00:00Z",
+      "evidence_hash": "sha256:5049b06c5e517fa617c460f0f2f44e67170301c69dce09c4e1be722ce816f63c"
     },
     {
       "source": "Railway easy-platform-runtime-v3 deployment b283098b-c308-4679-b8ff-7225a0177e27",
@@ -124,7 +144,11 @@
       "qualifier": [
         "TRACEABLE",
         "REPRODUCIBLE"
-      ]
+      ],
+      "source_name": "Railway easy-platform-runtime-v3 deployment b283098b-c308-4679-b8ff-7225a0177e27",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T18:38:12Z",
+      "evidence_hash": "sha256:76d04f253d180a486e3af12dd425301e3f14596cd4b17b29bad68870fff90110"
     },
     {
       "source": "Railway easy-platform-runtime-v3 background logs",
@@ -133,7 +157,11 @@
       "status": "OBSERVED",
       "qualifier": [
         "TRACEABLE"
-      ]
+      ],
+      "source_name": "Railway easy-platform-runtime-v3 background logs",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T18:38:12Z",
+      "evidence_hash": "sha256:269d78f5ef37da1d86ceeb01b32e4c10bf0324d859fdfd3fd932ab27e9d2758c"
     },
     {
       "source": "Railway easy-platform-runtime-v3 background logs",
@@ -143,13 +171,21 @@
       "qualifier": [
         "TRACEABLE",
         "REPRODUCIBLE"
-      ]
+      ],
+      "source_name": "Railway easy-platform-runtime-v3 background logs",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T18:56:46Z",
+      "evidence_hash": "sha256:288292bce5d1912dc2ca9ae207516dbdc1dc2d76612a81581bca2dde9e5e5a0b"
     },
     {
       "source": "Public prospect research",
       "observed_at": "2026-09-21T19:00:00+01:00",
       "claim": "Real ecommerce/catalog agencies with publicly documented product-data/content needs were identified for potential outreach; no customer, reply, or revenue is recorded from this research.",
-      "status": "DISCOVERED"
+      "status": "DISCOVERED",
+      "source_name": "Public prospect research",
+      "source_url": "https://github.com/salamou1944/agent-skills",
+      "retrieved_at": "2026-09-21T19:00:00+01:00",
+      "evidence_hash": "sha256:ad213a79dd9ce117893c15a22748da001d0a471a5d8bd92eb90fb1a4df6d12c0"
     }
   ],
   "MONY": {
@@ -180,14 +216,6 @@
     "Current GitHub main revision 437d7805ee5223f8a162d98eacde7ef81a92ed7c verified.",
     "ARMY-14 practical runner upgraded to invoke the real Elite task engine and independently verify its task result; no taskVerified flag was forged."
   ],
-  "next_frontier": [
-    "Resolve Railway source/provenance drift on easy-runtime-current through an authorized exact-commit deployment path.",
-    "Independently reproduce the runtime syntax-verification failure for elite-deployment-recovery.mjs before changing code.",
-    "Keep EASY external image generation blocked until provider credits are available; do not convert local-safe-presenter into proof of external-provider completion. Current v3 smoke test explicitly records provider_http_429 / credit_balance_exhausted and overall BLOCKED_EXTERNAL_PROVIDER.",
-    "Prove a human-accessible paid entry point for AI Product Content API or the narrow done-for-you product-listing offer.",
-    "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
-    "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
-  ],
   "commit_sha": "d066c9cebee2d346dd2edd88189d34c771865e97",
   "latest_execution_round": {
     "status": "IN_PROGRESS",
@@ -202,5 +230,21 @@
     "railway_agent": "BLOCKED_EXTERNALLY_USAGE_LIMIT",
     "deployment_workflow_commit": "d066c9cebee2d346dd2edd88189d34c771865e97",
     "army14_task_completion": "REAL_TASK_EXECUTION_PATH_IMPLEMENTED_BUT_RUNTIME_PROOF_UNAVAILABLE_UNTIL_EXACT_SOURCE_DEPLOYMENT"
-  }
+  },
+  "blocked_by": [
+    "SOURCE_RUNTIME_DRIFT: Railway easy-runtime-current remains deployed from stale commit 648e7a809c5a3cae2da34519b39a32909aef0902 while GitHub main is 437d7805ee5223f8a162d98eacde7ef81a92ed7c",
+    "EASY_RUNTIME_EXECUTION_FAILURE: stale easy-runtime-current deployment repeatedly reports repository_verification_failed:syntax_failed:apps/easy-developer-platform/elite-deployment-recovery.mjs",
+    "EASY_EXTERNAL_PROVIDER_CREDIT_EXHAUSTED",
+    "RAILWAY_AGENT_USAGE_LIMIT",
+    "MONY_NO_REAL_PARTNERSTACK_REWARD_OR_PAYOUT_EVIDENCE",
+    "HUMAN_REVIEW_GATES_REMAIN_ON_RELEVANT_AGENT-SKILLS_PRs"
+  ],
+  "next_actions": [
+    "Resolve Railway source/provenance drift on easy-runtime-current through an authorized exact-commit deployment path.",
+    "Independently reproduce the runtime syntax-verification failure for elite-deployment-recovery.mjs before changing code.",
+    "Keep EASY external image generation blocked until provider credits are available; do not convert local-safe-presenter into proof of external-provider completion. Current v3 smoke test explicitly records provider_http_429 / credit_balance_exhausted and overall BLOCKED_EXTERNAL_PROVIDER.",
+    "Prove a human-accessible paid entry point for AI Product Content API or the narrow done-for-you product-listing offer.",
+    "Conduct authorized prospect outreach only after the user approves the actual messages/send action.",
+    "Keep MONY revenue and payout unverified until real PartnerStack reward evidence exists."
+  ]
 }
