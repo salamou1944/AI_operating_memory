@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"AI Operating Memory Knowledge Route",
+  "type":"object",
+  "required":["route_id","version","goal","selected_route","verification","status"],
+  "properties":{
+    "route_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9._-]+$"},
+    "version":{"type":"string","const":"knowledge-route/v1"},
+    "goal":{"type":"object","required":["outcome"],"properties":{"outcome":{"type":"string"},"constraints":{"type":"array","items":{"type":"string"}}},"additionalProperties":false},
+    "selected_route":{"type":"object","required":["steps","owner"],"properties":{"steps":{"type":"array","items":{"type":"object","required":["kind","ref"],"properties":{"kind":{"enum":["skill","asset","tool","provider","verification"]},"ref":{"type":"string"},"evidence":{"type":"array","items":{"type":"string"}}},"additionalProperties":false}},"owner":{"type":"string"}},"additionalProperties":false},
+    "alternatives":{"type":"array","items":{"type":"object","required":["route","decision"],"properties":{"route":{"type":"string"},"decision":{"type":"string"}},"additionalProperties":false}},
+    "verification":{"type":"object","required":["method","evidence_required"],"properties":{"method":{"type":"string"},"evidence_required":{"type":"boolean"},"evidence_refs":{"type":"array","items":{"type":"string"}}},"additionalProperties":false},
+    "status":{"enum":["CANDIDATE","VERIFIED","BLOCKED","RETIRED"]},
+    "cost_class":{"enum":["FREE","EXISTING_PAID","NEW_SPEND","UNKNOWN"]},
+    "risk_class":{"enum":["LOW","MEDIUM","HIGH","RESTRICTED"]}
+  },
+  "additionalProperties":false
+}
