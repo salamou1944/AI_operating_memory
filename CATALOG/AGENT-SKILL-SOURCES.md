@@ -118,3 +118,23 @@ The GitHub ecosystem is too large for a literal exhaustive enumeration in one sc
 ## Current collection state
 
 The current scan has expanded the source layer with additional cross-runtime skill libraries, security-focused skill collections, official ecosystem sources, and reusable engineering workflow libraries. Collection remains separate from execution: sources and artifacts must pass provenance/license/security review before integration.
+
+
+## Official AI learning portals — 2026-10-06
+
+These are curated **knowledge/learning sources**, not automatic Skill repositories. Their content is harvested for reusable capability signals and then deduplicated before any canonical Skill promotion.
+
+| Source | Official portal | Useful capability signals |
+|---|---|---|
+| OpenAI Academy | academy.openai.com | AI foundations, applied AI workflows, agents/workflows, Codex/API building |
+| NVIDIA Training | developer.nvidia.com/training | accelerated AI/GPU computing, optimization, deployment |
+| Hugging Face Learn | huggingface.co/learn | open models, datasets, evaluation, Transformers, agents |
+| Microsoft Learn | learn.microsoft.com/training | AI engineering, agents, Azure AI, APIs, cloud and security |
+| Anthropic Academy | anthropic.skilljar.com | Claude development, prompting, agents and workflows |
+| DeepLearning.AI | deeplearning.ai | practical ML/LLM applications, agents, evaluation |
+| IBM SkillsBuild | skillsbuild.org | free AI, cybersecurity, data, GenAI, prompt engineering |
+| Google AI learning | grow.google/ai | AI literacy and practical learning |
+| AWS Skill Builder | skillbuilder.aws | cloud AI/ML, production architecture and operations |
+| Meta AI Resources | ai.meta.com/resources | open-source frameworks, models, datasets, demos, system cards and research |
+
+Adoption rule: extract concepts and implementation patterns; do not bulk-copy proprietary course content. Prefer original provider-neutral Skills, with provenance and license/terms review, and dedupe against the canonical agent-skills set before promotion.
