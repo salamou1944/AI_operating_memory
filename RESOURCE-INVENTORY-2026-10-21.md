@@ -94,7 +94,7 @@ These names do not prove they are the latest EASY prototype. Search did not retu
 
 ## 7. Notion, browser and Termalin
 
-- Notion searches for `COLLECTION` and `API Factory` did not return a matching page. Do not make Notion a dependency until its accessible pages are confirmed; GitHub remains canonical for code and verified state.
+- The Notion private page [جرد الموارد المتاحة وخطة التنفيذ — 2026-10-21](https://app.notion.com/p/400791c044f98169a48cfb4482a298b6) exists and contains the broader cross-account inventory; initial keyword searches missed it. Use it as the operating dashboard, while GitHub remains canonical for code, commits and test evidence.
 - Browser connector call reported that browser access requires the originating browser context. No browser automation was completed in this audit.
 - Termalin host-list call returned no available hosts through this ChatGPT connection. This does not prove the external Termalin account has no hosts; it means no host can be operated through the current connector result.
 - No connected desktop or self-hosted GitHub runner was proven available. Sampled `local-bridge.` workflows ran successfully, but job success alone does not prove that a persistent runner exists or that ChatGPT itself can run on it.
