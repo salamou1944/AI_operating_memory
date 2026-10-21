@@ -53,3 +53,30 @@ This checkpoint refreshes the live evidence without treating old snapshots as cu
 
 ### Inventory completeness boundary
 The inventory is complete only for the accounts/resources actually surfaced by the connected integrations and the queried pages. Items not readable through a connector are marked `not verifiable through current connection`, not `absent`. Remaining unresolved blockers are the queued Windows runner, provider free-tier eligibility/live completion, Render main-service migration, generated API durable usage/quota/idempotency storage, and a real external customer/revenue path.
+
+
+## Fresh evidence checkpoint — 2026-10-21 02:27 UTC
+
+This check repeated the live inventory queries after the 02:15 checkpoint. No credentials were read, no provider calls were made, and no deployments or paid actions were triggered.
+
+### Reconfirmed
+- GitHub connector: the same 10 repositories under `salamou1944` are visible with admin/write permission. The authenticated account has no organizations returned by the GitHub org-list endpoint; the installation list shows the user account `salamou1944`. This is the connector's visible scope, not a claim about other accounts.
+- COLLECTION: latest successful run in the queried recent window remains [cycle 17, run 39517526827](https://github.com/salamou1944/Project-/actions/runs/39517526827). It reports 80/100 sources refreshed, 20 blocked attempts preserved, 4,950 extracted artifacts / 4,970 source rows, 12,942 JSON/JSONC files audited, zero parse failures, and `NO_APPROVED_CANDIDATES`. Do not describe extraction as installation or promotion.
+- API Factory checks remain successful: [API Factory test 39517350761](https://github.com/salamou1944/Salamou-31/actions/runs/39517350761), [SOAT 39517350895](https://github.com/salamou1944/Salamou-31/actions/runs/39517350895), [provider probe contract 39517350886](https://github.com/salamou1944/Salamou-31/actions/runs/39517350886), [Railway token access 39517350831](https://github.com/salamou1944/Salamou-31/actions/runs/39517350831), and [Elite supervisor 39524196537](https://github.com/salamou1944/Salamou-31/actions/runs/39524196537). These are CI or access evidence only.
+- Local Windows runner: [inventory run 39519079143](https://github.com/salamou1944/local-bridge./actions/runs/39519079143) is still queued; its job is queued with no runner or steps reported. Therefore there is still no fresh evidence that the connected Windows PC executed a command, or that Codex CLI/Ollama is installed there.
+- Railway: direct environment inventory confirms 3 service definitions in EASY Runtime Production and 2 in EASY Developer Platform, with no volumes in either environment. Latest deployments reported for all five services are FAILED. The API Factory Railway service remains inside EASY Runtime Production and is not a safe target.
+- Supabase: dedicated API Factory project remains ACTIVE_HEALTHY, with `public.api_factory_registry` (one singleton row, RLS enabled) and active `api-factory-storage` Edge Function v3. Separate EASY project remains ACTIVE_HEALTHY, with `public.pastel_orders` (41 rows, RLS enabled) and four active Edge Functions. Preserve project/data/secret separation.
+- Render: two Free services are visible. Preview `salamou31-api-factory-preview.onrender.com` has latest listed deploy status `live` on commit `552f58043e7c3796bec07b838fb7638607be1b07`; this confirms a live deployment record, not a fresh HTTP readiness check. Main `salamou-31-api-factory.onrender.com` has latest listed deploy status `live` on commit `83f69126689eaac920f044b1e54cb8878d52fffc`, but its documented `/ready` result remains HTTP 503 `DURABLE_STORAGE_REQUIRED`. Do not switch the main service to the gateway without safe migration/readiness evidence.
+- Vercel: one project `salamou31-api-factory` is visible. A READY deployment status alone does not prove a successful /ready probe, durable state, or production suitability.
+- Replit: three editable apps remain visible; no app clearly named EASY Creative Prototype was found in the connected app list.
+- Notion: the private inventory page exists and contains the accumulated inventory and execution order. An earlier zero-result keyword search was incomplete; it must not be used to claim that Notion is empty.
+
+### Current decision / next actions
+1. Do not attempt to force the queued Windows runner or expose a registration token. The runner must be registered/online on the Windows host before that workflow can run; this cannot be repaired from GitHub repo write access alone.
+2. In parallel, inspect official provider terms and eligibility for one candidate, then make exactly one controlled sentinel request only after a protected credential and confirmed free tier are available. A catalog entry is not a credential or quota.
+3. Continue API Factory work against the isolated Render preview only. First verify its current `/ready` response and storage gateway configuration; then address generated API usage/quota/idempotency persistence and the missing real deployment adapter. No production-ready claim until external smoke evidence passes.
+4. Continue COLLECTION in bounded, verified cycles; only trigger the next cycle after reading the actual prior run output. Preserve the fail-closed no-install policy.
+5. Keep a single paid-offer objective in parallel: use the existing outreach/CRM resources to validate one small service offer before spending on tools or ads.
+
+### Scope statement
+This is a repeated inventory of resources exposed through the connected integrations and the queried pages as of this timestamp. Any account/service not returned by those integrations remains outside the evidence boundary; do not relabel it as nonexistent or free.
