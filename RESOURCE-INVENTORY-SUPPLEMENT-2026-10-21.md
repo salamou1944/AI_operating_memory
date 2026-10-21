@@ -89,3 +89,31 @@ This is a repeated inventory of resources exposed through the connected integrat
 - Render event history confirms successful build/deploy events for the current preview commit `552f58043e7c3796bec07b838fb7638607be1b07` and main commit `83f69126689eaac920f044b1e54cb8878d52fffc`. A request-log query for `/ready` returned no matching request entries in the queried 7-day window; therefore no new HTTP readiness result was established in this check. The last documented main `/ready` result remains HTTP 503 `DURABLE_STORAGE_REQUIRED`.
 - Official Gemini API terms effective 2026-03-23 state that content submitted through unpaid services (including unpaid Gemini API quota/AI Studio) may be used to improve/develop Google products and ML technologies, and human reviewers may process inputs/outputs. Do not send sensitive/confidential/user/customer data through the unpaid tier. The official pricing page currently lists free-tier access for some models, but model availability and rate limits are model-specific; this still does not establish the user's account eligibility. Sources: [Gemini API terms](https://ai.google.dev/gemini-api/terms?hl=en), [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing.md), [Gemini billing](https://ai.google.dev/gemini-api/docs/billing/).
 - The live endpoint probe attempted through the available web fetch interface could not access either Render `/ready` URL. This is a tool-access limitation; it is not a pass or a fail for the services. The next useful action is an authenticated/allowed external smoke via the existing workflow or service-side test, not assuming browser access.
+
+
+## Fresh evidence checkpoint — 2026-10-21 02:35 UTC
+
+### COLLECTION
+- Cycle 18 [completed successfully](https://github.com/salamou1944/Project-/actions/runs/39533389021): 100 selected, 79 refreshed, 21 blocked attempts preserved; 5,029 extracted artifacts / 5,050 manifest source rows; 18,551 repositories deferred.
+- Current-main audit: 13,021 JSON/JSONC files, zero parse failures, 916,967,626 bytes. Capability/readiness groups 45,415; promotion review items 31,108; restricted items 14,307.
+- Installation remains explicitly blocked by `NO_APPROVED_CANDIDATES`: zero installed and zero ready for verification. Do not turn an empty approved queue into an installation claim.
+- Large generated files still need a deliberate format/partitioning design: `READY.json` is 79,542,593 bytes and `CANONICAL-PROMOTION-PLAN.json` is 53,727,383 bytes. Current guards pass but these exceed the recommended 50 MB repository size.
+
+### Current free AI route assessment
+- [OmniRoute](https://github.com/diegosouzapw/OmniRoute) is an active MIT-licensed router and may reduce provider integration work, but it does not grant ChatGPT/API quota. It needs eligible upstream provider accounts/credentials; its ChatGPT Web/Codex adapter must not be treated as a supported production API without implementation and terms review.
+- [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) is a CC0 discovery list, not an API key or guarantee of free service. Confirm every candidate against its official pricing/terms and account eligibility.
+- API Factory's current ranked options remain: (1) local Ollama after actual PC/hardware verification, (2) Gemini free-tier probe after confirming the account/model's eligibility, (3) Groq or OpenRouter free models after official eligibility confirmation. Current provider probes deliberately skip live calls when the explicit free-tier confirmation is empty. No provider is currently promoted to LIVE_VERIFIED based on a skipped probe.
+- ChatGPT Free/Codex can support local coding-agent use within plan limits, but it is not a general OpenAI API key, an always-on inference endpoint, or production API quota. Do not use browser cookies/session scraping or unsupported account-session adapters to fake API access.
+- GitHub Models inference API was retired 2026-07-30; do not plan new runtime work around it.
+
+### Local computer / access boundary
+- Private [local-bridge runner workflow](https://github.com/salamou1944/local-bridge./actions/runs/39519079143) is still queued on `self-hosted, Windows, X64`; no local PC hardware, installed Codex CLI, or local Ollama has been verified through it. The prior workflow's successful CI/metadata checks do not prove the Windows runner is connected.
+- Browser connector reports that the originating browser context is required; no GUI automation is available from this session. Termalin's connected host listing returned no available hosts.
+- Therefore the next local-resource step is to make the already configured Windows runner appear Idle in GitHub, then run the read-only inventory workflow. Do not paste runner registration tokens into chat.
+
+### Plan checkpoint
+1. Finish inventory of accessible service settings and repository roles; mark inaccessible accounts as unknown, not empty.
+2. Resolve the Windows runner and record actual hardware/tool inventory.
+3. Validate one official free provider with a real sentinel completion and saved evidence; no paid fallback.
+4. Use the existing isolated Render preview as the API Factory baseline; do not alter main Render or Railway/EASY. Finish deployment adapter and generated API state persistence before claiming production readiness.
+5. Return to COLLECTION install selection only when candidates have evidence, license/security review, and explicit policy approval.
