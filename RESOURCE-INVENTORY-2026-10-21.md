@@ -19,12 +19,12 @@ The connected GitHub search returned these 10 repositories, with write/admin per
 |---|---|---|
 | [Salamou-31](https://github.com/salamou1944/Salamou-31) | Public | API Factory, provider adapters, storage gateway, tests and deployment notes |
 | [AI_operating_memory](https://github.com/salamou1944/AI_operating_memory) | Public | Canonical operating memory, capability map, state and decision policies |
-| [Files-](https://github.com/salamou1944/Files-) | Public | File/resource project; inspect repo content before assigning runtime role |
+| Files- | Public | File/resource project; inspect repo content before assigning runtime role |
 | [Astra](https://github.com/salamou1944/Astra) | Public | Knowledge/evidence repository; inspect actual contents before claiming functionality |
-| [Pastel-](https://github.com/salamou1944/Pastel-) | Public | Pastel project and its Supabase order/TTS functions |
+| Pastel- | Public | Pastel project and its Supabase order/TTS functions |
 | [agent-skills](https://github.com/salamou1944/agent-skills) | Public | Control-plane skills, workflows, automation and project supervisor |
 | [Easy-](https://github.com/salamou1944/Easy-) | Public | EASY commerce/creative engine source |
-| [local-bridge.](https://github.com/salamou1944/local-bridge.) | Private | Diagnostics and share-metadata workflows; two sampled runs passed. This does not prove a persistent self-hosted runner exists. |
+| [local-bridge.](github.com/salamou1944/local-bridge.) | Private | Diagnostics and share-metadata workflows; two sampled runs passed. This does not prove a persistent self-hosted runner exists. |
 | [Project-](https://github.com/salamou1944/Project-) | Public | COLLECTION inventory, extraction, audit, classification and verification workflows |
 | [Astra-](https://github.com/salamou1944/Astra-) | Public | Additional Astra repository; do not assume duplicate purpose without inspection |
 
@@ -72,29 +72,29 @@ Two projects are visible; both dashboard statuses were `ACTIVE_HEALTHY`.
 
 Workspace visible: `salamou1944` project workspace.
 
-- **Main:** [salamou-31-api-factory](https://salamou-31-api-factory.onrender.com), Render Free plan, Frankfurt, Docker context `AI-API-HUB/api-factory`, branch `main`, auto-deploy on commit. Latest documented external readiness smoke: HTTP 503 `DURABLE_STORAGE_REQUIRED`; registry and artifact modes are `local-file`. Process is reachable, but it is not production-ready.
-- **Preview:** [salamou31-api-factory-preview](https://salamou31-api-factory-preview.onrender.com), Render Free plan, Frankfurt, Docker context `AI-API-HUB/api-factory`, branch `fix/api-factory-live-storage-readiness-2026-10-20`, auto-deploy on commit. Prior external smoke documented `DURABLE_STORAGE_VERIFIED` (HTTP 200) with dedicated Supabase gateway and artifact write/readback. Free service may sleep while idle; this is not an uptime guarantee.
+- **Main:** salamou-31-api-factory, Render Free plan, Frankfurt, Docker context `AI-API-HUB/api-factory`, branch `main`, auto-deploy on commit. Latest documented external readiness smoke: HTTP 503 `DURABLE_STORAGE_REQUIRED`; registry and artifact modes are `local-file`. Process is reachable, but it is not production-ready.
+- **Preview:** salamou31-api-factory-preview, Render Free plan, Frankfurt, Docker context `AI-API-HUB/api-factory`, branch `fix/api-factory-live-storage-readiness-2026-10-20`, auto-deploy on commit. Prior external smoke documented `DURABLE_STORAGE_VERIFIED` (HTTP 200) with dedicated Supabase gateway and artifact write/readback. Free service may sleep while idle; this is not an uptime guarantee.
 - Both services have public network allow-lists. Keep admin or internal endpoints protected at the application layer. Do not expose internal API keys.
 
 ## 5. Vercel
 
 - Project `salamou31-api-factory` is visible.
-- Latest listed deployment: production target state `READY`, URL [salamou31-api-factory-h82t0tc1b-bleu5.vercel.app](https://salamou31-api-factory-h82t0tc1b-bleu5.vercel.app). Several recent staging deployments for the storage-readiness branch are `ERROR`.
+- Latest listed deployment: production target state `READY`, URL salamou31-api-factory-h82t0tc1b-bleu5.vercel.app. Several recent staging deployments for the storage-readiness branch are `ERROR`.
 - Deployment state READY only proves that Vercel built/deployed an artifact; it does not prove configured durable storage, correct API credentials, successful request processing, or production readiness.
 - Existing docs state Vercel remains fail-closed until the storage gateway URL and matching internal key are configured and tested. Vercel `/tmp` and local-file modes are not durable.
 
 ## 6. Replit
 
 The connected Replit account returned three editable apps:
-- [FragrantButteryApplicationframework](https://replit.com/@salamou1944s/FragrantButteryApplicationframework), last updated 2026-10-02.
-- [StarkImprobableText](https://replit.com/@salamou1944s/StarkImprobableText), last updated 2026-09-12.
-- [PracticalPastelCalculator](https://replit.com/@salamou1944s/PracticalPastelCalculator), last updated 2026-09-11.
+- FragrantButteryApplicationframework, last updated 2026-10-02.
+- StarkImprobableText, last updated 2026-09-12.
+- PracticalPastelCalculator, last updated 2026-09-11.
 
 These names do not prove they are the latest EASY prototype. Search did not return a clearly titled EASY creative app. Inspect the app source/URLs before relying on them as production services.
 
 ## 7. Notion, browser and Termalin
 
-- The Notion private page [جرد الموارد المتاحة وخطة التنفيذ — 2026-10-21](https://app.notion.com/p/400791c044f98169a48cfb4482a298b6) exists and contains the broader cross-account inventory; initial keyword searches missed it. Use it as the operating dashboard, while GitHub remains canonical for code, commits and test evidence.
+- The Notion private page جرد الموارد المتاحة وخطة التنفيذ — 2026-10-21 exists and contains the broader cross-account inventory; initial keyword searches missed it. Use it as the operating dashboard, while GitHub remains canonical for code, commits and test evidence.
 - Browser connector call reported that browser access requires the originating browser context. No browser automation was completed in this audit.
 - Termalin host-list call returned no available hosts through this ChatGPT connection. This does not prove the external Termalin account has no hosts; it means no host can be operated through the current connector result.
 - No connected desktop or self-hosted GitHub runner was proven available. Sampled `local-bridge.` workflows ran successfully, but job success alone does not prove that a persistent runner exists or that ChatGPT itself can run on it.
@@ -110,7 +110,7 @@ These names do not prove they are the latest EASY prototype. Search did not retu
 ## 9. Verified COLLECTION state
 
 Repository: [Project-](https://github.com/salamou1944/Project-)
-- Latest successful bounded cycle inspected: [run 39517526827](https://github.com/salamou1944/Project-/actions/runs/39517526827), cycle 17.
+- Latest successful bounded cycle inspected: run 39517526827, cycle 17.
 - 80/100 repositories refreshed; 20 blocked attempts preserved; 4,950 extracted source artifacts; 4,970 manifest source rows; 18,630 repositories deferred.
 - Current-main JSON audit: 12,942 JSON/JSONC files; 0 parse failures; 907,402,672 bytes.
 - Classification snapshot: 44,828 capability/readiness groups, 30,691 promotion-review items, 14,137 restricted items, 55 skill definitions.
@@ -155,7 +155,7 @@ Repository: [Project-](https://github.com/salamou1944/Project-)
 
 ## 13. Local computer / runner check
 
-A read-only one-shot inventory workflow was committed to `local-bridge.` and triggered as run [39519079143](https://github.com/salamou1944/local-bridge./actions/runs/39519079143). Its job targets `[self-hosted, Windows, X64]` and only checks installed command availability, basic OS/CPU/RAM/C: free space, Ollama localhost API/model names, and names in the explicitly approved share directory. It does not read secret values or files outside that share and makes no external network requests. At the time of the last check, the job was **queued**, not completed. Until it runs successfully, the Windows machine, Codex CLI, Ollama and local model availability are not verified. Do not describe GitHub Actions as running on the user's computer unless this job completes on the self-hosted runner.
+A read-only one-shot inventory workflow was committed to `local-bridge.` and triggered as run 39519079143. Its job targets `[self-hosted, Windows, X64]` and only checks installed command availability, basic OS/CPU/RAM/C: free space, Ollama localhost API/model names, and names in the explicitly approved share directory. It does not read secret values or files outside that share and makes no external network requests. At the time of the last check, the job was **queued**, not completed. Until it runs successfully, the Windows machine, Codex CLI, Ollama and local model availability are not verified. Do not describe GitHub Actions as running on the user's computer unless this job completes on the self-hosted runner.
 
 ## 14. Execution order updated from the inventory
 
