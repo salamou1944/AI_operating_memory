@@ -194,3 +194,8 @@ This update records a second direct inspection of connected GitHub, Railway, Sup
 ### Coverage boundary
 
 This is a complete snapshot of the resources surfaced by the connected integrations and exact queried project/repository pages as of 2026-10-21 11:20 Algeria time. It cannot assert facts for external accounts not connected to these integrations, billing screens not exposed by read-only tools, or the local PC while its runner remains queued. Such items are recorded as **not verified through this connection**, not silently treated as absent. No secrets were read or saved, and no paid operations were performed.
+
+
+## Latest canonical checkpoint
+
+The refreshed connected-resource snapshot is recorded in [RESOURCE-INVENTORY-CHECKPOINT-2026-10-21-1120.md](./RESOURCE-INVENTORY-CHECKPOINT-2026-10-21-1120.md), commit `4da1bdcefafa2c7e112a8b5b69a092711f0cefc9`. Use the checkpoint for the 11:20 Algeria-time state; this supplement retains the earlier detailed account-by-account history.
