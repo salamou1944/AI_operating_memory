@@ -80,3 +80,12 @@ This check repeated the live inventory queries after the 02:15 checkpoint. No cr
 
 ### Scope statement
 This is a repeated inventory of resources exposed through the connected integrations and the queried pages as of this timestamp. Any account/service not returned by those integrations remains outside the evidence boundary; do not relabel it as nonexistent or free.
+
+
+## Additional connector and free-tier check — 2026-10-21 02:30 UTC
+
+- Termalin `hosts_list` returned an empty host list and explicitly stated that saved hosts in the Termalin cabinet are not visible until the connector runs on the server. No shell command can be run on the user's computer/server through Termalin in this session.
+- The connected Browser tool returned: “Browser access requires the originating browser context.” Therefore I cannot currently control/read the user's open browser tab through that connector. This is a connection-context blocker, not proof that the browser or computer does not exist.
+- Render event history confirms successful build/deploy events for the current preview commit `552f58043e7c3796bec07b838fb7638607be1b07` and main commit `83f69126689eaac920f044b1e54cb8878d52fffc`. A request-log query for `/ready` returned no matching request entries in the queried 7-day window; therefore no new HTTP readiness result was established in this check. The last documented main `/ready` result remains HTTP 503 `DURABLE_STORAGE_REQUIRED`.
+- Official Gemini API terms effective 2026-03-23 state that content submitted through unpaid services (including unpaid Gemini API quota/AI Studio) may be used to improve/develop Google products and ML technologies, and human reviewers may process inputs/outputs. Do not send sensitive/confidential/user/customer data through the unpaid tier. The official pricing page currently lists free-tier access for some models, but model availability and rate limits are model-specific; this still does not establish the user's account eligibility. Sources: [Gemini API terms](https://ai.google.dev/gemini-api/terms?hl=en), [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing.md), [Gemini billing](https://ai.google.dev/gemini-api/docs/billing/).
+- The live endpoint probe attempted through the available web fetch interface could not access either Render `/ready` URL. This is a tool-access limitation; it is not a pass or a fail for the services. The next useful action is an authenticated/allowed external smoke via the existing workflow or service-side test, not assuming browser access.
