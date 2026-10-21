@@ -146,3 +146,11 @@ This refresh is read-only. It does not inspect or persist API keys, passwords, s
 2. Use the existing AgentMail inboxes for replies/outreach only after inspecting the relevant inbox as a separate task; this refresh did not read messages.
 3. Treat the null automation next-run timestamp as an open reliability issue; do not rely on the daily sweep as the sole operating control.
 4. Keep the plan no-spend: no Shopify upgrade, no paid add-ons, no provider billing activation, no new Render/Railway services, and no API-key creation.
+
+
+### Remaining integration checks — 2026-10-21 02:55 UTC
+- GitHub's authenticated profile lists no organizations or organization memberships; the connected personal account and its one App installation remain the only verified GitHub scope. This does not rule out other accounts the user may own but has not connected.
+- GitBook's authenticated organization-list operation returned an empty list. Therefore there are no GitBook organizations/sites visible through this connection; do not treat GitBook as a usable hosting/documentation asset unless a valid organization becomes available.
+- HubSpot's fresh organization-details query succeeded when requested without BRANDS: portal `easy`, account type STANDARD, company currency USD, timezone US/Eastern, seat type `gtm`, no teams and no job titles. The Brands add-on is absent. This is CRM account metadata only; it does not establish an active deal pipeline.
+- Notion private/shared/favorites listings were empty, and recent pages surfaced the inventory page only. The inventory page itself is reachable by direct URL and has been updated; do not infer broader Notion databases from that single page.
+- The current GitHub App connection covers the personal account's all-repository selection, but only 10 repositories were returned by the connected repository search. This is the known editable scope; if any intended repository is absent, its presence/permissions must be checked by exact repository lookup rather than assuming it is connected.
