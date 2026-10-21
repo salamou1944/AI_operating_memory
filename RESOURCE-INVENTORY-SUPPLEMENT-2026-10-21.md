@@ -117,3 +117,32 @@ This is a repeated inventory of resources exposed through the connected integrat
 3. Validate one official free provider with a real sentinel completion and saved evidence; no paid fallback.
 4. Use the existing isolated Render preview as the API Factory baseline; do not alter main Render or Railway/EASY. Finish deployment adapter and generated API state persistence before claiming production readiness.
 5. Return to COLLECTION install selection only when candidates have evidence, license/security review, and explicit policy approval.
+
+
+## Connected-account refresh — 2026-10-21 02:50 UTC
+
+This refresh is read-only. It does not inspect or persist API keys, passwords, session cookies, customer messages, or payment credentials.
+
+### Commercial and outreach accounts
+- **Apollo:** fresh profile reports 80 lead credits remaining, 160 direct-dial credits effective, 5,000 AI credits, and zero used in the profile. The team usage endpoint reports 80 lead credits, 80 direct-dial credits remaining (limit 160), 150 conversation credits, 5,000 AI credits, 20 inbound-website-visitor credits, and 50,000 broadcast credits; all show zero consumed. Direct-dial balance remains inconsistent across the two official connector views; treat 80 as the conservative usable remainder until reconciled. No credits were consumed by this audit.
+- **AgentMail:** 3 inboxes exist: `easy@agentmail.to`, `api-pilot@agentmail.to`, and `pastel-realtime-e2e@agentmail.to`. The accounts endpoint returned zero external app sign-ins. This does not mean the inboxes are absent; it means no connected app account was listed. No messages were read or sent in this check.
+- **HubSpot:** organization-details query failed because the account does not have the Brands add-on. This is a feature limitation, not a broken CRM connection. Organization details still need a fresh query without BRANDS.
+- **Automations:** 5 automations exist. Only `Revenue + leverage sweep` is enabled; its schedule says daily but `next_run_time` is null and last run was 2026-10-20 03:38 UTC. Do not assume it is actually scheduled to run again until scheduler behavior is verified. `Daily collection digest` is disabled; 3 other automations are also disabled. This should be treated as a scheduling reliability gap.
+- **Shopify:** connected store is `My Store`, domain `2eih8n-pc.myshopify.com`, country Algeria, currency DZD, plan trial. Required account notice: "Plan: trial — you'll need to upgrade before you can start selling and unlock full features". The read-only Digital Products connection test reports that the app is not installed. Do not upgrade or install paid apps as part of this no-spend plan.
+- **Metricool:** one connected brand was returned with a YouTube channel ID `UCR8aUjgimgvbCOucYaHY8ZA`. This confirms a linked channel identity, not that the intended channel has uploads or revenue.
+- **Higgsfield:** selected workspace is Free with 10 credits; free generations are empty and the optional trial remains pending/eligible. Do not start the trial or spend credits without an explicitly selected use case.
+- **Canva:** no Brand Kits returned.
+- **Figma/Weave:** the Figma Weave integration says the Figma account has not been linked to Weave. This is distinct from the separately installed Figma connector; no account-link action was taken.
+- **Wix:** the connected account returned zero sites.
+- **GitBook:** the first list attempt did not provide an organization ID and failed. Site inventory remains unknown until the accessible organization list is queried; do not treat the failed call as proof there are no sites.
+- **OpenAI Platform:** the key-setup target lookup exposed three organizations/projects (including Team easy / Easy and two default projects). This only proves that API-key setup targets are accessible; it does not prove that a key exists, that API credits are available, or that inference is free. No key was created and no billing setting was changed.
+- **GitHub:** profile is the personal account `salamou1944`; one GitHub App installation is visible with repository selection set to all. The integration search surfaced 10 repositories with write/admin permissions. This is the connected installation scope, not proof there are no additional repos outside it.
+- **Railway:** current service inventory is unchanged: 3 services under EASY Runtime Production and 2 under EASY Developer Platform. Do not deploy API Factory into the EASY project.
+- **Render:** two Free services remain present: API Factory preview and main. Preview is the reference environment; main's last recorded readiness failure remains HTTP 503 `DURABLE_STORAGE_REQUIRED`.
+- **Local PC:** the private self-hosted runner job remains queued; browser GUI context and Termalin host access are unavailable. A real machine inventory still cannot be completed remotely from this session.
+
+### Decisions from this refresh
+1. Do not spend Apollo, Higgsfield, Shopify, or provider credits until a concrete monetization path is selected.
+2. Use the existing AgentMail inboxes for replies/outreach only after inspecting the relevant inbox as a separate task; this refresh did not read messages.
+3. Treat the null automation next-run timestamp as an open reliability issue; do not rely on the daily sweep as the sole operating control.
+4. Keep the plan no-spend: no Shopify upgrade, no paid add-ons, no provider billing activation, no new Render/Railway services, and no API-key creation.
