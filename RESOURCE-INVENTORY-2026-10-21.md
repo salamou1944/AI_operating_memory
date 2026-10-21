@@ -140,3 +140,28 @@ Repository: [Project-](https://github.com/salamou1944/Project-)
 - No production deployment or provider API call was made.
 - No EASY database or runtime data was modified.
 - No third-party code was installed or executed as part of this audit.
+
+
+## 12. Repository purpose cross-check (README evidence)
+
+- `Astra`: ASTRA Quant Lab v1.7.0 is research-only. Real Kraken data was verified, but single-asset and cross-asset research gates failed; live-money execution is off. This is not a proven profitable strategy.
+- `Astra-`: executable ASTRA private trading bot boundary with Kraken public OHLC ingestion, paper execution, idempotent intent ledger, kill switch and gated authenticated order adapter. Live trading remains OFF; do not merge it with the research repo's evidence or claim profitability.
+- `agent-skills`: engineering control plane for reusable skills, Elite autonomous coding, ARMY-14 verification and MONY/Revenue Engine workflows. It includes many automation workflows, but each run still needs task-specific evidence.
+- `Pastel-`: PASTEL QR Concierge static/mobile-first site. Its README explicitly says not to replace the existing QR destination until GitHub Pages is live and tested on a real phone. The Supabase database also contains Pastel order and TTS functions.
+- `Files-`: the README contains only a title; no operational capability is inferred from that alone.
+- `Project-`: README is minimal; its actual COLLECTION automation and evidence are recorded in the COLLECTION index and verification reports.
+- `local-bridge.`: private control point for a Windows self-hosted GitHub Actions runner. The README requires registering the runner from the Windows machine; connecting GitHub alone does not connect the laptop.
+- `Easy-`: the attempted README lookup returned 404, so this audit does not infer its runtime state from that file. The repository exists and is writable, but source-level inspection is still required before claiming implementation readiness.
+
+## 13. Local computer / runner check
+
+A read-only one-shot inventory workflow was committed to `local-bridge.` and triggered as run [39519079143](https://github.com/salamou1944/local-bridge./actions/runs/39519079143). Its job targets `[self-hosted, Windows, X64]` and only checks installed command availability, basic OS/CPU/RAM/C: free space, Ollama localhost API/model names, and names in the explicitly approved share directory. It does not read secret values or files outside that share and makes no external network requests. At the time of the last check, the job was **queued**, not completed. Until it runs successfully, the Windows machine, Codex CLI, Ollama and local model availability are not verified. Do not describe GitHub Actions as running on the user's computer unless this job completes on the self-hosted runner.
+
+## 14. Execution order updated from the inventory
+
+1. Check whether the one-shot local-bridge job completes. If it remains queued, inspect the repository runner registration/status in GitHub Settings; do not work around it by running arbitrary shell commands or exposing a registration token.
+2. Use the local inventory result, if available, to decide whether a zero-provider-fee Ollama path is viable on the actual Windows machine (RAM, disk, Ollama CLI/API, model availability).
+3. In parallel, validate one provider from the free-tier catalogue against official pricing/terms and account eligibility. Do not assume ChatGPT subscription access is an API key.
+4. Keep Render preview as the first isolated API Factory target. The current main service and Railway service are not suitable targets until durable state, credentials and deployment execution are verified.
+5. Record the actual runtime smoke and storage tests in API Factory docs, then build and test the generated API's own usage/quota/idempotency persistence.
+6. Continue COLLECTION only in bounded, evidence-checked cycles; current queue is large and no promotion/install is approved.
