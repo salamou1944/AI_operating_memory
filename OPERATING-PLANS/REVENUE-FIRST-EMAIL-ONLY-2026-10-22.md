@@ -145,7 +145,7 @@ A successful unit test is not a production deployment. A successful provider-gat
 
 ## 8. Current starting facts and known gaps (as of 2026-10-22)
 
-- PASTEL repo: `salamou1944/Pastel-`; QR Concierge README states the intended Pages URL is `https://salamou1944.github.io/Pastel-/` and says not to replace the old QR destination until the new URL is live and tested on a real phone. Current release state must be rechecked.
+- PASTEL repo: `salamou1944/Pastel-`; latest Pages workflow run `39693918301` completed successfully on 2026-10-21/22 at commit `f94b36405b585931c5c3479f76948dc3de46ee07`. Its steps passed syntax/GLB checks, Pages deployment, and `Verify deployed Host runtime + Arabic speech with Playwright`. This is real hosted-browser CI evidence, but it does not replace a manual real-phone test. Intended Pages URL: `https://salamou1944.github.io/Pastel-/`. Do not replace the old QR destination until the new URL is live and tested on a real phone.
 - Host Standard README says the source/read-back path exists but browser runtime verification remains required; commercial avatar rights and premium presentation must be checked; Arabic phoneme-level lip-sync remains unresolved.
 - API Factory README states `POST /v1/factory/deploy/plan` is preflight only; there is no verified Railway/Vercel deployment execution adapter in the documented version. Provider-backed output is not PROVIDER_VERIFIED without an observed real provider response.
 - COLLECTION has an established safe incremental workflow and current-main audit artifacts; the latest cycle must be rechecked from the live Actions run before updating counts or triggering another cycle.
