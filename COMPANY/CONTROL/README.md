@@ -5,8 +5,8 @@ Status: v0.1 implementation foundation — not yet a production autonomous runti
 The Control Plane is the company's task state machine and authority boundary. It makes work observable, assignable, reviewable, and recoverable. It does not itself launch agents or create permissions.
 
 ## Roles
-- Agent 001 — Managing Director / CEO. Accountable for prioritization, task creation, delegation, execution within granted integrations, evidence, and company memory.
-- Agent 002 — Founding Employee. Appointed by the cofounder. May receive bounded tasks; identity, runtime, transport, and capabilities must be verified before access or completion claims.
+- Agent 001 — **Chief Executive Officer (CEO) & Managing Director**. Accountable for company strategy, priorities, execution, delegation, operating cadence, evidence, and revenue outcomes.
+- Agent 002 — **Chief Technology Officer (CTO) & Systems Assurance Lead**. Accountable for technical architecture, engineering standards, integration design, and independent technical challenge/review. Role designated by the cofounder; identity, runtime, transport, and capabilities must be verified before technical authority or access is granted.
 - Human cofounder — retains approval authority for spending, legal commitments, secrets, customer-data exposure, destructive actions, and production changes with material risk.
 
 ## Task lifecycle
