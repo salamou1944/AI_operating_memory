@@ -55,9 +55,11 @@ for path in sorted(MEMORY.rglob("EVENTS.jsonl")):
             errors.append(f"{path}:{line_no}: invalid sensitivity")
         stamp = event.get("timestamp_utc")
         try:
-            datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-        except (AttributeError, ValueError):
-            errors.append(f"{path}:{line_no}: timestamp_utc must be ISO-8601")
+            parsed_stamp = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+            if parsed_stamp.tzinfo is None or parsed_stamp.utcoffset() is None:
+                raise ValueError("timezone required")
+        except (AttributeError, TypeError, ValueError):
+            errors.append(f"{path}:{line_no}: timestamp_utc must be timezone-aware ISO-8601")
         for ref in event.get("related_event_ids", []):
             pending_refs.append((path, line_no, str(ref), "related_event_ids"))
         if event.get("corrects_event_id"):
