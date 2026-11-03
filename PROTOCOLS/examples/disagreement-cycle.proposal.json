@@ -1,0 +1,38 @@
+{
+  "protocol_version": "0.1",
+  "message_id": "aep-demo-0001",
+  "thread_id": "aep-demo-disagreement-01",
+  "created_at": "2026-11-03T19:00:00+01:00",
+  "sender": {
+    "agent_id": "agent-alpha",
+    "role": "proposer"
+  },
+  "recipient": {
+    "agent_id": "agent-beta",
+    "role": "independent-reviewer"
+  },
+  "message_type": "proposal",
+  "subject": "Should we add a second agent to the review loop?",
+  "body": "Proposal: run a second independent review only for high-impact decisions. This is a hypothetical example, not a live agent exchange.",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "type": "hypothesis",
+      "text": "A second review may catch material errors on high-impact decisions.",
+      "confidence": 0.65
+    }
+  ],
+  "assumptions": [
+    "The second reviewer has access to the same primary evidence.",
+    "The review cost is lower than the expected cost of an undetected error."
+  ],
+  "requested_action": {
+    "kind": "review",
+    "summary": "Challenge the proposal; identify costs, failure modes, and a simpler alternative.",
+    "permission_scope": "read_only"
+  },
+  "approval": {
+    "state": "not_applicable"
+  },
+  "status": "draft"
+}
