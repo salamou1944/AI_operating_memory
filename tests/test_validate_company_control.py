@@ -62,6 +62,21 @@ class CompanyControlValidationTests(unittest.TestCase):
         )
         self.assertTrue(any("independent verification" in error for error in errors))
 
+
+    def test_stale_verification_does_not_authorize_later_done(self):
+        errors = self.errors(
+            event("e1", "proposed", "created"),
+            event("e2", "ready", "transition"),
+            event("e3", "assigned", "transition"),
+            event("e4", "in_progress", "transition"),
+            event("e5", "review", "transition"),
+            event("e6", "review", "verification", actor="agent-001"),
+            event("e7", "in_progress", "transition"),
+            event("e8", "review", "transition"),
+            event("e9", "done", "transition", actor="agent-001"),
+        )
+        self.assertTrue(any("independent verification" in error for error in errors))
+
     def test_accepts_independent_verification_before_done(self):
         self.assertEqual([], self.errors(
             event("e1", "proposed", "created"),
