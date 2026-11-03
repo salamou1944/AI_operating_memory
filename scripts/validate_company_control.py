@@ -123,12 +123,17 @@ def validate_events(events):
             elif event_type == "transition":
                 errors.append(f"line {line_no}: transition event must change state")
             if state == "done":
-                verified = any(
+                review_start = max(
+                    (index for index, h in enumerate(history)
+                     if h.get("event_type") == "transition" and h.get("state") == "review"),
+                    default=-1,
+                )
+                verified = review_start >= 0 and any(
                     h.get("event_type") == "verification"
                     and h.get("state") == "review"
                     and h.get("actor_id") != h.get("owner_id")
                     and bool(h.get("evidence_refs"))
-                    for h in history
+                    for h in history[review_start + 1:]
                 )
                 if previous_state != "review" or not verified:
                     errors.append(f"line {line_no}: done requires prior review and independent verification evidence")
