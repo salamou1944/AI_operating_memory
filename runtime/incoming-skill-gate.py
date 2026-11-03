@@ -30,8 +30,10 @@ def scan(root: Path):
         if INJECTION.search(scan_text): findings.append(("HIGH", rel, "instruction override / concealment pattern"))
         if EXFIL.search(scan_text): findings.append(("HIGH", rel, "possible data-exfiltration/network sink pattern"))
         if DESTRUCTIVE.search(scan_text): findings.append(("HIGH", rel, "destructive command pattern"))
+        # Resource inventories are reference catalogs, not incoming executable skills. Their URL count is expected; keep all secret, injection, exfiltration, and destructive-pattern checks active.
+        is_reference_inventory = rel.startswith("RESOURCE-INVENTORY-") and rel.endswith(".md")
         urls = NETWORK.findall(text)
-        if len(urls) > 10 and rel != "PROJECT-STATE-MONY-CANONICAL.json": findings.append(("MEDIUM", rel, f"large number of URLs ({len(urls)})"))
+        if len(urls) > 10 and rel != "PROJECT-STATE-MONY-CANONICAL.json" and not is_reference_inventory: findings.append(("MEDIUM", rel, f"large number of URLs ({len(urls)})"))
     return findings, files
 
 def main():
