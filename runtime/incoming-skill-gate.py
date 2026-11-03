@@ -10,7 +10,7 @@ from pathlib import Path
 
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".ts", ".sh", ".ps1", ".json", ".yaml", ".yml", ".toml"}
 SECRET = re.compile(r"""(?i)(api[_-]?key|secret|password|token|private[_-]?key)\s*[:=]\s*[\'"][^\'"]{8,}""")
-INJECTION = re.compile(r"(?i)(ignore\s+(all|any|previous)\s+instructions|do not tell the user|hide (this|your) action|override (the )?system)")
+INJECTION = re.compile(r"(?i)(ignore\s+(?:(?:all|any)\s+)?previous\s+instructions|ignore\s+(?:all|any)\s+instructions|do not tell the user|hide (this|your) action|override (the )?system)")
 EXFIL = re.compile(r"(?i)(webhook\.site|requestbin|curl\s+[^\n]*(\.env|id_rsa)|requests?\.(post|put)\s*\()")
 DESTRUCTIVE = re.compile(r"(?i)(rm\s+-rf|format\s+disk|drop\s+database|git\s+push\s+--force|shutdown|:\(\)\{:\||fork bomb)")
 GITHUB_EXPR = re.compile(r"\$\{\{.*?\}\}", re.DOTALL)
