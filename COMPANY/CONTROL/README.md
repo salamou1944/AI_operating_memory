@@ -18,10 +18,14 @@ Every transition is a new event in `TASKS.jsonl`; never rewrite history. A task 
 ## Closure requirements
 A task can enter `done` only when:
 1. acceptance criteria are explicit and met;
-2. evidence references resolve to actual commits, tests, runs, or artifacts;
+2. evidence references are recorded in supported syntax and a human reviewer confirms that each reference resolves to the relevant commit, test, run, or artifact;
 3. risks and side effects are recorded;
-4. an independent reviewer or deterministic verification exists for material changes;
+4. a separate verification event is recorded by an actor other than the task owner during the current review cycle;
 5. linked memory event IDs are recorded.
+
+The validator enforces schema-shape parity, legal state transitions for new tasks, evidence-reference syntax, and the independent-verification event requirement. It does **not** fetch remote URLs, prove that a commit/run/artifact exists, or judge whether evidence is relevant. Those checks remain a mandatory human review gate; CI success is not evidence resolution.
+
+Three historical task IDs are explicitly grandfathered in `scripts/validate_company_control.py` because their original bootstrap events predate lifecycle enforcement. Do not add new IDs to that compatibility list. New tasks must start with `created/proposed` and use explicit `transition` events.
 
 If independent review is unavailable, leave the task in `review`; do not self-certify completion.
 
