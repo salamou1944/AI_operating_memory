@@ -144,9 +144,28 @@ def main():
         return 1
     try:
         schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+        properties = schema.get("properties", {})
         if schema.get("additionalProperties") is not False or schema.get("type") != "object":
             print("Unsupported task schema configuration")
             return 1
+        if set(schema.get("required", [])) != REQUIRED or set(properties) != REQUIRED | OPTIONAL:
+            print("Task schema fields drifted from validator; update both together")
+            return 1
+        for field, allowed in ENUMS.items():
+            if set(properties.get(field, {}).get("enum", [])) != allowed:
+                print(f"Task schema enum drift for {field}")
+                return 1
+        expected_types = {
+            "event_id": "string", "task_id": "string", "timestamp_utc": "string",
+            "actor_id": "string", "objective": "string", "owner_id": ["string", "null"],
+            "acceptance_criteria": "array", "evidence_refs": "array", "memory_event_ids": "array",
+            "related_event_ids": "array", "notes": "string",
+        }
+        for field, expected in expected_types.items():
+            actual = properties.get(field, {}).get("type")
+            if actual != expected:
+                print(f"Task schema type drift for {field}: expected {expected!r}, got {actual!r}")
+                return 1
     except (OSError, json.JSONDecodeError) as exc:
         print(f"Cannot read task schema: {exc}")
         return 1
