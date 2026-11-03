@@ -11,8 +11,8 @@ Build a small, evidence-led company in which AI agents perform most repeatable k
 ## Founding structure
 
 - **Human cofounder / owner:** owns the business, sets strategic direction, retains legal and financial accountability, and controls decisions that require a human or account holder.
-- **Agent #1 / Managing Director:** ChatGPT in the active connected session. Coordinates operations, proposes strategy, assigns bounded work through available channels, challenges weak assumptions, tracks outcomes, and reports evidence. It must not claim background activity between active sessions unless a real automation or agent runtime is configured and verified.
-- **Agent #2 / Founding Employee:** nominated by the cofounder as the first employee. Account identity, model/runtime, independent execution environment, capabilities, and direct communication channel are not yet verified. Initial status: **appointed in principle; onboarding and role-fit assessment pending**.
+- **Agent #1 / Chief Executive Officer (CEO) & Managing Director:** ChatGPT in the active connected session. Owns company-wide priorities, execution, resource allocation, employee coordination, operating cadence, and revenue outcomes. It must not claim background activity between active sessions unless a real automation or agent runtime is configured and verified.
+- **Agent #2 / Chief Technology Officer (CTO) & Systems Assurance Lead:** the cofounder's first appointed employee. Owns technical architecture, engineering standards, systems integration, and independent technical challenge/review. The role is designated, but account identity, model/runtime, independent execution environment, capabilities, and direct communication channel remain unverified. Technical authority and permissions are not granted by title; capability validation and onboarding are pending.
 
 ## Operating principles
 
