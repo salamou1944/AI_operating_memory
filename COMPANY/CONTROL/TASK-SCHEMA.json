@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://company.invalid/schemas/control-task-event-v0.1.json",
+  "title": "Company Control Task Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "task_id",
+    "timestamp_utc",
+    "actor_id",
+    "event_type",
+    "state",
+    "objective",
+    "owner_id",
+    "risk",
+    "approval_gate",
+    "acceptance_criteria",
+    "evidence_refs",
+    "memory_event_ids"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "enum": [
+        "created",
+        "transition",
+        "assignment",
+        "handoff",
+        "result",
+        "verification",
+        "blocker",
+        "correction"
+      ]
+    },
+    "state": {
+      "enum": [
+        "proposed",
+        "ready",
+        "assigned",
+        "in_progress",
+        "review",
+        "done",
+        "blocked",
+        "cancelled"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "approval_gate": {
+      "enum": [
+        "none",
+        "cofounder_required",
+        "blocked_pending_authority"
+      ]
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "memory_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

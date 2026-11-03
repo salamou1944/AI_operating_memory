@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salamou1944/AI_operating_memory/blob/main/COMPANY/MEMORY/EVENT-SCHEMA.json",
+  "title": "Company Memory Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "timestamp_utc",
+    "actor_id",
+    "scope",
+    "event_type",
+    "title",
+    "status",
+    "statement",
+    "evidence",
+    "related_event_ids",
+    "confidence",
+    "sensitivity"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "enum": [
+        "company",
+        "employee",
+        "project",
+        "customer",
+        "system"
+      ]
+    },
+    "employee_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_type": {
+      "enum": [
+        "observation",
+        "hypothesis",
+        "decision",
+        "task_assigned",
+        "task_handoff",
+        "task_result",
+        "failure",
+        "correction",
+        "verification",
+        "lesson",
+        "capability_change",
+        "customer_signal",
+        "commercial_outcome"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 180
+    },
+    "status": {
+      "enum": [
+        "unverified",
+        "verified",
+        "disputed",
+        "superseded",
+        "retracted"
+      ]
+    },
+    "statement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation"
+      ],
+      "properties": {
+        "observation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recommendation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expected": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actual": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "impact": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lesson": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "reference",
+          "supports"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "commit",
+              "pull_request",
+              "issue",
+              "test",
+              "url",
+              "artifact",
+              "tool_result",
+              "none"
+            ]
+          },
+          "reference": {
+            "type": "string"
+          },
+          "supports": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "related_event_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "corrects_event_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "sensitivity": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "reviewer_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "not_reviewed",
+        "independently_verified",
+        "review_failed",
+        "not_applicable"
+      ]
+    },
+    "valid_from_utc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "valid_until_utc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

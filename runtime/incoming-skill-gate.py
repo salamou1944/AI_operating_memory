@@ -10,10 +10,11 @@ from pathlib import Path
 
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".ts", ".sh", ".ps1", ".json", ".yaml", ".yml", ".toml"}
 SECRET = re.compile(r"""(?i)(api[_-]?key|secret|password|token|private[_-]?key)\s*[:=]\s*[\'"][^\'"]{8,}""")
-INJECTION = re.compile(r"(?i)(ignore\s+(all|any|previous)\s+instructions|do not tell the user|hide (this|your) action|override (the )?system)")
+INJECTION = re.compile(r"(?i)(ignore\s+(?:(?:all|any)\s+)?previous\s+instructions|ignore\s+(?:all|any)\s+instructions|do not tell the user|hide (this|your) action|override (the )?system)")
 EXFIL = re.compile(r"(?i)(webhook\.site|requestbin|curl\s+[^\n]*(\.env|id_rsa)|requests?\.(post|put)\s*\()")
 DESTRUCTIVE = re.compile(r"(?i)(rm\s+-rf|format\s+disk|drop\s+database|git\s+push\s+--force|shutdown|:\(\)\{:\||fork bomb)")
 GITHUB_EXPR = re.compile(r"\$\{\{.*?\}\}", re.DOTALL)
+REFERENCE_INVENTORY_URL_EXEMPTIONS = {"RESOURCE-INVENTORY-2026-10-21.md", "RESOURCE-INVENTORY-SUPPLEMENT-2026-10-21.md"}
 NETWORK = re.compile(r"""https?://[^\s"\']+""")
 
 def scan(root: Path):
@@ -30,8 +31,10 @@ def scan(root: Path):
         if INJECTION.search(scan_text): findings.append(("HIGH", rel, "instruction override / concealment pattern"))
         if EXFIL.search(scan_text): findings.append(("HIGH", rel, "possible data-exfiltration/network sink pattern"))
         if DESTRUCTIVE.search(scan_text): findings.append(("HIGH", rel, "destructive command pattern"))
+        # Resource inventories are reference catalogs, not incoming executable skills. Their URL count is expected; keep all secret, injection, exfiltration, and destructive-pattern checks active.
+        is_reference_inventory = rel in REFERENCE_INVENTORY_URL_EXEMPTIONS
         urls = NETWORK.findall(text)
-        if len(urls) > 10 and rel != "PROJECT-STATE-MONY-CANONICAL.json": findings.append(("MEDIUM", rel, f"large number of URLs ({len(urls)})"))
+        if len(urls) > 10 and rel != "PROJECT-STATE-MONY-CANONICAL.json" and not is_reference_inventory: findings.append(("MEDIUM", rel, f"large number of URLs ({len(urls)})"))
     return findings, files
 
 def main():
