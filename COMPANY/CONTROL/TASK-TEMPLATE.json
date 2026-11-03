@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-YYYYMMDD-task-created-001",
+  "task_id": "task-YYYYMMDD-001",
+  "timestamp_utc": "2026-11-03T00:00:00Z",
+  "actor_id": "agent-001",
+  "event_type": "created",
+  "state": "proposed",
+  "objective": "Describe the bounded outcome",
+  "owner_id": null,
+  "risk": "low",
+  "approval_gate": "none",
+  "acceptance_criteria": [
+    "Criterion 1 with observable evidence"
+  ],
+  "evidence_refs": [],
+  "memory_event_ids": [],
+  "related_event_ids": [],
+  "notes": "No claim of completion until evidence is recorded."
+}
