@@ -118,7 +118,7 @@ def validate_events(events):
             if state != previous_state:
                 if state not in TRANSITIONS.get(previous_state, set()):
                     errors.append(f"line {line_no}: illegal task transition {previous_state!r} -> {state!r}")
-                if event_type != "transition":
+                if not legacy and event_type != "transition":
                     errors.append(f"line {line_no}: state changes must use event_type=transition")
             elif event_type == "transition":
                 errors.append(f"line {line_no}: transition event must change state")
