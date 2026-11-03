@@ -1,0 +1,24 @@
+name: Validate Company Control Plane
+
+on:
+  pull_request:
+    paths:
+      - "COMPANY/CONTROL/**"
+      - "scripts/validate_company_control.py"
+      - ".github/workflows/validate-company-control.yml"
+  push:
+    branches: [main]
+    paths:
+      - "COMPANY/CONTROL/**"
+      - "scripts/validate_company_control.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-control:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate task event ledger
+        run: python scripts/validate_company_control.py
