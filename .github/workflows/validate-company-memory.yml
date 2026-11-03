@@ -1,0 +1,25 @@
+name: Validate Company Memory
+
+on:
+  pull_request:
+    paths:
+      - "COMPANY/MEMORY/**"
+      - "scripts/validate_company_memory.py"
+      - ".github/workflows/validate-company-memory.yml"
+  push:
+    branches: [main]
+    paths:
+      - "COMPANY/MEMORY/**"
+      - "scripts/validate_company_memory.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-memory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate JSONL ledgers
+        run: python scripts/validate_company_memory.py
