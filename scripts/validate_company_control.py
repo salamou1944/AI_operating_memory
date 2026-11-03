@@ -171,6 +171,13 @@ def main():
             if actual != expected:
                 print(f"Task schema type drift for {field}: expected {expected!r}, got {actual!r}")
                 return 1
+        for field in ("acceptance_criteria", "evidence_refs", "memory_event_ids", "related_event_ids"):
+            if properties.get(field, {}).get("items", {}).get("type") != "string":
+                print(f"Task schema array-item type drift for {field}")
+                return 1
+        if properties.get("timestamp_utc", {}).get("format") != "date-time":
+            print("Task schema timestamp format drift")
+            return 1
     except (OSError, json.JSONDecodeError) as exc:
         print(f"Cannot read task schema: {exc}")
         return 1
