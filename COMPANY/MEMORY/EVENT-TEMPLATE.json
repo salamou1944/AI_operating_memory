@@ -1,0 +1,35 @@
+{
+  "event_id": "evt-YYYYMMDD-unique",
+  "timestamp_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "actor_id": "agent-001",
+  "scope": "company",
+  "employee_id": "agent-001",
+  "event_type": "observation",
+  "title": "Short factual title",
+  "status": "unverified",
+  "statement": {
+    "observation": "What was directly observed.",
+    "inference": null,
+    "recommendation": null,
+    "expected": null,
+    "actual": null,
+    "impact": null,
+    "lesson": null
+  },
+  "evidence": [
+    {
+      "kind": "url",
+      "reference": "https://...",
+      "supports": "What this evidence establishes"
+    }
+  ],
+  "related_event_ids": [],
+  "corrects_event_id": null,
+  "confidence": "medium",
+  "sensitivity": "internal",
+  "reviewer_id": null,
+  "review_status": "not_reviewed",
+  "valid_from_utc": null,
+  "valid_until_utc": null,
+  "tags": []
+}
